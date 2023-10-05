@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>列表相关属性</title>
+	<style>
+		ul {
+			/* 
+				list-style-type
+				列表符号的样式，默认是个小黑点
+
+				none 没有符号，常用，因为不想用默认样式
+				square 方块
+				low-roman 小写罗马数
+				upper-roman 大写罗马数字
+				decimal 列表符号变成数字
+			*/
+			list-style-type:decimal;
+			/* 
+				list-style-position
+				列表符号的位置，相对li
+				inside 里面
+				outside 外面
+			*/
+			list-style-position: inside;
+			/* 
+				list-style-image
+				自定义列表符号
+				对图片大小有要求
+			*/
+			/* list-style-image:url(路径); */
+
+			/* 
+				list-style
+				复合属性，没有顺序要求，上面的几种属性随便写，空格隔开
+			*/
+			/* list-style: decimal inside url(路径); */
+		}
+		li {
+			background-color: orange;
+		}
+		/* 
+			list-style-xxx
+			可以用在ul、li、ol身上
+		*/
+	</style>
+</head>
+<body>
+	<ul>
+		<li>《西游记》</li>
+		<li>《水浒传》</li>
+		<li>《三国演义》</li>
+		<li>《红楼梦》</li>
+	</ul>
+</body>
+</html>

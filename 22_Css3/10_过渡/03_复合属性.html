@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>复合属性</title>
+	<style>
+		.outer {
+			width: 1000px;
+			height: 100px;
+			border:1px solid black;
+		}
+		.outer:hover .inner{
+			width: 1000px;
+		}
+		.inner {
+			width: 100px;
+			height: 100px;
+			background-color: orange;
+			/* 
+				过渡的复合属性
+				常规顺序： 过渡时间 过渡属性 过渡延迟 过渡效果
+
+				第一个出现的时间一定是过渡时间，第二个是延迟时间，其他属性随意写
+
+				即我们只要写了时间，第一个就会被当做过渡时间，第二个如果有才是延迟时间，不需要我们指明
+			*/
+			transition: 3s all 1s linear ;
+		}
+	</style>
+</head>
+<body>
+	<div class="outer">
+		<div class="inner"></div>
+	</div>
+</body>
+</html>

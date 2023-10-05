@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>盒子的内容区</title>
+	<style>
+		#d1{
+			/* 
+				div是一个块级元素，当不设宽的时候会撑满父元素
+				由于目前父容器是body，我们这里的body又撑满了整个视口
+				所以div也就撑满了视口
+			*/
+			height: 200px;
+			background-color: aqua;
+		}
+
+		#d2 {
+			/* 
+				设定了宽度后，宽度就固定了，一旦父元素宽度小于给定宽度
+				就会出现滚动条
+
+				大于给定宽度，就完整呈现，但是不会跟随父级宽度
+			*/
+			width: 800px;
+			height: 200px;
+			background-color: blue;
+		}
+		#d3 {
+			/* 
+				设定了最小宽度，没有上限，父级>=600px,就和父级一样
+				一旦父级小于600px，就不跟随，而是出现滚动条
+			*/
+			min-width: 600px;
+			height:200px;
+			background-color: red;
+		}
+		#d4 {
+			/* 
+				设定了最大宽度，没有下限，小于给定值都跟随变化，大于就不跟
+				浏览器有个最小宽度 -- 484,每个都不一样
+			*/
+			max-width: 1000px;
+			height: 200px;
+			background-color: blueviolet;
+		}
+	</style>
+</head>
+<body>
+	<div id="d1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, commodi!</div>
+
+	<div id="d2">
+		Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident maxime distinctio obcaecati dicta labore eligendi, laborum aut facilis voluptatum illum porro quam blanditiis officia. Nemo eos ex nesciunt assumenda officiis.
+	</div>
+	<div id="d3">
+		Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla omnis, voluptatem accusantium ab odit doloremque perferendis?
+	</div>
+	<div id="d4">
+		Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia, quos! Velit sequi ad exercitationem quaerat et accusamus numquam dignissimos sed laborum! Voluptatibus velit iure cumque odit molestias eos provident totam?
+	</div>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>伪元素选择器</title>
+	<style>
+		/* 
+			什么是伪元素?
+			很像元素,但不是元素(element),是元素中的一些特殊位置
+
+			::first-letter 第一个字符
+			::first-line 第一行
+		*/
+		/* 
+			让第一个文字变大,且为红色
+
+			理解为什么叫伪元素?
+			div内部字母或者说文字是div元素的一部分,他严格意义上不算元素,但我们能选中,并且像元素一样操作他,所以叫伪元素
+
+		*/
+		div::first-letter{
+			font-size: 20px;
+			color:red;
+		}
+
+		/* 
+			让第一行发生变化,根据浏览器的宽度变化,行选中也会不一样
+		*/
+		div::first-line{
+			background-color: yellow;
+		}
+
+		/* 
+			让div中被鼠标选中的内容样式发生变化
+		*/
+		div::selection{
+			background-color: green;
+			color: orange;
+		}
+
+		/* 
+			让input的提示文字样式改变
+		*/
+		input::placeholder{
+			color:skyblue;
+		}
+
+		/* 
+			在谁之前添加
+
+			在p元素的内容之前
+
+			::before 选中元素最前面的位置,在前面添加
+		*/
+		p::before{
+			/* 
+			content就是内容
+			与我们直接手写的区别--不可选中 
+			*/
+			content: "$";
+		}
+
+		/* 
+			在谁之后添加
+			在p元素的内容之后
+
+			::after 选中元素最后的位置,在之后添加
+		*/
+		p::after{
+			content: ".00";
+		}
+
+		/* 
+			除了 ::selection 和 ::placeholder 这些css3提出的新的伪元素选择器,其他的都可以只写两个点,和伪类一样,但是随着css越来越规范,建议完整书写
+
+			还有就是伪元素选择器的内容在解析后会直接显示为伪元素标签
+		*/
+	</style>
+</head>
+<body>
+	<!-- 输入 lorem 会生成一串随机长文 -->
+	<!-- 输入 lorem数字 会生成由n个单词组成的一句话,n是你输入的数字 -->
+	<div>
+		Lorem ipsum, dolor sit amet consectetur adipisicing elit. Autem libero amet quibusdam nam, ad eos hic at facere magni quia veritatis incidunt qui provident culpa maiores pariatur labore sequi vel eaque consequatur temporibus dignissimos. Quos alias nisi aliquam architecto incidunt ipsa corrupti iste nemo? Alias ducimus architecto quae temporibus neque quidem dolores aperiam fugiat aliquam? Explicabo beatae dolore, facilis fugit ratione autem? Magnam obcaecati cum alias voluptas laboriosam exercitationem id expedita nisi commodi ratione libero esse veritatis, saepe quaerat odit repudiandae molestiae atque debitis impedit sed! Eligendi veritatis perferendis non qui reiciendis recusandae, beatae alias, error totam fugiat, rem temporibus.
+	</div>
+
+	<input type="text" placeholder="请输入您的用户名">
+
+	<!-- 
+		如果有多个这样的金额标签,前面我们都要写$,后面都要写.00
+		想要统一快速的生成
+	 -->
+	<p>$99.00</p>
+	<p>100</p>
+	<p>52</p>
+
+</body>
+</html>

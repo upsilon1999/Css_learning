@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>盒子的边框</title>
+	<style>
+		#d1 {
+			width: 400px;
+			height: 400px;
+			background-color: aqua;
+
+			/* 
+				单独写不生效，需要颜色和样式
+			*/
+			border-width: 10px;
+			/* 
+				单独写不生效，需要宽度和样式。
+			*/
+			border-color: red;
+			/* 
+				再不设宽度和颜色时，只写这一个属性也能生效
+				颜色默认黑色，宽度默认 3px
+			*/
+			border-style: solid;
+		}
+		#d2 {
+			width: 400px;
+			height: 400px;
+			background-color: blue;
+			/* 复合属性 */
+			border: 10px red solid;
+		}
+		#d3 {
+			width: 400px;
+			height: 400px;
+			background-color: blue;
+
+			/* 边框宽度 */
+			border-left-width: 20px;
+			border-right-width: 15px;
+			border-top-width: 10px;
+			border-bottom-width: 5px;
+
+			/* 边框颜色 */
+			border-left-color: olive;
+			border-right-color: orange;
+			border-top-color: blueviolet;
+			border-bottom-color: brown;
+
+			/* 边框样式 */
+			border-left-style: solid;
+			border-top-style: dotted;
+			border-right-style: dashed;
+			border-bottom-style: double;
+		}
+		#d4 {
+			/* 方向的复合属性 */
+			border-left:10px solid red;
+			border-right: 20px dotted olive;
+			border-top:25px double black;
+			border-bottom: 5px dashed blue;
+		}
+	</style>
+</head>
+<body>
+	<div id="d1">
+		你好啊
+	</div>
+	<div id="d2">
+		复合属性
+	</div>
+	<div id="d3">
+		各个方向的属性
+	</div>
+	<div id="d4">
+		各个方向的复合属性
+	</div>
+</body>
+</html>

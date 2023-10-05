@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>常用长度单位</title>
+	<style>
+		html {
+			font-size: 20px;
+		}
+		#d1 {
+			/* 第一种长度单位 px */
+			height: 100px;
+			width: 100px;
+			font-size: 20px;
+			background-color: aqua;
+		}
+		#d2 {
+			/* 
+				em
+				相对于当前元素的font-size的倍数
+				当前元素没写font-size，会使用他继承的font-size
+			*/
+			height: 10em;
+			width: 10em;
+			/* 
+				找继承的font-size算出当前的font-size
+				其他属性的em再用这个计算出来的font-size计算
+			*/
+			font-size: 2em;
+			background-color: aqua;
+		}
+		#d3 {
+			/* 
+				rem
+				相对于根元素的font-size的倍数,即html元素的font-size
+				如果html元素没有字体大小，会采用浏览器的默认字体大小
+
+			*/
+			width: 10rem;
+			height: 10rem;
+			background-color: blue;
+		}
+		#d4 {
+			width: 200px;
+			height: 200px;
+			font-size: 20px;
+			background-color: gray;
+		}
+		.inside {
+			/* 
+				%
+				百分比相对于父元素的长度单位
+
+				但是使用定位后，参考的不一定是父亲，也可能是自己，甚至无效
+			*/
+			width: 50%;
+			height: 25%;
+			font-size: 150%;
+			background-color: blueviolet;
+		}
+		#d5 {
+			font-size: 20px;
+			/* 缩进2格 */
+			text-indent: 2em;
+		}
+	</style>
+</head>
+<body>
+	<div id="d1">1</div>
+	<hr>
+	<div id="d2">2</div>
+	<hr>
+	<div id="d3">3</div>
+	<hr>
+	<div id="d4">
+		<div class="inside"></div>
+	</div>
+	<hr>
+	<div id="d5">
+		好好学习，天天向上
+	</div>
+</body>
+</html>

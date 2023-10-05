@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>自行车案例</title>
+	<style>
+		div {
+			/* 宽高根据的是每帧的大小 */
+			width: 130px;
+			height: 130px;
+
+			background-image: url('../../img/bike.png');
+
+			margin: 0 auto;
+			margin-top: 100px;
+			/* 
+				linear在这里就不可行了，应该用steps
+				steps等于总帧数减去初始帧
+
+				1.steps次数很关键，不会算可以多试试
+				2.时间控制切换速度
+			*/
+			animation: mybike 1s steps(31) infinite;
+		}
+		@keyframes mybike{
+			from{}
+			to{
+				/* 根据胶卷长度计算得出 */
+				background-position: 0px -4030px;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+</body>
+</html>

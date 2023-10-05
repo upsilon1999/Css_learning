@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>08_浮动后的影响1</title>
+	<style>
+		/* 
+			浮动后的影响:
+			1.如果父级没有设置高度,他的高度就是由子元素撑开的,当子元素脱离文档流后
+			父元素的高度就消失了
+
+			术语：
+			造成父元素塌陷
+			
+	
+		*/
+		.outer{
+			width: 500px;
+			background-color: gray;
+			border:1px solid black;
+		}
+		.box {
+			width: 200px;
+			height: 200px;
+			background-color: skyblue;
+			border: 1px solid black;
+			margin: 10px;
+		}
+		.box1,.box2,.box3{
+			float: left;
+		}
+	</style>
+</head>
+<body>
+	<div class="outer">
+		<div class="box box1">1</div>
+		<div class="box box2">2</div>
+		<div class="box box3">3</div>
+	</div>
+	<div style="background-color: orange;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Est cupiditate quae laudantium voluptate ea, amet accusamus tempore perspiciatis dolor necessitatibus eveniet obcaecati assumenda! Beatae, voluptates neque nam delectus iure vel. Cupiditate, reprehenderit. Itaque hic quod rem voluptates, neque beatae asperiores ab voluptatem, laborum temporibus consequuntur ratione officiis, tenetur repellat adipisci.</div>
+</body>
+</html>

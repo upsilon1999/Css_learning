@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		#d1 {
+			width: 400px;
+			height: 400px;
+			background-color: aqua;
+
+			/* 复合属性 -- 上下左右都是20px */
+			/* padding: 20px; */
+
+			/* 复合属性写两个，含义：第一个上下一样  第二个左右一样 */
+			/* padding: 10px 20px; */
+
+			/* 复合属性写三个，含义：第一个上  第二个左右 第三个下 */
+			/* padding: 10px 5px 20px; */
+
+			/* 复合属性写四个，从上开始，顺时针：上 右 下 左 */
+			/* padding: 10px 15px 20px 25px; */
+
+		
+			/* 分开设置 */
+			/* 上侧内边距 */
+			padding-top:10px;
+			/* 右侧内边距 */
+			padding-right: 20px;
+			/* 底部内边据 */
+			padding-bottom: 30px;
+			/* 左侧内边距 */
+			padding-left: 5px;
+
+
+			/* 注意点 */
+			/* 
+				1.padding不能为负数，写负数代表未设置
+			*/
+
+		}
+
+		span {
+			/* 行内元素的padding的注意事项 */
+			/* 
+				1.行内元素的左右内边距没有问题
+				2.行内元素的上下内边距能设置，但是不占位置，就是只是让自己变大，但是不撑开实际宽高，会和其他人叠到一起
+			*/
+			padding-left: 5px;
+			padding-right: 20px;
+
+			padding-bottom: 15px;
+			padding-top: 10px;
+		}
+		/* 总结 */
+		/* 
+			1.块级元素和行内块元素的padding没问题
+			2.行内元素的padding左右正常，上下不实际占位
+		*/
+	</style>
+</head>
+<body>
+	<div id="d1">你好啊</div>
+	<span>我很好</span>
+	<div>
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, aspernatur.
+	</div>
+</body>
+</html>

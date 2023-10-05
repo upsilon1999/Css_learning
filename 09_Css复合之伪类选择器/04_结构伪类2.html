@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>结构伪类2--child</title>
+	<style>
+		/*
+			-child为后缀，都是针对所有兄弟或者父级的所有儿子计算的，针对所有子元素
+			是针对选择器的
+			:first-child 所有兄弟元素中的第一个
+			:last-child 所有兄弟元素中的最后一个
+			:nth-child(an+b) 所有兄弟元素中的第an+b个,a与b是任意数字，n是变量，代表0～无穷，
+		*/
+
+		div>p:last-child{
+			color: aqua;
+		}
+		/* 
+			详解
+			:nth-child(an+b)
+		*/
+		/* 谁都选不中，因为是按照自然计数，和数组下标不一样 */
+		div>p:nth-child(0){
+			color: blueviolet;
+		}
+		/* 
+		直接写n会选中全部
+		留空会什么都不选
+		 */
+		div>span:nth-child(n){
+			color:blue;
+		}
+
+		/* 
+			由上面我们可以知道，实际上n代表0～无穷，
+			所以就可以写公式来获得一些特殊的位置
+
+			例如偶数位
+		*/
+		div>p:nth-child(2n){
+			color:pink;
+		}
+		/* 
+			用公式可以解决很多问题，例如选择前五个
+			:nth-child(-n+5)
+		*/
+		div>p:nth-child(-n+5){
+			font-size: 20px;
+		}
+		/* 
+			里面有一些特殊单词来选中奇数和偶数
+			:nth-child(even) <=> :nth-child(2n)
+			:nth-child(odd) <=> :nth-child(2n+1)
+		*/
+	</style>
+</head>
+<body>
+	<!-- 结构1 -->
+	<div>
+		<p>张三:85分</p>
+		<p>里斯:90分</p>
+		<p>王五:77分</p>
+		<p>赵六:77分</p>
+		<p>孙七:55分</p>
+		<span>我是span1</span>
+		<span>我是span2</span>
+	</div>
+
+</body>
+</html>

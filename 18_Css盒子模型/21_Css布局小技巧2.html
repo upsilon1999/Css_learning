@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>布局技巧2</title>
+	<style>
+		/* 
+			之前我们已经知道 text-align可以操作 文本
+
+			可以用text-align属性操作行内元素和行内块元素
+			1.让一个块里面的行内元素水平居中
+				在块元素上使用 text-align:center
+
+
+			行内元素可以当作文本处理，所以垂直居中也可以用line-height
+
+		*/
+		.outer {
+			width: 400px;
+			height:400px;
+			background-color: gray;
+			/* 水平居中 */
+			text-align: center;
+
+			/* 垂直居中 */
+			line-height: 400px;
+		}
+		span {
+			background-color: orange;
+			font-size: 20px;
+		}
+	</style>
+</head>
+<body>
+	<div class="outer">
+		<span>出来学习</span>
+	</div>
+</body>
+</html>

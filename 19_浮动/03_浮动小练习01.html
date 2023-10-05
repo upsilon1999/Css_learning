@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>03_浮动小练习1</title>
+	<style>
+		.outer{
+			width: 500px;
+			background-color: gray;
+			/* 父亲加边框的原因:防止抢走子元素的margin-top或margin-bottom */
+			border: 1px solid black;
+		}
+		.box {
+			width: 100px;
+			height: 100px;
+			background-color: skyblue;
+			border: 1px solid black;
+			margin: 10px;
+		}
+		.box1 {
+			float: right;
+		}
+		/* 
+			表面上看是 box1到了右边
+
+			实际上是box1先飘起来,box2与box3上移补位,box1脱离了平面后飞到右边
+			在z轴上看已经不在同一个平面
+		*/
+	</style>
+</head>
+<body>
+	<div class="outer">
+		<div class="box box1">1</div>
+		<div class="box box2">2</div>
+		<div class="box box3">3</div>
+	</div>
+</body>
+</html>

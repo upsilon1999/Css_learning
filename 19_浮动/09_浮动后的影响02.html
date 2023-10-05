@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>09_浮动后的影响2</title>
+	<style>
+		/* 
+			浮动后的影响:
+			2.后面的兄弟元素，会占据浮动元素之前的位置，在浮动元素的下面，文字被甩出去
+			对前面的兄弟无影响
+			
+	
+		*/
+		.outer{
+			width: 500px;
+			background-color: gray;
+			border:1px solid black;
+		}
+		.box {
+			width: 100px;
+			height: 100px;
+			background-color: skyblue;
+			border: 1px solid black;
+			margin: 10px;
+		}
+		.box1,.box2,.box3{
+			float: left;
+		}
+		
+	</style>
+</head>
+<body>
+	<div class="outer">
+		<div class="box box0">0</div>
+		<div class="box box1">1</div>
+		<div class="box box2">2</div>
+		<div class="box box3">3</div>
+		<div class="box box4">4</div>
+	</div>
+
+</body>
+</html>

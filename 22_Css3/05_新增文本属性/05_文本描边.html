@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>文本描边</title>
+	<style>
+		h1 {
+			font-size: 100px;
+			/* 描边颜色与描边宽度都有时才会生效 */
+			-webkit-text-stroke-color: red;
+			-webkit-text-stroke-width: 3px;
+			/* 
+				场景做空心文字，将文字颜色调成透明色即可
+			*/
+			color: transparent;
+
+			/* 复合属性 */
+			/* -webkit-text-stroke: 3px red; */
+		}
+	</style>
+</head>
+<body>
+	<h1>目前只有webkit内核的浏览器可用</h1>
+</body>
+</html>

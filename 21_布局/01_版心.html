@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>版心</title>
+	<style>
+		/* 
+			由于显示器分辨率的不一样，网页设置就需要考虑宽度(高度自由撑开，因为横向滚动条是不能接受的，而纵向是常见的)，这时候就要设置版心
+
+			先用一个大的div，不设置宽度，自动铺满
+			然后中间设置一个盒子，宽度给960-1200，根据市场需求变化，这个盒子就是版心
+
+			两边留白的区域，要么设置淡色背景，要么用背景图填充或者使用动态背景填补
+
+			版心可以设置多个，按行来划分，用一个盒子打满屏幕，然后设置版心
+
+			版心的名字可以随意起，一般约定为container
+
+
+			响应式设置后，就把版心给弱化了
+		*/
+		.outer {
+			border: 2px solid green;
+		}
+		.container{
+			border:2px solid red;
+			width: 960px;
+			margin: 0 auto;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<div class="outer">
+		<div class="container">
+			我是版心
+		</div>
+	</div>
+</body>
+</html>

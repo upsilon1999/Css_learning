@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>08_定位的特殊应用2</title>
+	<style>
+		.outer {
+			height: 400px;
+			width: 800px;
+			background-color: #888;
+			position: relative;
+			
+		}
+		.inner{
+			width: 400px;
+			height: 100px;
+			background-color: orange;
+			position: absolute;
+
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			margin: auto;
+		}
+		/* 
+			需求：用定位让子元素在父元素中水平居中、垂直居中
+			由于子元素和父元素都有宽高，就不再是填充
+
+			设置位置均为0，加上margin:auto，就实现了完全居中
+		*/
+	</style>
+</head>
+<body>
+	<div class="outer">
+		<div class="inner">你好啊</div>
+	</div>
+</body>
+</html>

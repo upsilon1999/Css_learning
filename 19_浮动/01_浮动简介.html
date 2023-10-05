@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>浮动的简介</title>
+	<style>
+		.box {
+			width: 600px;
+			height: 400px;
+			background-color: skyblue;
+		}
+		.inner{
+			display: inline-block;
+			width: 200px;
+			height: 200px;
+			background-color: blueviolet;
+
+			/* 添加浮动 */
+			float: left;
+			margin-right: 0.5rem;
+		}
+
+		/* 让第一个字母变大,并浮动 */
+		.test::first-letter {
+			font-size: 80px;
+			float: left;
+		}
+	</style>
+</head>
+<body>
+	<!-- 
+		浮动的设计初衷:浮动设计之初并不是像现在一样用来布局的,他的目的是让文字环绕图片
+	 -->
+	 <!-- 
+		在不加浮动之前,文字第一行的基线与行内块的对齐,后续文字换行,不要包p标签
+	  -->
+	 <div class="box">
+			<div class="inner"></div>
+			Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, fugit tempora autem dolore inventore esse adipisci quo laudantium ad libero, ullam nihil, magni perspiciatis hic incidunt voluptates id asperiores nobis fugiat vel minima modi officia. Reiciendis alias, quam omnis obcaecati rem consequuntur! Iusto atque, rem facere tenetur a non enim impedit minima veniam labore provident eaque voluptates laborum deleniti ipsa. Ex quam, nesciunt at odio voluptate porro ipsum excepturi eaque. Excepturi amet nam atque voluptates quaerat quas. Sit, optio dolor ad autem consequuntur doloremque veritatis temporibus alias eos, quidem asperiores suscipit dolores exercitationem repellat neque excepturi maiores minus harum nam?
+	 </div>
+	 <hr>
+	 <!-- 文字环绕文字 -->
+	 <div class="test">
+		Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae praesentium dignissimos saepe sit placeat labore quam necessitatibus exercitationem temporibus eius, repellat enim adipisci ipsam veritatis corrupti sint autem minus explicabo cumque facere, voluptates iste nobis? Assumenda neque accusantium eos nostrum beatae doloremque veritatis ab voluptatem totam similique facilis non soluta molestias perspiciatis deserunt eius modi in, fugit necessitatibus molestiae quam.
+	 </div>
+</body>
+</html>

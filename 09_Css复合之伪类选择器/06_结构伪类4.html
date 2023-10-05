@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>结构伪类</title>
+	<style>
+		/* 
+		正序
+			:nth-child(an+b)
+			:nth-of-type(an+b)
+		
+		倒序
+			:nth-last-child(an+b)
+			:nth-last-of-type(an+b)
+
+		特殊
+			:only-child 唯一子元素，没有兄弟
+			:only-of-type 唯一同类子元素，没有同类兄弟
+
+			:root  选中整个html文档的跟元素，相当于 html
+			:empty 选中空的元素，即没有标签体的元素
+		*/
+		/* 选中div中倒数第n个儿子p元素(按照所有兄弟) */
+		div>p:nth-last-child(3){
+			color:red;
+		}
+		/* 选中div中倒数第n个儿子p元素(按照所有同类型的兄弟) */
+		div>p:nth-last-of-type(3){
+			color:red;
+		}
+		/* 选中唯一元素span */
+		div>span:only-child{
+			color:darkgreen;
+		}
+		/* 选中唯一同类元素 */
+		div>span:only-of-type{
+			color:gold;
+		}
+
+		/* 整个html文档的根元素，和直接写html效果一样 */
+		:root{
+			font-size: 16px;
+		}
+
+		/* 
+		选中没有标签体的空的div
+		空格也算标签体
+		 */
+		div:empty{
+			height: 40px;
+			width: 20px;
+			background-color: blueviolet;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<span>我是span1</span>
+		<p>张三:85分</p>
+		<p>里斯:90分</p>
+		<p>王五:77分</p>
+		<p>赵六:77分</p>
+		<p>孙七:55分</p>
+		<span>我是span2</span>
+		<p>王八:562分</p>
+	</div>
+	<div>
+		<span>没有兄弟</span>
+	</div>
+	<div>
+		<span>没有同类兄弟</span>
+		<p>我不是span</p>
+	</div>
+	<!-- 没有标签体的div -->
+	<div></div>
+</body>
+</html>

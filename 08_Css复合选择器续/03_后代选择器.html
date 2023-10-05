@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>后代选择器</title>
+	<style>
+		/* 
+			ul 中的li
+
+			这样用空格隔开,就表示 ul中的所有后代li
+		*/
+		ul li {
+			color: red;
+		}
+		/* 
+			ol中的li中的a标签;
+		*/
+		ol li a {
+			color:blue;
+		}
+
+		/* 
+			类名为subject的元素里面的li
+		*/
+		.subject li {
+			color: aqua;
+		}
+
+		/* 
+				类名为subject的元素里面的li且类名为name
+		*/
+		.subject li.name{
+			color:gold;
+		}
+
+		/* 
+				类名为subject的元素里面的div且类名为name
+		*/
+		.subject div.name{
+			color:orange;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li>学习</li>
+		<li>炒币</li>
+		<li>研发</li>
+		<div>
+			<li>踢球</li>
+		</div>
+	</ul>
+	<ol>
+		<li>张三</li>
+		<li>李四</li>
+		<li>
+			<a href="#">王五</a>
+		</li>
+	</ol>
+
+	<ol class="subject">
+		<li class="name">张三</li>
+		<div class="name">我爱学习</div>
+		<li>李四</li>
+		<li>
+			<a href="#">王五</a>
+		</li>
+	</ol>
+</body>
+</html>

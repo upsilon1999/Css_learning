@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>布局小技巧3</title>
+	<style>
+		.outer{
+			width: 400px;
+			height: 400px;
+			background-color: gray;
+			/* 水平居中垂直居中 */
+			text-align: center;
+			line-height: 400px;
+			/* 
+			父元素的字体大小会影响 内部行内块元素(例如图片的垂直居中) 
+			主要原因是基线
+			所以将字体调为0
+			*/
+			font-size: 0px;
+		}
+		.inner{
+			display: inline-block;
+			/*文字与图片 垂直居中 */
+			vertical-align: middle;
+			width: 100px;
+			height: 100px;
+			background-color: aqua;
+		}
+		span{
+			/* 给文字大小 */
+			/* 文字与图片 垂直居中 */
+			font-size: 20px;
+			vertical-align: middle;
+		}
+	</style>
+</head>
+<body>
+	<div class="outer">
+		<span>x</span>
+		<div class="inner"></div>
+	</div>
+</body>
+</html>

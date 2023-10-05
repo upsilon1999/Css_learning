@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>多重变换</title>
+	<style>
+		.outer {
+			width: 200px;
+			height: 200px;
+			border: 2px solid black;
+			margin: 0 auto;
+			margin-top: 100px;
+		}
+		.inner{
+			width: 200px;
+			height: 200px;
+			background-color: skyblue;
+
+			/* 
+				css3变换的核心属性 transform 
+				所谓多重变换，实际上就是位移、缩放、旋转、扭曲至少发生两个
+
+				采用transform的链式语法
+			*/
+			/* ********************************/
+			/* 先位移再缩放 */
+			/* transform: scale(0.5) translate(100px,100px); */
+			/* 变换顺序不一样，最终结果也不一样 */
+			transform: translate(100px,100px) scale(0.5);
+
+			/* 
+				变换效果不一样的本质是坐标系发生了变化
+				缩放，坐标系不变
+				位移，坐标系不变
+				旋转，坐标系发生了变化，坐标系跟着转了
+
+				所以旋转具有破坏性，所以多重变换需要把旋转放到最后，否则会有各种诡异的bug
+
+			*/
+		}
+	</style>
+</head>
+<body>
+	<div class="outer">
+		<div class="inner">你好啊</div>
+	</div>
+</body>
+</html>

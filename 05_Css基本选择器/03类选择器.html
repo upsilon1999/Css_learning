@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>类选择器</title>
+	<style>
+		/* 
+			class属性，本身就有分类的意思
+			其值我们常常成为类名
+
+			要把类名和元素名做区分，在类名前面加".",
+			如果不加会被解析器认为是元素选择器，去寻找标签
+		*/
+		.one{
+			color:aqua;
+		}
+		.two{
+			color: brown;
+		}
+		.big{
+			font-size: 20px;
+		}
+		/* 
+			注意事项：
+			1.类对页面中所有具有该类名的标签生效
+			2.一个标签只能写一个class属性，因为按照html标签的特性，后写的同名属性无效
+			3.要给一个标签写多个类，可以在class的属性值中以空格隔开
+
+			class值的规则：
+			1.不能是纯数字
+			2.不能使用中文
+			3.多个单词以短杠连接
+		
+		*/
+	</style>
+</head>
+<body>
+	<h1>我是标题</h1>
+	<!-- 1.类对页面中所有具有该类名的标签生效 -->
+	<p class="one">我是段落</p>
+	<span class="one"></span>
+	<p class="two">我是第二个段落</p>
+
+	<!-- 2.一个标签只能写一个class属性，因为按照html标签的特性，后写的同名属性无效 -->
+	<p class="one" class="two"></p>
+
+	<!-- 3.要给一个标签写多个类，可以在class的属性值中以空格隔开 -->
+	<p class="one big"></p>
+</body>
+</html>

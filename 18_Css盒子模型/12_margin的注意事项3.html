@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		#d1 {
+			width: 400px;
+			height: 400px;
+			margin: 50px;
+			background-color: deepskyblue;
+		}
+
+		#d2 {
+			width: 400px;
+			height: 400px;
+			background-color: blue;
+			display: inline-block;
+			margin: 50px;
+		}
+
+		/* 行内元素 */
+		.one {
+			background-color: skyblue;
+		}
+		.two {
+			background-color: orange;
+			margin-left: 50px;
+			margin-right: 50px;
+
+			/* 行内元素设置上下margin无效 */
+			margin-top: 100px;
+			margin-bottom: 100px;
+		}
+		.three {
+			background-color: green;
+		}
+	</style>
+</head>
+<body>
+	<div id="d1">我是一个块元素</div>
+	<div>我是一段文字</div>
+	<hr>
+	<div id="d2"></div>
+	<div>我是一段文字</div>
+	<hr>
+	<span class="one">人之初</span><span class="two">性本善</span><span class="three">性相近</span>
+	<!-- 
+		总结：
+		对于块元素或行内块元素，margin一样
+		对于行内元素，左右的margin是可以完美设置的，上下的margin设置是无效的
+	 -->
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>渐变案例1--行格纸</title>
+	<style>
+		.box1{
+			width: 600px;
+			height: 800px;
+			padding: 20px;
+			border: 1px solid black;
+			margin: 0 auto;
+
+			/* 第一步，设计渐变 */
+			/* background-image: linear-gradient(transparent 0px,transparent 29px,gray 30px); */
+			/* 第二步，添加重复渐变 */
+			background-image: repeating-linear-gradient(transparent 0px,transparent 29px,gray 30px);
+			/* 第三步，添加裁剪 */
+			background-clip: content-box;
+		}
+	</style>
+</head>
+<body>
+	<div class="box1"></div>
+</body>
+</html>

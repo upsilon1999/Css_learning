@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>字体粗细</title>
+	<style>
+		/* 
+			font-weight 字体粗细
+			属性值：
+			lighter 细的
+			normal 正常
+			bold 粗的
+			bolder 更粗
+
+			根据字体族，如果字体族没设置，那么就按照就近原则，例如微软雅黑没有设置bolder，那么就以bold展示
+			还可以写数字 100～1000,但是也要看字体族，如果没设置就没有
+
+			对于微软雅黑
+			100～300 相当于 lighter
+			400～500 相当于 normal
+			600～1000 相当于 bold
+		*/
+		.test1 {
+			font-weight: lighter;
+		}
+		.test2 {
+			font-weight: normal;
+		}
+		.test3 {
+			font-weight: bold;
+		}
+	</style>
+</head>
+<body>
+	<p class="test1">瘦子</p>
+	<p class="test2">学无止境！！</p>
+	<p class="test3">胖子</p>
+</body>
+</html>

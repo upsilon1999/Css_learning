@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>处理内容的溢出</title>
+	<style>
+		#d1 {
+			width: 200px;
+			height: 200px;
+			background-color: aqua;
+
+			/* 
+				overflow 控制溢出的显示样式
+			*/
+			/* 超出的部分直接截断--隐藏 */
+			/* overflow: hidden; */
+
+			/* 默认值，超出部分都显示 */
+			/* overflow: visible; */
+
+			/* 出现滚动条,不管是否溢出，滚动条都存在 */
+			/* overflow: scroll; */
+
+			/* 自动 溢出就出现滚动条，没溢出就不出现滚动条 */
+			/* overflow: auto; */
+
+			/* 控制横向 */
+			overflow-x: hidden;
+			/* 
+			控制纵向
+			x与y要一样才能生效，而且两个都是实验性的功能，故不推荐使用
+			*/
+			overflow-y: hidden;
+		}
+		#d2 {
+			width: 1000px;
+			background-color: orange;
+		}
+		/* 
+			d1是纵向溢出的，内嵌的d2是横向溢出
+
+		*/
+	</style>
+</head>
+<body>
+	<div id="d1">
+		<div id="d2">
+			Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla repudiandae ut labore reiciendis at incidunt placeat porro. In cumque voluptas ut adipisci expedita perspiciatis mollitia nobis tempore, tenetur fugiat accusantium?
+		</div>
+		Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta id dignissimos similique, dolor illum optio accusamus beatae amet earum tenetur repellat eaque aperiam, excepturi unde sapiente sint, eligendi atque culpa saepe quidem voluptates facere. Ullam libero in neque expedita quia omnis, reiciendis veniam ea fugit quae labore iste harum provident quo laborum! Optio mollitia tenetur iusto ullam fuga, consequuntur, accusantium accusamus earum necessitatibus deserunt nostrum amet voluptatem 
+		exercitationem in vitae saepe quibusdam. Magnam eum ad unde, ipsa inventore, neque fugiat quo ducimus odit aliquam quam nulla eaque possimus omnis odio ipsam necessitatibus porro corporis id impedit quis numquam, assumenda dolor!
+	</div>
+</body>
+</html>

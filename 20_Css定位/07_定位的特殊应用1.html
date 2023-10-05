@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>07_定位的特殊应用1</title>
+	<style>
+		.outer {
+			height: 400px;
+			background-color: #888;
+			position: relative;
+		}
+		.inner{
+			background-color: orange;
+			font-size: 20px;
+			padding: 20px;
+			border: 10px solid black;
+
+			/* 
+				使用绝对定位后就变成了定位元素，定位元素如果没有宽高则由内容撑满宽高
+			*/
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+		}
+
+		/* 
+			需求：想让一个发生了绝对定位的元素，宽度撑满其整个包含块
+
+			1.包含块没有给宽度 -- 所以想设置一样的宽度不可能
+			2.使用width:100%,由于border和padding的存在，超出了包含块
+			3.同时使用相同的left和right，表示左边留多少，右边留多少
+			4.同时使用相同的top和bottom同理
+
+			ps：只有左右或者上下一样的时候才有这效果，如果不一样，则只保留左和上的效果
+		*/
+	</style>
+</head>
+<body>
+	<div class="outer">
+		<div class="inner"></div>
+	</div>
+</body>
+</html>

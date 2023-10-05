@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>结构伪类3--type</title>
+	<style>
+		/* 
+			-type为后缀，根据类型，相同类型,这里的类型，可以理解为同选择器
+			:first-of-type 所有同类型兄弟元素中的第一个
+			:last-of-type 所有同类型兄弟元素中的最后一个
+			:nth-of-type(an+b) a和b为数字，n为0到无穷，所有同类型兄弟元素中的第n个
+		*/
+
+		/* 
+			选中的是div的第一个儿子p元素(按照所有同类型兄弟计算)
+		*/
+		div>p:first-of-type{
+			color: red;
+		}
+		/* 
+			选中的是div的最后一个儿子p元素(按照所有同类型兄弟计算)
+		*/
+		div>p:last-of-type{
+			color:blue;
+		}
+
+		div>p:nth-of-type(2n){
+			font-size: 100px;
+		}
+
+		/* 验证选择器 */
+		.haha:last-of-type{
+			color:aqua;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<span class="haha">我是span1</span>
+		<p>张三:85分</p>
+		<p>里斯:90分</p>
+		<p>王五:77分</p>
+		<p>赵六:77分</p>
+		<p>孙七:55分</p>
+		<span class="haha">我是span2</span>
+		<p>王八:562分</p>
+	</div>
+</body>
+</html>

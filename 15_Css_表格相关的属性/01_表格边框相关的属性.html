@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>表格边框</title>
+	<style>
+		table {
+			/* 
+				边框宽度
+				border-width
+				边框颜色
+				border-color
+				边框线的样式 solid 实线 dashed 虚线 dotted 点线 double 双线
+				border-style
+				以上三种都要写，才会出现边框
+
+				复合属性,没有顺序要求
+				border:1px solid green;
+
+			*/
+			border: 1px solid green;
+		}
+		/* 单元格 */
+		td{
+			border: 1px double yellow;
+		}
+		/* 
+			选中标签加属性即可，也可以配合其他自定义的选择器使用
+		*/
+		.san{
+			border: 1px dotted red;
+		}
+		/* 
+			边框相关的属性不仅仅只有表格能用，其他元素也都能用
+		*/
+	</style>
+</head>
+<body>
+	<table>
+		<caption>人员信息</caption>
+		<thead>
+			<tr>
+				<td>姓名</td>
+				<td>年龄</td>
+				<td>性别</td>
+				<td>个人价值</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>张三</td>
+				<td>18</td>
+				<td class="san">男</td>
+				<td>很有价值</td>
+			</tr>
+			<tr>
+				<td>李四</td>
+				<td>19</td>
+				<td>男</td>
+				<td>吸血鬼</td>
+			</tr>
+			<tr>
+				<td>王五</td>
+				<td>21</td>
+				<td>男</td>
+				<td>战士</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

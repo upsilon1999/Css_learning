@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>03_文本溢出</title>
+	<style>
+		ul {
+			width: 400px;
+			height: 400px;
+			border: 1px solid black;
+			padding-left: 0;
+			list-style: none;
+		}
+		li {
+			margin-bottom: 10px;
+
+			/* 不换行 */
+			white-space: nowrap;
+			overflow: hidden;
+			/* 
+				控制文本溢出
+				text-overflow
+				常用值：(都必须配合overflow:hidden才能生效)
+				clip 超出部分的文字截掉
+				ellipsis 超出部分截掉，末尾变成省略号
+			 */
+			 text-overflow: ellipsis;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<!-- 故意写的长短不一，方便演示文本溢出 -->
+		<li>惺惺惜惺惺休息休息详细信息嘻嘻嘻嘻信息嘻嘻嘻嘻</li>
+		<li>惺惺惜惺惺休息休息详细</li>
+		<li>惺惺惜惺惺休息休息详细嘻嘻嘻休息啊发的方法按时范德萨发生加法器</li>
+		<li>惺惺惜惺惺休息休息详细信息嘻嘻嘻嘻</li>
+		<li>惺惺惜惺细信息嘻嘻嘻嘻</li>
+	</ul>
+</body>
+</html>

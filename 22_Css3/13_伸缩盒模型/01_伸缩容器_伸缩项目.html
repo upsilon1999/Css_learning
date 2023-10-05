@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>01_伸缩容器_伸缩项目</title>
+	<style>
+		/* 
+				对比浮动的优势:
+				① 没有脱离文档流
+		*/
+		.outer {
+			width: 600px;
+			height: 600px;
+			background-color: #888;
+
+			/* 给outer元素开启了flex布局，outer元素就变成了伸缩容器 */
+			/* 伸缩容器里面的所有的子元素都是伸缩项目--注意是子元素，不是所有后代元素 */
+			display: flex;
+			
+			/* 
+				开启flex布局变成伸缩容器，再变成行内块，这样就可以排在一行了
+				不过一般不用，而是去找两个outer的父元素，这里的body
+				给他开flex，也可以实现同样效果
+			*/
+			/* display: inline-flex; */
+
+		}
+		.inner {
+			/* 
+				只要一个元素变成了伸缩项目，之前无论是块、行内、行内块都会块状化
+				即变成一个块
+			*/
+			width: 200px;
+			height: 200px;
+			background-color: skyblue;
+			border: 1px solid black;
+			box-sizing: border-box;
+		}
+	</style>
+</head>
+<body>
+	<div class="outer">
+		<div class="inner">1</div>
+		<div class="inner">2</div>
+		<div class="inner">3</div>
+	</div>
+	<div class="outer">
+		<div class="inner">1</div>
+		<div class="inner">2</div>
+		<div class="inner">3</div>
+	</div>
+</body>
+</html>

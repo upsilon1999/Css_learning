@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>否定伪类</title>
+	<style>
+		/* 
+		在当前条件下排除满足某一定条件的
+		选中div的p子元素，排除类名为fail的
+
+		从 div>p 中排除 div>p.fail
+		*/
+		div>p:not(.fail){
+			color: blue;
+		}
+
+		/* 
+			选中的是div的p子元素
+			但是排除title属性值以"你要加油"开头的
+
+			从 div>p 中排除 div>p[title^="你要"]
+		*/
+		div>p:not([title^="你要"]){
+			color: pink;
+		}
+
+		/* 
+			从 div>p 中排除 div>p:first-child
+			选中的是div的p子元素，但是排除第一个p子元素
+		*/
+		div>p:not(:first-child){
+			color:aquamarine;
+		}
+	</style>
+</head>
+<body>
+	<div>
+	
+		<p class="fail">张三:85分</p>
+		<p>里斯:90分</p>
+		<p class="fail">王五:77分</p>
+		<p title="你要加油">赵六:77分</p>
+		<p title="你要努力">孙七:55分</p>
+		
+		<p>王八:562分</p>
+	</div>
+</body>
+</html>

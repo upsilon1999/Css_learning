@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>02_边框外轮廓</title>
+	<style>
+		.box1 {
+			width: 400px;
+			height: 400px;
+			padding: 10px;
+			border: 10px solid black;
+			background-color: gray;
+			font-size: 40px;
+			margin: 0 auto;
+			margin-top: 100px;
+
+			/* 
+			外轮廓特点:
+				1.外轮廓在盒子border外面，
+				2.不参与计算盒子大小，
+				3.开发者工具看不到
+				4.不占位
+				outline-width 外轮廓宽度
+				outline-color 外轮廓颜色
+				outline-style 虚线、实线..
+				outline-offset 偏移量，正值离盒子越来越远，负值在盒子内，不发生挤压
+			*/
+			/* outline-width: 20px;
+			outline-color: blue;
+			outline-style: solid;
+			outline-offset: 5px; */
+
+
+			/* ******************************************************************/
+			/* 复合属性 */
+			outline: 20px blue solid;
+			/* 注意：outline-offset不是outline的子属性，所以也就不能写到复合属性中 */
+			outline-offset: 5px;
+
+			/* 理解：外轮廓就像盒子发出的光 */
+		}
+	</style>
+</head>
+<body>
+	<div class="box1"></div>
+</body>
+</html>

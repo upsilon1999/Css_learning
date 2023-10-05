@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>05_定位的层级</title>
+	<style>
+		/* 
+				1.
+				相对、绝对、固定、粘性 无论哪种定位，他们的层级都是一样的
+				后出生的压在前生的上面，但层级相同
+		
+		*/
+		/* 
+				2. z-index
+				代表在z轴的位置，值是一个数字，最大是正无穷
+				默认是auto。浏览器一般会给个0，默认值都是0
+				只有定位的元素才有 z-index
+		*/
+		/* 
+			3.同包含块内，z-index越大的层级越高，不同包含块，考虑包含块的影响
+
+			如果 box4的z-index为50，在outer外面有个z-index为40的box5
+			在outer没有z-index的情况下，box5比box4层级低
+			如果outer有z-index，但是值比box5小，那么box5的层级也会比box4高
+
+			蛮绕的：
+			核心就是注意一点，如果z-index值大的元素，依然没有覆盖掉z-index值小的元素，那么请检查其包含块的层级
+		*/
+		.outer {
+			width: 500px;
+			background-color: skyblue;
+			border: 1px solid black;
+			padding: 20px;
+		}
+		.box {
+			width: 200px;
+			height: 200px;
+			font-size: 20px;
+		}
+		.box1 {
+			background-color: #888;
+		}
+		.box2 {
+			background-color: orange;
+			position: relative;
+			top:-150px;
+			left: 50px;
+		}
+		.box3 {
+			background-color: red;
+			position:absolute;
+			top: 130px;
+			left: 130px;
+		}
+		.box4 {
+			background-color: green;
+			position: fixed;
+			top: 200px;
+			left: 200px;
+		}
+	</style>
+</head>
+<body>
+	<!-- 
+	
+	 -->
+	<div class="outer">
+		<div class="box box1">1</div>
+		<div class="box box2">2</div>
+		<div class="box box3">3</div>
+		<div class="box box4">4</div>
+	</div>
+</body>
+</html>

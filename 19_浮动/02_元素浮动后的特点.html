@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>02_元素浮动后的特点</title>
+	<style>
+		/* 
+			元素浮动之后的特点:
+			文档流,元素默认的排列方式,紧贴底部白色画布
+			1.会脱离文档流,飘起来了,离开了有序画布
+			2.不管浮动之前是块/行内块/行,浮动之后宽高默认都是被内容所撑开,但是可以设置的.
+			3.可以和其他元素"共用"一个区块,从3D视角,一层一层的,所谓共用指的是在x\y轴上的投影重叠,z轴上独立
+			4.浮动后,margin和padding都是完美设置,没有塌陷
+			5.浮动前行内块和行内可以被text-*处理,浮动后不行,特性丢失了
+		
+		*/
+		.outer{
+			width: 800px;
+			height: 400px;
+			background-color: gray;
+			padding: 10px;
+		}
+		.box {
+			font-size: 20px;
+		}
+		.box1 {
+			background-color: skyblue;
+		}
+		.box2 {
+			float: left;
+			/* 
+				box2浮动起来了,不占位置,相当于从画布上拿起来了
+				box3自动向上顶替原box2的位置,所以box2下面是box3
+
+				box3的文字没有被box2盖住的原因,由于浮动设计的初衷,文字会避开上层的浮动,自动往外边移动
+			*/
+			background-color: red;
+		}
+		.box3 {
+			background-color: green;
+		}
+	</style>
+</head>
+<body>
+	<div class="outer">
+		<div class="box box1">盒子1</div>
+		<div class="box box2">盒子2</div>
+		<div class="box box3">盒子3</div>
+	</div>
+</body>
+</html>

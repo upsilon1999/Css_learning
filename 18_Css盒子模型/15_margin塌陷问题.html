@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>margin塌陷问题</title>
+	<style>
+		.outer {
+			width: 400px;
+			height: 400px;
+			background-color: gray;
+		}
+		.inner1 {
+			width: 100px;
+			height: 100px;
+			background-color: orange;
+			/* 给inner1加一个下外边距 正常 */
+			/* margin-bottom: 50px; */
+
+			/*
+			 给inner1加一个上外边距
+				异常，我们期待的是inner1相对于父元素下移
+				但是实际上却是inner1和inner2相对于父元素没动
+				父元素相对于自己的父亲元素下移了
+
+				即margin-top没在inner1上生效，在其父元素上生效了
+			 */
+			 margin-top: 50px;
+		}
+		.inner2 {
+			width: 100px;
+			height: 100px;
+			background-color: red;
+
+			/* 给inner2加一个上外边距 正常 */
+			/* margin-top: 50px; */
+
+			/* 
+				我们尝试给inner2加margin-bottom值，但是他没生效
+				这个属性又被其父元素抢走了
+			*/
+			margin-bottom: 50px;
+		}
+
+		/* 
+			margin塌陷是一个历史遗留问题，w3c在最初设计的时候
+			第一个元素的margin-top对自己无效，会加到父元素上
+			最后一个元素的margin-bottom对自己无效，会加到父元素上
+		
+		*/
+	</style>
+</head>
+<body>
+	<div class="outer">
+		<div class="inner1">inner1</div>
+		<div class="inner2">inner2</div>
+	</div>
+</body>
+</html>

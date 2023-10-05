@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>HEX与HEXA</title>
+	<style>
+		/* 
+			本质与rgb和rgba类似
+			# 开头，后面有三组值，每组值都由两位组成 #rrggbb
+			rr 控制红色，gg控制绿色，bb控制蓝色 值是16进制，00～0f表示0到16,10是17,最大值是ff
+
+			不区分大小写
+		*/
+		.red {
+			color: #ff0000;
+		}
+		/* 
+			后面再补两位，就是透明度
+			#rrggbbaa
+			透明度从00～ff，表示从0%～100%
+		*/
+		.red0{
+			color: #ff000088;
+		}
+		/* 
+			IE不支持HEXA但是支持HEX
+		*/
+		/* 
+			简写形式：如果 rrggbb的值都一样，可以缩写为rgb，一旦前三位简写，那么透明度也得简写
+		*/
+	</style>
+</head>
+<body>
+	<h2>学无止境！</h2>
+	<p class="red">纯红色</p>
+	<p class="ziluolan">紫罗兰色</p>
+	<p class="blue">纯蓝色</p>
+	<p class="red0">半透明的纯红色</p>
+</body>
+</html>

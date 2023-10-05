@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>07_浮动小练习05</title>
+	<style>
+			.outer{
+			width: 500px;
+			background-color: gray;
+			/* 父亲加边框的原因:防止抢走子元素的margin-top或margin-bottom */
+			border: 1px solid black;
+		}
+		.box {
+			width: 200px;
+			height: 200px;
+			background-color: skyblue;
+			border: 1px solid black;
+			margin: 10px;
+		}
+		.box1 {
+			float: left;
+			height: 400px;
+		}
+		.box2 {
+			float: left;
+		}
+		.box3 {
+			float: left;
+		}
+		/* 
+			box1 box2排成一行,box3排到了第二行右边
+
+			原因,可以想像成一个3d柱状,底部的平面是固定的,他们飞到了第二个平面
+			但x或y不变,只是z轴发生了变化,所以某一个方向放不下时,自然会换行
+			相当于在新平面上换行
+
+			1.y存在
+			box3在换行的时候,如果y有高度box3的高度加上box1的高度超过了,放不下,就被挤到右边,如果还放不下,box3就会"消失"
+			"消失":被挤出显示区了,柱状就是显示区,外边不可见
+			2.y不存在
+			box3在换行的时候，如果y没有高度，就会按最小体积进行扩充，即在让y变动最小，其他同理
+
+		*/
+	</style>
+</head>
+<body>
+	<div class="outer">
+		<div class="box box1">1</div>
+		<div class="box box2">2</div>
+		<div class="box box3">3</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>vertical-align</title>
+	<style>
+		/* 
+			vertical-align 
+			用来指定行内元素（inline）或表格单元格（table-cell）元素的垂直对齐方式。
+
+			默认以基线对齐,即x的底线
+
+			常用值：
+			top 贴到顶端
+			bottom 贴到底部
+			baseline 基线，默认值
+			middle   找到父元素的中心点
+		*/
+		div {
+			font-size: 100px;
+			height: 300px;
+			background-color: skyblue;
+		}
+		div span{
+			font-size: 40px;
+			background-color: orange;
+			vertical-align: top;
+		}
+		img{
+			height: 30px;
+			vertical-align: middle;
+			/* 
+				当图片高度小于文字时，图片动
+				当图片高度大于文字时，文字动
+			*/
+		}
+		.test{
+			width: 400px;
+			height: 400px;
+			background-color: green;
+			vertical-align: bottom;
+			/* 
+				无效，
+				注意事项：
+				该属性只能给父元素的子元素加
+			*/
+		}
+		.test1{
+			width: 400px;
+			height: 400px;
+			background-color: gray;
+		}
+		.test2{
+			width: 100px;
+			height: 100px;
+			background-color: green;
+			vertical-align: top;
+			/* 
+				无效：注意事项2
+				该属性不能控制块级元素
+			*/
+		}
+		.san{
+			vertical-align: middle;
+			/* 
+				有用：
+				直接用在表格单元格上可以控制文字位置
+			*/
+		}
+	</style>
+</head>
+<body>
+	<div>
+		justMex<span>x我就是我</span>
+	</div>
+	<hr/>
+	<div>
+		图片x<img src="xxx"/>
+	</div>
+	<hr/>
+	<div class="test">
+		123
+	</div>
+	<hr/>
+	<div class="test1">
+		<div class="test2">
+
+		</div>
+	</div>
+	<hr/>
+	<table border="1" cellspacing="0">
+		<caption>人员信息</caption>
+		<thead>
+			<tr>
+				<td>姓名</td>
+				<td>年龄</td>
+				<td>性别</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr height="200">
+				<td class="san">张三</td>
+				<td>18</td>
+				<td>男</td>
+			</tr>
+			<tr>
+				<td>李四</td>
+				<td>19</td>
+				<td>男</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

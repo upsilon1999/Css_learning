@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>HTML元素之间的关系</title>
+</head>
+<body>
+	<!-- 
+		父元素 ：直接包裹某个元素的元素，就是该元素的父元素 
+		例如：
+		1.ul是四个li的父元素
+		2.div是ul和h1的父元素
+	-->
+	<!-- 
+		子元素 : 被父元素直接包含的元素(简记:儿子元素)
+		例如:
+		1.h1是div的子元素
+		2.ul是div的子元素
+		3.li是ul的子元素
+	 -->
+	 <!-- 
+		祖先元素 : 父亲(的父亲...),一直往外找,都是祖先
+		例如:
+		1.div是li和span的祖先元素
+		2.ul是UI的祖先元素
+		备注:父元素,也算是祖先元素的一种,但是我们一般直接称父元素
+	  -->
+		<!-- 
+			后代元素:儿子(的儿子...),一直往里面找,都是后代
+			例如:
+			1.span是ul的后代元素
+			2.span与li都是div的后代元素
+			备注:子元素,也算是后代元素的一种,但是我们一般直接称子元素
+		 -->
+		 <!-- 
+			兄弟元素:具有相同父元素的元素,互为兄弟元素
+			例如:
+			1.ul和h1是兄弟元素
+		  -->
+	<div>
+		<h1>学习使我快乐</h1>
+		<ul>
+			<li>前端</li>
+			<li>后端</li>
+			<li>大数据</li>
+			<li>
+				<span>UI</span>
+			</li>
+		</ul>
+	</div>
+</body>
+</html>

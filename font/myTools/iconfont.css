@@ -1,0 +1,31 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 4272982 */
+  src: url('iconfont.woff2?t=1696297080095') format('woff2'),
+       url('iconfont.woff?t=1696297080095') format('woff'),
+       url('iconfont.ttf?t=1696297080095') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-java:before {
+  content: "\e6d7";
+}
+
+.icon-Docker2:before {
+  content: "\e6e1";
+}
+
+.icon-python:before {
+  content: "\e767";
+}
+
+.icon-a-HadoopHDFSMapreduce:before {
+  content: "\e78a";
+}
+

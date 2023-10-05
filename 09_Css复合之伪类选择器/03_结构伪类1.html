@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>结构伪类1</title>
+	<style>
+		/* 
+			div的子代p元素，且是第一个儿子
+			选中的是div的第一个儿子且是p元素 -- 看结构1
+		*/
+		/* div>p:first-child{
+			color:red;
+		} */
+
+		/* 
+			结构2
+			也就是说要同时满足两个条件
+			>p  子代p元素
+			:first-child 所有儿子中的第一个
+		*/
+		/* div>p:first-child{
+			color:green;
+		} */
+
+
+		/* 
+			结构3
+			和结构2类似，第一个儿子是marquee
+		*/
+		div>p:first-child{
+			color:green;
+		}
+		/* 
+		结构3
+		div的所有后代p元素
+		只要p 是第一个儿子就生效
+
+		张三所在的p元素是marquee的第一个儿子且是p标签，所以生效
+		测试所在的p元素是div的地一个儿子，所以也生效
+
+		选中的是div的后代p元素，且p的父级是谁无所谓，但p必须是其父亲的第一个儿子
+		*/
+		div p:first-child{
+			color:blueviolet;
+		}
+
+		/* 
+		不论父级是谁，只要是父亲的第一个儿子，且是p元素
+		
+		注意body也算父级*/
+		p:first-child{
+			color:pink;
+		}
+
+		/* 
+				总结：
+				xxx-child都是按照所有兄弟计算的，对于父级来说，就是按照所有子元素计算的
+		*/
+	</style>
+</head>
+<body>
+	<!-- 结构1 -->
+	<!-- <div>
+		<p>张三:85分</p>
+		<p>里斯:90分</p>
+		<p>王五:77分</p>
+		<p>赵六:77分</p>
+	</div> -->
+
+	<!-- 结构2 -->
+	<!-- <div>
+		<span>张三:85分</span>
+		<p>里斯:90分</p>
+		<p>王五:77分</p>
+		<p>赵六:77分</p>
+	</div> -->
+
+	<!-- 结构3 -->
+	<p>我是大儿子</p>
+	<div>
+		<p>测试</p>
+		<marquee>
+			<p>张三:98分</p>
+		</marquee>
+		<p>里斯:90分</p>
+		<p>王五:77分</p>
+		<p>赵六:77分</p>
+	</div>
+</body>
+</html>

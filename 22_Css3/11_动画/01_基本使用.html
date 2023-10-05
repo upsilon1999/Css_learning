@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>基本使用--基础动画1</title>
+	<style>
+		/* 
+			用CSS3做动画，只需要写好关键帧，CSS3就会为我们补帧，也叫插帧技数
+			实际上动画也是一样的，先写关键帧，再插帧补帧
+		*/
+
+		.outer {
+			width: 1000px;
+			height: 100px;
+			border:1px solid black;
+		}
+		.inner {
+			width: 100px;
+			height: 100px;
+			background-color: deepskyblue;
+
+			/* 
+				想要让谁做动画就给他加 animation 属性，
+				和过渡一样，这也是个复合属性，所以拆分子属性
+			
+				animation-name 给动画取名字,给元素绑定动画
+				animation-duration 动画持续时间
+
+				给一个元素绑定动画和指定了持续时间，一个基本动画才能实现
+			*/
+			/* 应用动画到元素 */
+			animation-name:wangyoudong;
+			/* 动画持续时间 */
+			animation-duration: 5s;
+		}
+
+		/* 
+			定义一个动画(一组关键帧)
+			浏览器会根据 animation-name 来寻找关键帧
+
+			from...to简易模式
+		*/
+		@keyframes wangyoudong {
+			/* 第一帧 */
+			from {
+				/* 没有要写的就空着 */
+			}
+			/* 
+				最后一帧
+			*/
+			to {
+				/* 帧里面可以写很多操作 */
+				transform: translate(900px);
+				/* 
+					如果发现颜色转换生硬，需要把浏览器开硬件加速模式
+					或者给动画加延迟
+				*/
+				background-color: red;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="outer">
+		<div class="inner"></div>
+	</div>
+</body>
+</html>

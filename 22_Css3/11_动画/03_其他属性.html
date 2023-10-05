@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>其他属性</title>
+	<style>
+		.outer {
+			width: 1000px;
+			height: 100px;
+			border:1px solid black;
+		}
+		.inner {
+			width: 100px;
+			height: 100px;
+			background-color: deepskyblue;
+
+			/* 
+				想要让谁做动画就给他加 animation 属性，
+				和过渡一样，这也是个复合属性，所以拆分子属性
+			
+				animation-name 给动画取名字,给元素绑定动画
+				animation-duration 动画持续时间
+				animation-delay    动画延迟时间
+			
+				animation-timing-function 动画效果
+
+				animation-iteration-count 动画播放的次数
+				animation-direction 动画的方向
+				animation-fill-mode 动画结束后的状态
+				animation-play-state 动画播放的状态
+			*/
+			/* 应用动画到元素 */
+			animation-name:wangyoudong;
+			/* 动画持续时间 */
+			animation-duration: 3s;
+			/* 动画延迟时间 */
+			animation-delay: 0.5s;
+
+			/* **************动画效果********************* */
+			/* 
+				和过渡效果的特性一样，属性值
+				ease 
+				平滑效果--默认值
+
+				linear 
+				线性过渡，匀速
+
+				ease-in
+				慢--> 快
+
+				ease-out
+				快-->慢
+
+				ease-in-out
+				慢-->快-->慢
+
+				step-start
+				等同于steps(1,start),过渡起初直接瞬移到完成体
+
+				step-end
+				等同于steps(1,end),过渡时间结束后瞬移到完全体
+
+				steps(int,?)
+				接受两个参数的步进函数。第一个参数必须为正数，指定函数的步数。第二个参数取值可以是start或end，指定每一步的值发生变化的时间点，第二个参数默认值为end
+
+				cubic-bezie(number,number,number,number)  特定的贝塞尔曲线的类型
+
+				在线制作贝塞尔曲线：https://cubic-bezier.com 
+			*/
+			/* 设置动画的方式 */
+			animation-timing-function: steps(20);
+			/* ********************************************** */
+
+			/* 
+				动画播放的次数 
+				值:
+				整数，代表播放次数
+				infinite 无限
+			*/
+			animation-iteration-count:3;
+
+			/* 
+				动画的方向
+				值：
+				normal 从0%~100%，默认
+				reverse 从100%~0%
+
+				往复运动是根据次数来的，每次跑完算一次，
+				所以当次数为1时，往复失效
+				alternate 往复运动，从0%~100%~0%...
+				alternate-reverse 交替的往复运动,从100%~0%~100%...
+			*/
+			animation-direction: reverse;
+
+			/* 
+				动画以外的状态(不发生动画的时候停在哪里)
+				值：
+				forwards 静止在最后一帧，动画结束停在最后一帧
+				backwards 静止在第一帧，动画结束回到第一帧，默认
+			*/
+			animation-fill-mode:backwards;
+
+			/* 
+				动画的播放状态
+				值：
+				paused 暂停
+				running 播放
+			*/
+			/* animation-play-state: paused; */
+		}
+
+		@keyframes wangyoudong {
+			/* 第一帧 */
+			from {
+
+			}
+			/* 最后一帧 */
+			to {
+				transform: translate(900px) rotate(360deg);
+				background-color: chocolate;
+				border-radius: 50%;
+			}
+		}
+		/* 鼠标移入，动画暂停 */
+		.outer:hover .inner{
+			animation-play-state: paused;
+		}
+	</style>
+</head>
+<body>
+	<div class="outer">
+		<div class="inner"></div>
+	</div>
+</body>
+</html>

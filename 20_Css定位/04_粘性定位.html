@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>4_粘性定位</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		/* 给body一个特别大的高度是为了实现滚动 */
+		body {
+			height: 2000px;
+		}
+		.page-header {
+			/* 文字垂直居中，水平居中 */
+			height: 100px;
+			text-align: center;
+			line-height: 100px;
+
+			background-color: orange;
+			font-size: 20px;
+		}
+		.item{
+			background-color: #888;
+		}
+		.first {
+			background-color: skyblue;
+			font-size: 40px;
+			position: sticky;
+			/* 拥有滚动元素的祖先元素，即出现滚动条的祖先元素 */
+			top:0px;
+			/*
+			 出现滚动条：
+			 1.内容超出高度
+			 2.加上overflow里面的auto或者scroll属性
+			 */
+		}
+		/* 
+			1.想要胶水粘住谁，就给谁加粘性定位
+			2.加上位置和距离参考点的位置
+
+			参考点是离他最近的一个拥有滚动行为的祖先元素
+
+			胶水生效的时机：参考点的设置
+			胶水失效的时机：包含粘性定位的父容器整个要消失的时候
+		*/
+	</style>
+</head>
+<body>
+	<!-- 头部 -->
+	<div class="page-header">
+		头部区域
+	</div>
+	<!-- 内容区 -->
+	<div class="content">
+		<!-- 每一项 -->
+		<div class="item">
+			<div class="first">
+				A
+			</div>
+			<h2>A1</h2>
+			<h2>A2</h2>
+			<h2>A3</h2>
+			<h2>A4</h2>
+			<h2>A5</h2>
+			<h2>A6</h2>
+			<h2>A7</h2>
+			<h2>A8</h2>
+		</div>
+		<div class="item">
+			<div class="first">
+				B
+			</div>
+			<h2>B1</h2>
+			<h2>B2</h2>
+			<h2>B3</h2>
+			<h2>B4</h2>
+			<h2>B5</h2>
+			<h2>B6</h2>
+			<h2>B7</h2>
+			<h2>B8</h2>
+		</div>
+		<div class="item">
+			<div class="first">
+				C
+			</div>
+			<h2>C1</h2>
+			<h2>C2</h2>
+			<h2>C3</h2>
+			<h2>C4</h2>
+			<h2>C5</h2>
+			<h2>C6</h2>
+			<h2>C7</h2>
+			<h2>C8</h2>
+		</div>
+		<div class="item">
+			<div class="first">
+				D
+			</div>
+			<h2>D1</h2>
+			<h2>D2</h2>
+			<h2>D3</h2>
+			<h2>D4</h2>
+			<h2>D5</h2>
+			<h2>D6</h2>
+			<h2>D7</h2>
+			<h2>D8</h2>
+		</div>
+	</div>
+</body>
+</html>

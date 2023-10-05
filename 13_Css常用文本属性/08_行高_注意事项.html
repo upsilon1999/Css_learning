@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>行高_注意事项</title>
+	<style>
+		/* 
+			像素类型的行高，我们调整行高，从 60px往 0 px调
+			
+			最终：
+			1.多行文字全部都重叠在一起了
+			2.背景色消失了   --在注意点4讲
+			3.文字整体向上偏移了
+		
+
+			针对第一条：
+			行高大，文字垂直间距大;行高小，文字垂直间距小;行高0,文字垂直间距0
+
+			针对第三条
+			因为文字的字体大小不变，文字中心位置和行高中心位置大抵一致，所以会出现整体向上偏移的情况，实际上是中心上移了
+		*/
+		/* 注意点1:行高过小？--- 文字重叠，且最小值是0,不能为负数，一切不符合规范的行高都会变成 line-height:normal */
+		#d1 {
+			font-size: 40px;
+			background-color: skyblue;
+			line-height: 60px;
+		}
+		/* 
+			div#d2是父，span是子，行高被继承了
+			span字体特别大的时候，就产生了遮挡，于是我们需要给span加行高
+
+			最终span所在行的行高变成了150px，因为行高由一行当中行高最高的来决定
+			默认大文字和小文字以基线对齐，输入一个x就知道了
+
+			注意点2：行高是可以继承的，
+			如果我们以像素书写，那么继承后需要对应修改，如果写数字就很少需要修改了
+		*/
+		#d2 {
+			font-size: 40px;
+			background-color: skyblue;
+			/* line-height: 60px; */
+
+			line-height: 1.5;
+		}
+		#d2 span {
+			font-size: 100px;
+			color: red;
+			/* line-height: 150px; */
+		}
+		/* 
+		注意点3
+			line-height 与 height 的关系
+			设置了height属性，高度就是height的值
+			没有设置height，高度就是行高*行数
+		*/
+		#d3 {
+			font-size: 40px;
+			background-color: yellowgreen;
+			line-height: 300px;
+			height: 100px;
+		}
+		/* 
+			注意点4
+			没有设置height，高度就是行高*行数，行高为0,所以div高度就是0
+			这也是背景色消失的原因，因为高度为0
+		*/
+		#d4 {
+			font-size: 40px;
+			background-color: blue;
+			line-height: 0px;
+			
+		}
+
+		/* 
+			总结：行高的应用场景
+			1.调整多行文字的间距 
+				因为行与行之间贴着，而字体在行偏中的文字，大小不变，就实现了间距
+			2.单行文字的垂直居中
+				当line-height和height一样时就实现了单行垂直居中，多行时不能用
+				多行时第一行整个垂直居中，其他行就出去了
+		
+		
+		*/
+	</style>
+</head>
+<body>
+		<div id="d1">loser从不存在!loser从不存在!loser从不存在!loser从不存在!loser从不存在!loser从不存在!loser从不存在!loser从不存在!loser从不存在!loser从不存在!loser从不存在!loser从不存在!loser从不存在!loser从不存在!loser从不存在!loser从不存在!loser从不存在!loser从不存在!loser从不存在!loser从不存在!loser从不存在!</div>
+		<div id="d2">loser从不存在!loser从不存在!loser从不存在!loser从不存在!loser从不存在!loser从不存在!loser从不存在!loser从不存在!loser从不存在!loser从不存在!loser从不存在!loser从不存在!loser从不存在!loser从不存在!loser从不存在!<span>loser</span>从不存在!loser从不存在!loser从不存在!loser从不存在!loser从不存在!loser从不存在!</div>
+		<div id="d3">loser从不存在!loser从不存在!</div>
+		<div id="d4">loser从不存在!loser从不存在!loser从不存在!loser从不存在!loser从不存在!loser从不存在!loser从不存在!loser从不存在!loser从不存在!loser从不存在!loser从不存在!loser从不存在!loser从不存在!loser从不存在!loser从不存在!loser从不存在!loser从不存在!loser从不存在!loser从不存在!loser从不存在!loser从不存在!</div>
+</body>
+</html>

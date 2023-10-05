@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>01_多列布局</title>
+	<style>
+		.outer{
+			width: 1000px;
+			margin: 0 auto;
+
+			/* 直接指定列数，分成几列 */
+			/* column-count: 3; */
+
+			/* 指定每一列的宽度，会自动计算列数
+			由于列与列之间间隙的存在，所以这里不是4列哦 */
+			/* column-width: 250px; */
+
+			/* 
+			复合属性，能同时指定列宽和列数
+				指定了3列
+				用220px算出来是4列
+				
+				取小的那个，最终3列
+			*/
+			columns:3 220px;
+
+			/* 
+				调整列间距
+				即使写0px，也还是有缝隙的，会自动计算一个极小值
+			*/
+			column-gap: 20px;
+
+			/* 列边框 */
+			column-rule-width: 2px;
+			column-rule-style: dashed;
+			column-rule-color: brown;
+			/* 复合属性 */
+			/* column-rule: 2px dashed brown; */
+		}
+
+		h1 {
+			/* 
+				column-span 是否跨列，只有两个值
+				none 不跨列
+				all 跨所有列
+			*/
+			column-span: all;
+			text-align: center;
+		}
+		/* 插入图片，写在列与列之间，设置宽度100%即可 */
+		img {
+			width: 100%;
+		}
+	</style>
+</head>
+<body>
+	<div class="outer">
+		<h1>《自由来临》</h1>
+		<p>【开始】Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos maiores blanditiis enim expedita nobis dicta veniam voluptas, temporibus voluptates odio eum autem ipsam! Rerum nesciunt animi, est enim minus et laborum saepe cumque nisi ea temporibus voluptatem iste modi optio? Incidunt excepturi et beatae earum nam, qui enim vero aliquam, possimus assumenda doloribus dolore illum. Nemo rerum modi nesciunt officiis?【结束】</p>
+		<p>【开始】Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio recusandae quasi deserunt velit eum soluta, ad fuga autem. Magnam sunt accusamus eveniet vero quisquam ullam? Corrupti accusamus minus libero iste inventore amet laudantium mollitia, dolor, sapiente repellendus veniam eveniet possimus iure omnis, quam dicta recusandae eum nostrum impedit. Nesciunt asperiores alias hic dolores, eveniet omnis nihil vitae, excepturi corrupti velit tempora quae facere unde accusantium veritatis illum saepe tenetur modi est. Nisi dolor vitae tenetur? Facere laboriosam vitae iure architecto. Incidunt repudiandae odio quam odit esse saepe in explicabo quis, eveniet ipsum. Tenetur, autem unde dolorem ipsa reprehenderit eveniet sapiente ipsum nisi vel deserunt quae cupiditate obcaecati pariatur, modi cum est at facere vitae aut id molestias. Molestias accusamus aperiam vitae perspiciatis labore consequuntur corrupti? Commodi quos aliquam, nobis dignissimos accusantium fugit quasi accusamus maxime, veritatis similique ea corporis quibusdam? Rem magni, tempora impedit odit modi officiis, aliquam velit quisquam mollitia nam illum qui totam, doloremque sapiente voluptas veritatis esse. Deserunt beatae animi, atque laborum, aliquam hic cumque veritatis quidem voluptas placeat, aut error. Quos, quis inventore! Sint reiciendis eveniet voluptatem aperiam suscipit, mollitia tempora voluptatum nesciunt sed repellendus, dolore aliquid, saepe adipisci doloribus delectus fugit. Perferendis quos necessitatibus iusto?【结束】</p>
+		
+		<p>【开始】Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, placeat, porro nostrum fugit cupiditate excepturi impedit ab rerum facilis, possimus voluptatibus. Nemo debitis repellendus, velit sapiente, quo quis modi enim placeat minima, cum numquam repudiandae laborum esse rerum facilis dolore. Veritatis, reiciendis nisi totam pariatur perferendis numquam iure quae itaque accusantium accusamus, dicta et inventore ad nihil ratione consectetur id corporis? Sequi aliquam accusantium adipisci praesentium voluptatem, vitae eum nulla molestiae maxime reprehenderit, ullam quaerat pariatur ad consequuntur labore impedit mollitia. Dolore ab tenetur quam hic minus vel dignissimos enim! Porro officia eligendi voluptates nemo eum sit distinctio, ipsam laudantium pariatur error quod at nobis deleniti minima quasi, vel cum soluta. Perferendis reiciendis reprehenderit quaerat sunt iure nesciunt quasi iusto quod a nihil aspernatur ea vel, at culpa nostrum! Velit perspiciatis corrupti doloribus dolore obcaecati assumenda suscipit natus exercitationem hic veniam, ullam ab molestiae doloremque optio dignissimos rerum similique quidem esse! Aperiam neque harum corporis quo recusandae qui a ad consequuntur beatae animi, non in libero commodi iusto quia tenetur blanditiis maxime sapiente, sequi provident quas quis unde est eius. Hic suscipit doloribus voluptas commodi totam fugit porro, est consequuntur.【结束】</p>
+		<img src="../../img/R-C.jpeg" alt="">
+		<p>【开始】Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos minima, commodi eveniet cum totam et quas asperiores corrupti magni modi recusandae exercitationem deleniti sint aperiam ipsum expedita? Alias vel quos rem labore, iure quod ab necessitatibus voluptates fugit accusamus enim ipsam delectus maxime dolore consequuntur corporis ex sapiente molestiae. Iste corrupti rerum numquam et! Aut iste voluptatum perferendis, inventore quaerat vero voluptas, incidunt sed harum quasi dolorem recusandae qui unde saepe itaque vitae. Earum impedit explicabo dolorem, quidem dignissimos numquam autem sint. Tempore eos numquam iusto quisquam fugit eum a at optio id, nostrum illo recusandae ab alias vero saepe dolorum provident, nobis nihil! Temporibus voluptatum illum saepe sit, facere consectetur, eos dolores laboriosam deleniti laudantium sint corrupti et possimus excepturi, nam atque adipisci doloremque quae? Error dicta asperiores laudantium voluptatibus, non debitis. Harum, ab dolorum voluptates quidem architecto alias minus praesentium repellendus animi ad placeat deleniti qui recusandae numquam quod vel rem doloremque quo fugiat blanditiis debitis cupiditate. Ratione, iste repellat magni perspiciatis eum repudiandae ullam nam voluptates nobis facere quaerat esse, est maiores magnam culpa, illo veritatis itaque. Impedit ratione, laborum perspiciatis nam consequuntur temporibus tenetur quibusdam sed error, magni quo qui repudiandae nulla reiciendis consectetur et maiores odit vel cum sit unde optio exercitationem. Ipsum quaerat dolorem inventore! Cum sit architecto recusandae incidunt totam omnis autem consequatur vel, facilis unde enim cumque, eaque est voluptatibus fugiat minima praesentium cupiditate placeat eveniet dolorum rerum reiciendis, sed exercitationem voluptatum! Necessitatibus voluptatibus, vitae repellendus praesentium ducimus officiis corrupti aliquam sed mollitia cupiditate commodi, earum suscipit! Nesciunt nemo numquam deleniti doloribus placeat ut alias vitae amet, itaque totam nihil error soluta qui cum laborum incidunt quae voluptate eaque quo, modi perspiciatis nisi voluptates asperiores. Corrupti optio ullam illo similique illum expedita, accusantium impedit delectus suscipit porro soluta necessitatibus autem rerum architecto itaque id voluptatem sapiente eos quaerat ipsa consectetur placeat asperiores ea! Sapiente officia rerum, molestiae placeat laboriosam labore aliquid vel quo quod reprehenderit esse eaque quibusdam quas fugit architecto amet optio debitis omnis! Error impedit repellendus voluptate, fugiat quisquam velit rem esse, asperiores temporibus voluptatem eligendi deleniti adipisci sunt iusto animi sapiente porro ut incidunt consequuntur dolore! Qui, minus pariatur tempore eius aut officiis enim molestias earum velit, aliquam, eum magnam natus eaque facere quia laboriosam sapiente in fugit asperiores iste? Rem eos reiciendis tempora odio, similique laboriosam eligendi maiores aut dolorum nisi, fugit cum officia numquam voluptas dolores voluptatum vel id exercitationem assumenda asperiores repellendus. Ab, harum repudiandae consequuntur reprehenderit numquam dignissimos in vel asperiores beatae cumque porro illo at cupiditate sit sunt obcaecati qui et. Eius repellendus voluptates quia maxime sed placeat, sapiente soluta perspiciatis, iusto ipsum commodi, maiores tempore ab hic pariatur deleniti veritatis tempora error? Quaerat libero eos repudiandae neque sequi velit quod repellendus minus, iure voluptate officiis soluta esse ad et reiciendis voluptatibus ipsa dolores nemo cumque reprehenderit dolore enim! Eum at asperiores totam. Aperiam, possimus harum aut amet consequatur alias architecto. Ipsum molestiae ex atque, neque, rerum quasi tempore ipsam odio illo corporis molestias hic. Libero tempore omnis esse dolor dignissimos, saepe molestiae quia illum voluptas qui repellendus nobis sunt mollitia laboriosam cumque exercitationem placeat numquam molestias excepturi doloribus aut ullam nihil possimus inventore. Maiores atque optio veritatis nisi facilis. Sequi odio aspernatur dolor ducimus? Rem est doloremque earum similique doloribus totam ab velit fuga. Expedita beatae recusandae rerum sunt praesentium minus dignissimos iure veritatis. Recusandae at corrupti aspernatur porro, excepturi rem aperiam ea eaque omnis autem voluptate in vero veritatis sint qui quisquam repudiandae reiciendis delectus dolorem numquam ex molestiae. Ea perferendis harum delectus temporibus ut nisi obcaecati amet, incidunt est asperiores similique.【结束】</p>
+		<p>【开始】Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laboriosam soluta delectus quae fugiat atque ipsum exercitationem aliquam nam aperiam perspiciatis placeat, dolore autem tempore deserunt sit repudiandae numquam magni iure! Iusto minus, maiores corrupti beatae ratione consequuntur quos. Voluptates minima ipsum, mollitia exercitationem consectetur aliquid cupiditate voluptatum atque expedita, veniam ea illo ipsam est inventore delectus illum impedit voluptate. Maxime saepe quo id provident praesentium illo aspernatur officia magnam ullam dolores earum, consectetur quibusdam velit? Illo architecto placeat ipsam adipisci cumque natus quasi, neque eaque veniam dolores, culpa impedit expedita, quibusdam eos sequi iusto commodi doloribus? Velit, reprehenderit officiis.【结束】</p>
+	</div>
+</body>
+</html>

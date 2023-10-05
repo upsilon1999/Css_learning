@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>线性渐变</title>
+	<style>
+		/* 
+		重复渐变
+		必须建立在线性渐变或径向渐变的基础上
+		*/
+		.box {
+			width: 300px;
+			height: 200px;
+			border: 1px solid black;
+			margin-left: 50px;
+			float: left;
+		}
+		/* 
+			所谓的重复渐变，本质上就是修改属性，加上repeating前缀 
+			重复渐变的定义：在没有发生渐变的区域，重新开始渐变，就是重复渐变
+		*/
+		.box1 {
+			
+			background-image: repeating-linear-gradient(red,yellow,green);
+		}
+		.box2 {
+	
+			background-image: repeating-linear-gradient(to right,red,yellow,green);
+		}
+		.box3 {
+
+			background-image: repeating-linear-gradient(20deg,red,yellow,green);
+		}
+		.box4 {
+			/* 
+				重复渐变生效：
+				因为我们给定了渐变的区域，没有指定到的区域是纯色补充的，这时候重复渐变就会生效
+				50px 是纯红色线，0~50px按照重复渐变就会是 黄到红
+				150px是纯绿色线，150px~200px就会是 红到黄
+				即重复渐变就是去找他之后的，循环来
+			*/
+			background-image: repeating-linear-gradient(red 50px,yellow 100px,green 150px);
+		}
+		.box6 {
+			/*
+				重复渐变生效
+			*/
+			background-image: repeating-radial-gradient(red 10%,yellow 40% ,green 80%);
+		}
+		
+	</style>
+</head>
+<body>
+	<!-- div.box.box1 生成两个类名-->
+	<div class="box box1">默认情况(从上到下)</div>
+	<div class="box box2">关键词调节线性渐变方向</div>
+	<div class="box box3">角度调节线性渐变方向</div>
+	<div class="box box4">调节线性渐变区域--重复渐变生效</div>
+	<div class="box box6">通过径向渐变的区域--重复渐变生效</div>
+
+</body>
+</html>

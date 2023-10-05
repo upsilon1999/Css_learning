@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Css像素</title>
+	<style>
+		/* 
+			想想生活中常见的长度单位
+			km m dm cm mm um
+		*/
+		.test1{
+			width: 1km;
+			height: 1km;
+			background-color: blue;
+		}
+		.test2{
+			width: 1m;
+			height: 1m;
+			background-color: aqua;
+		}
+		.test3{
+			width: 1dm;
+			height: 1dm;
+			background-color: rgb(43, 226, 119);
+		}
+		.test4{
+			width: 1cm;
+			height: 1cm;
+			background-color: blueviolet;
+		}
+		.test5{
+			width: 1mm;
+			height: 1mm;
+			background-color: red;
+		}
+		.test6{
+			width: 1um;
+			height: 1um;
+			background-color: red;
+		}
+		/* 
+		经过验证 cm 和 mm 是可以生效的
+		设计 px 的原因，cm和mm对于网页设计来说不够精细，所以设计出了px
+
+		屏幕实际上是由许多发光的小点组成的，这些小点就是像素，我们用手机拍电脑或者把图片放大数倍看到的一个个小方块就是像素点
+		像素是一个相对单位，根据屏幕来的，屏幕像素1980x1024,则1px就是屏幕高度/1980
+		所以图片在不同显示器上不一样，是因为像素不一样，或者说分辨率
+		 */
+		 /* 
+		 	截图工具量出来的，以及我们看到的和我们写的大小不一样的原因
+			电脑自动开了缩放，所以我们直接用工具去测量会出现问题，需要根据缩放计算出真实像素
+
+			UI设计师会解决这个问题
+		 */
+	</style>
+</head>
+<body>
+	<div class="test1"></div>
+	<br>
+	<div class="test2"></div>
+	<br>
+	<div class="test3"></div>
+	<br>
+	<div class="test4"></div>
+	<br>
+	<div class="test5"></div>
+</body>
+</html>

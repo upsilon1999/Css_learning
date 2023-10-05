@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>01_基本使用</title>
+	<style>
+		.box1{
+			width: 200px;
+			height: 200px;
+			background-color: orange;
+
+			/* 
+				谁想发生过渡，谁就加上属性 transition
+				注:不在事件里加的原因：时间一结束就消失了，过渡效果失效
+				该属性是个复合属性，所以我们先探索他的子属性
+
+
+				1)指明发生变化的属性 例如height width等等,也可以用引号引起来，多个属性之间用逗号分隔
+				至于是什么属性，根据我们需要给哪种变化加过渡决定
+				transition-property
+
+				2)设置过渡的持续时间 持续时间,单位一般用s或者ms
+				transition-duration
+
+				3) 对应关系，
+					3.1)多对一
+					transition-property:A,B;
+					transition-duration:1s;
+					那么A与B都是1s变化
+					3.2）多对多
+					transition-property:A,B;
+					transition-duration:1s,2s;
+					A完成过渡的时间是1s，B完成过渡的时间是2s
+
+				4）能过渡的属性
+				属性值能用或者转换成数字或百分比表示才能过渡，即属性的值要能计算才能实现过渡
+				例如 background-color color 即使我们写纯色，但他底层可以转16进制或rgb所以可以过渡
+				
+				由于属性繁多，所以一般
+				transition-property:all;
+				意为：让所有能过渡的属性都过渡
+
+			*/
+			transition-property:height;
+			transition-duration: 2s;
+		}
+		/* 
+			过渡生效的前提：有属性发生了变化
+		*/
+		.box1:hover{
+			height: 400px;
+		}
+	</style>
+</head>
+<body>
+	<div class="box1"></div>
+</body>
+</html>

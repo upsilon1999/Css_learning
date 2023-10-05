@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>09_定位的特殊应用3</title>
+	<style>
+		.outer {
+			height: 400px;
+			width: 800px;
+			background-color: #888;
+			position: relative;
+			
+		}
+		.inner{
+			width: 400px;
+			height: 100px;
+			background-color: orange;
+			position: absolute;
+
+			top: 50%;
+			left: 50%;
+			/* 
+				再往左边推回宽度的一半，往上边推回高度的一半
+				不同时用right和bottom，因为无效
+			*/
+			margin-left: -200px;
+			margin-top: -50px;
+		}
+		/* 
+			需求：用定位让子元素在父元素中水平居中、垂直居中
+			由于子元素和父元素都有宽高，就不再是填充
+
+			先left和top移动，在用margin回推
+
+			left配合margin-left
+			top配合margin-top
+
+			应用3和应用2效果一样，推荐应用2，因为应用3的调整计算量大
+		*/
+	</style>
+</head>
+<body>
+	<div class="outer">
+		<div class="inner">你好啊</div>
+	</div>
+</body>
+</html>

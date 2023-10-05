@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>24_行内块元素的幽灵空白问题</title>
+	<style>
+		/* 
+			幽灵空白：行内块元素不贴着父级的底部，而是与父亲底部有点间距
+			原因：在行内块元素后面写个x可以知道，行内块元素的底部与x的底部基线对齐了
+
+			处理方式：给行内块元素加 vertical-align，top/bottom/middle都可以，baseline不行
+
+			当行内块元素比文字大时，行内块就会填满父级，文字相对其运动
+		*/
+		.box {
+			width: 60px;
+			background-color: skyblue;
+		}
+		.kuai {
+			display: inline-block;
+			vertical-align: bottom;
+		}
+
+		/* 
+			解决方案2：把行内块元素改为块元素
+			缺点：后面不能再有别的元素了
+		*/
+
+		/* 
+			方案3：这是由于字体的基线导致的，把父级字体大小设为0即可
+
+			小贴士：凡是由文字导致的
+		*/
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div class="kuai"></div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>web字体</title>
+	<style>
+		/* 
+			css2中我们通过字体族font-family控制字体样式，
+			缺点：必须得事先安装，否则不生效
+		*/
+		/* 
+			CSS3的做法，下载字体文件ttf或者得到他的链接地址
+			使用 @font-face
+		*/
+		@font-face {
+			/* 随意取名，未来要用的就是这个名 */
+			font-family:"abc";
+			/* url里面的地址可以是本地地址也可以是网络地址 */
+			src:url("../../font/Alifont/webfont.ttf")
+
+			/* 
+				优点：
+				不必下载安装字体，项目上线直接给服务器地址，这里引入即可
+
+				缺点：
+				字体文件很大，引入慢，会造成网页崩溃
+
+				解决方案：
+				定制字体，字体文件之所以大，是因为他包含所有汉字，如果我们只需支持我们需要的某些汉字，name字体文件就小了
+				借助外部网站事先制作定制字体，例如 https://www.iconfont.cn/webfont
+			*/
+		}
+	
+
+		/* 
+			字体文件下下来是个压缩包，解压出来是一堆文件
+			eot svg ttf woff woff2 都是字体文件
+			原因是不同浏览器认的字体格式不一样
+		*/
+		/* 所以参考其demo写最完整的引入写法，再根据自己的文件路径进行修改 */
+		/* 推荐使用这种方式，兼容性好 */
+		@font-face {
+			font-family: "myfont";
+			font-display: swap;
+			/* 支持ie9 */
+			src:url("../../font/Alifont/webfont.eot"); 
+			/* 支持ie6-ie8 */
+			src: url("../../font/Alifont/webfont.eot?#iefix") format("embedded-opentype"),
+			url("../../font/Alifont/webfont.woff2") format("woff2"),
+			/* chrome\firefox */
+			url("../../font/Alifont/webfont.woff") format("woff"),
+			/* chrome、firefox、opera、safari、Android 、IOS4.2+*/
+			url("../../font/Alifont/webfont.ttf") format("truetype"),
+			/* ios 4.1- */
+			url("../../font/Alifont/webfont.svg#webfont") format("svg");
+		}
+
+		h1{
+			font-size: 20px;
+			/* 使用引入的字体 */
+			font-family: "abc";
+		}
+		h2 {
+			font-size: 20px;
+			/* 使用引入的字体 */
+			font-family: "myfont";
+		}
+	</style>
+</head>
+<body>
+	<h1>春风得意马蹄疾，一夜看尽长安花</h1>
+	<h2>春风得意马蹄疾，一夜看尽长安花</h2>
+</body>
+</html>

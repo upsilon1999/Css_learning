@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>15_完美解决浮动产生的影响6</title>
+	<style>
+		/* 
+			要达到的目的：
+			1.父元素不塌陷
+			2.兄弟不被盖住
+
+			完美解决方案本质上就是设立一个空的块元素，使之触发clear:both
+			不过写法更优雅
+	
+		*/
+		.outer{
+			width: 500px;
+			background-color: gray;
+			border:1px solid black;
+			overflow: hidden;
+		}
+		.box {
+			width: 100px;
+			height: 100px;
+			background-color: skyblue;
+			border: 1px solid black;
+			margin: 10px;
+		}
+		.box1,.box2,.box3,.box4{
+			float: left;
+		}
+		/* 
+			完美解决方案本质上就是设立一个空的块元素，使之触发clear:both
+			不过写法更优雅
+
+			不过还是存在一个问题，那就是如果存在一个元素不浮动，那么还是会产生覆盖
+			所以提出布局原则：
+			在一个父元素里面，要么所有元素都浮动，要么所有元素都不浮动
+		*/
+		.outer::after{
+			content: "";
+			display: block;
+			clear: both;
+		}
+	</style>
+</head>
+<body>
+	<div class="outer">
+		<div class="box box1">1</div>
+		<div class="box box2">2</div>
+		<div class="box box3">3</div>
+		<div class="box box4">4</div>
+		<!-- 设立一个不占位的元素，让他去使用clear -->
+		<!-- <div class="mofa"></div> -->
+	</div>
+	
+</body>
+</html>

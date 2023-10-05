@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>25_元素之间的空白问题</title>
+	<style>
+		div{
+			height: 50px;
+			background-color: gray;
+			font-size: 0px;
+		}
+		.s1 {
+			background-color: skyblue;
+			font-size: 20px;
+		}
+		.s2 {
+			background-color: orange;
+			font-size: 20px;
+		}
+		.s3 {
+			background-color: green;
+			font-size: 20px;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<!-- 由于行内元素或行内块元素换行写，就会产生一个问题，元素之间存在间隙 -->
+		<span class="s1">人之初</span>
+		<span class="s2">性本善</span>
+		<span class="s3">性相近</span>
+		<!-- 
+			方案1：不换行写，都写在一行
+
+			方案2：空格也是文字，直接给父元素的字体大小设为0,子元素的字体大小自己设置
+		 -->
+	</div>
+</body>
+</html>

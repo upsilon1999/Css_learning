@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>02_多列图片案例</title>
+	<style>
+		.outer{
+			/* 图片显示不全，是因为图片超出了所在列 */
+			column-count: 5;
+		}
+		img {
+			/* 加上宽度100%，就可以实现完全显示图片了 */
+			width: 100%;
+			transition: 0.2s linear;
+			cursor: pointer;
+		}
+
+		/* 
+			很多壁纸网站就是这么做的
+		*/
+		/* 还可以加各种事件 */
+		img:hover{
+			box-shadow: 0px 0px 20px black;
+			transform: scale(1.02);
+		}
+</style>
+</head>
+<body>
+	<div class="outer">
+		<img src="../../img/img1.jpg" alt="">
+		<img src="../../img/img2.jpg" alt="">
+		<img src="../../img/img3.jpg" alt="">
+		<img src="../../img/img4.jpg" alt="">
+		<img src="../../img/img5.jpg" alt="">
+		<img src="../../img/img6.jpg" alt="">
+		<img src="../../img/img7.jpg" alt="">
+		<img src="../../img/img8.jpg" alt="">
+		<img src="../../img/img9.jpg" alt="">
+		<img src="../../img/img10.jpg" alt="">
+		<img src="../../img/img11.jpg" alt="">
+		<img src="../../img/img12.jpg" alt="">
+		<img src="../../img/img13.jpg" alt="">
+		<img src="../../img/img14.jpg" alt="">
+	</div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>文本间距</title>
+	<style>
+		p {
+			font-size: 30px;
+		}
+		p:nth-of-type(2){
+			/* 
+			字母之间的间隔，包括汉字
+			*/
+			letter-spacing: 20px;
+		}
+		p:nth-of-type(3){
+			/* 
+			单词之间的间隔，
+			以空格来区分是不是单词
+
+			由于中文句子之间一般没有空格，所以可以理解为对中文不起作用，实际上是按照空格
+			*/
+			word-spacing: 20px;
+		}
+
+		/* 属性值为像素(px),正值让间距增大，负值让间距缩小。负到一定程度字母会叠加在一起。 */
+	</style>
+</head>
+<body>
+	<p>
+		Lorem ipsum dolor sit amet consectetur adipisicing elit.学无止境！
+	</p>
+	<p>
+		Lorem ipsum dolor sit amet consectetur adipisicing elit.学无止境！
+	</p>
+	<p>
+		Lorem ipsum dolor sit amet consectetur adipisicing elit.学无 止境！
+	</p>
+</body>
+</html>

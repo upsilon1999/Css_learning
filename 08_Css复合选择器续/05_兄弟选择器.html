@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>兄弟选择器</title>
+	<style>
+		/* 
+			+ 相邻兄弟选择器
+			紧紧相邻的后一位兄弟元素
+
+			这里div+p，找到与div紧紧相邻的后一位兄弟元素，且该兄弟元素需要为p元素
+		*/
+		div+p {
+			color:aqua;
+		}
+
+		/* 
+			找到与类test紧紧相邻的后一位兄弟元素，且该元素需要为p元素
+			由于 类test紧紧相邻的后一位兄弟元素为 h1,所以无效
+
+			注意顺序：
+			1.找到类test
+			2.找到后一位兄弟元素，判断是不是需要的元素
+		*/
+		.test+p {
+			color:brown;
+		}
+
+		/* 
+			~ 通用兄弟选择器
+			后面所有的兄弟元素
+
+		*/
+		h1~p {
+			color: blue;
+		}
+
+		/* 
+			效果：主页是黑色，其他几个li都变成了橙色
+			理解：
+			1.对于主页，li后紧紧相邻的li即秒杀，所以秒杀变色
+			2.对于秒杀，li后紧紧相邻的li即订单，所以订单变色
+			3.对于订单，li后紧紧相邻的li即我的，所以我的变色
+			4. 主页没有被选中，自然不会变色
+		*/
+		li+li{
+			color: orange;
+		}
+
+		/* 
+			效果：主页是黑色，其他几个li都变成了橙色
+			理解：
+			1.对于主页，li后的所有兄弟变色
+			2.对于秒杀等同理
+			2.主页没有被选中，自然不会变色
+		*/
+		li~li{
+			color:pink;
+		}
+	</style>
+</head>
+<body>
+	<p>人工智能</p>
+	<div>学习</div>
+	<p>前端</p>
+	<p>后端</p>
+	<p>大数据</p>
+	<p>UI</p>
+	<p class="test">测试</p>
+	<h1>活到老学到老</h1>
+	<p>自立更生</p>
+	<p>老当益壮</p>
+	<ul>
+		<li>主页</li>
+		<li>秒杀</li>
+		<li>订单</li>
+		<li>我的</li>
+	</ul>
+</body>
+</html>

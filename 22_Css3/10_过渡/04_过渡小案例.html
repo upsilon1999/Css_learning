@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>图片蒙层提示效果</title>
+	<style>
+		/* 
+			思路：两个框，A框是图片，B框是透明度为0的蒙层，
+			鼠标移入图片，B框定位到A上面，透明度变0.5
+
+			还有图片旋转缩放，文字浮现，鼠标变小手
+		*/
+		/* 最外层容器和遮罩层应该与图片一样大 */
+		.outer{
+			width: 350px;
+			height: 525px;
+			position: relative;
+
+			/* 防止图片缩放超过父容器 */
+			overflow: hidden;
+		}
+		.mask {
+			width: 350px;
+			height: 525px;
+			background-color: black;
+			cursor: pointer;
+			/* 文字样式 */
+			color: white;
+			text-align: center;
+			line-height: 525px;
+			font-size: 80px;
+
+			/* 
+				定位
+			*/
+			position: absolute;
+			top: 0;
+			left: 0;
+
+			/* 遮罩透明 */
+			opacity: 0;
+
+			/* 过渡 */
+			transition: 1s all;
+		}
+		img {
+			transition: 1s all;
+		}
+		.outer:hover .mask{
+			/* 鼠标移上去，显示遮罩 */
+			opacity: 0.5;
+		}
+		.outer:hover img{
+			transform: scale(1.1,1.1) rotate(30deg);
+		}
+	</style>
+</head>
+<body>
+	<div class="outer">
+		<img src="../../img/R-C.jpeg" alt="">
+		<div class="mask">老司机</div>
+	</div>
+</body>
+</html>

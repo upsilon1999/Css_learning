@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>语言伪类</title>
+	<style>
+		/* 
+			选择语言为英文的p标签,变成红色
+
+			准确点来说是选中了有 lang属性且属性值为 en 的
+		*/
+		p:lang(en) {
+			color: red;
+		}
+
+		/* 
+			根据我们给html所写的lang属性,每个元素身上默认有一个相同的lang属性
+		*/
+		:lang(zh){
+			color: blue;
+		}
+
+		/* 
+			所以这个标签本身不具备真正的识别功能,根据我们提供的lang属性来识别
+		*/
+	</style>
+</head>
+<body>
+	<div>社会</div>
+	<div>人生</div>
+	<p lang="en">前端</p>
+	<p>后端</p>
+	<p lang="en">UI</p>
+	<span>你好</span>
+</body>
+</html>

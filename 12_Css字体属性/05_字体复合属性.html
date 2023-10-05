@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>字体复合属性</title>
+	<style>
+		/* 
+			font 统一调整字体的相关属性，参数有顺序要求
+			1. 字体大小 ，放在倒数第二位，必须要写
+			2. 字体族 ，必须放在最后，必须要写
+			3.其他的在前面随意写
+			不同参数用空格隔开
+		*/
+		.test {
+			font:bold italic 100px "微软雅黑","华文彩云",sans-serif;
+		}
+	</style>
+</head>
+<body>
+	<p class="test">
+		统一调整字体
+	</p>
+</body>
+</html>

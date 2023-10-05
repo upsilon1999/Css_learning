@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>13_解决浮动产生的影响4</title>
+	<style>
+		/* 
+			要达到的目的：
+			兄弟不被盖住
+
+			方案1：
+			把兄弟设置为display:inline-block,
+			会被当成文本元素，甩在外面，就是最初的环绕初衷
+		*/
+		.outer{
+			width: 500px;
+			background-color: gray;
+			border:1px solid black;
+
+		}
+		.box {
+			width: 100px;
+			height: 100px;
+			background-color: skyblue;
+			border: 1px solid black;
+			margin: 10px;
+		}
+		.box1,.box2,.box3{
+			float: left;
+		}
+		.box4{
+			display: inline-block;
+		}
+	</style>
+</head>
+<body>
+	<div class="outer">
+		<div class="box box1">1</div>
+		<div class="box box2">2</div>
+		<div class="box box3">3</div>
+		<div class="box box4">4</div>
+	</div>
+	
+</body>
+</html>

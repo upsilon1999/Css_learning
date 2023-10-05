@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>新增长度单位</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box1{
+			width: 200px;
+			height: 200px;
+			background-color: skyblue;
+		}
+		/* 
+			vw 指的是视口宽度的多少
+			v viewport  w width
+			20vw 即视口宽度的20%
+
+			优势：可以跟着视口变化，在移动端用的多
+		*/
+		.box2{
+			width: 50vw;
+			height: 20vw;
+			background-color: green;
+		}
+		/* 
+			vh 指的是视口高度的多少
+			v viewport  h height
+			20vh 即视口高度的20%
+
+			相对来说vw用的比较多
+		*/
+		.box3{
+			width: 50vh;
+			height: 20vh;
+			background-color: red;
+		}
+		/* 
+			vmax 比较宽高，大的那个的多少
+			20vmax  如果宽比高大，那么就是视口宽度的20%
+
+			vmin 与vmax相反，他取小的
+		*/
+		.box4{
+			width: 50vmax;
+			height: 20vmax;
+			background-color: red;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="box1">像素</div>
+	<div class="box2">vw</div>
+	<div class="box3">vh</div>
+	<div class="box4">vmax</div>
+</body>
+</html>

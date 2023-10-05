@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>本地使用_方案三</title>
+	<!-- 1.引入js代码 -->
+	<link rel="stylesheet" href="../../font/myTools/iconfont.js">
+	<style>
+		/* 2.定义图标风格 自己写就可以*/
+		.icon {
+			width: 1em;
+			height: 1em;
+			vertical-align: -0.15em;
+			fill: currentColor;
+			overflow: hidden;
+		}
+		/* 
+			也可以选中svg标签或者加类来修改样式--一般只能改大小
+			方案三用的少--因为svg兼容性差，且渲染比png还慢
+		*/
+	</style>
+</head>
+<body>
+	<!-- 
+		3.使用图标 
+		svg和use都是h5的新标签，专门用于呈现矢量图
+	-->
+	<svg class="icon" aria-hidden="true">
+		<!-- 改成想要的图标 -->
+		<use xlink:href="#icon-python"></use>
+	</svg>
+</body>
+</html>

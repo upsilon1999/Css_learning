@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>字体组</title>
+	<style>
+		body {
+			font-size: 40px;
+		}
+		/* 
+			font-family:"字体族"
+			建议把族名用双引号引起来，单引号也可以，不加其实也可以，但如果名字里有空格就必须要包起来
+		*/
+		.test1 {
+			font-family: "宋体";
+		}
+		.test2{
+			/* 
+				windows上自带这种字体，
+			*/
+			font-family: "微软雅黑";
+		}
+		.test3 {
+			font-family: "楷体";
+		}
+		.test4 {
+			font-family: "华文彩云";
+		}
+		.test5 {
+			font-family: "华文彩云","楷体","宋体","微软雅黑";
+		}
+		/* 
+			当我们写的字体族不存在时，就会变成默认字体
+			1.在电脑个性化里面搜索字体，可以看到目前这台电脑有哪些字体
+			2.安装字体，下载字体ttf，双击安装即可
+		*/
+		/* 
+			我们一般会把字体分为两大类：衬线字体，非衬线字体
+
+			衬线字体：字棱角清晰
+			非衬线字体：字体几乎没棱角
+
+			在设置字体族的时候，尽量遵循要么都是衬线，要么都是非衬线，不会有bug，就是设计规范而已
+		*/
+		/* 
+			兼容性问题
+			很多时候，我们字体族用中文在一些浏览器上是不认的，所以需要使用英文
+
+			1.由于字体名过于繁杂，所以现用现查最稳妥
+			2.电脑上安装的字体，可以在设置里面查看，这个经常不对
+
+			我们一般会在字体族的最后用衬线或非衬线收尾，非强制
+			衬线 serif
+			非衬线 sans-serif
+			引号推荐不加，表示是一个规范
+			他的作用，当前面都阵亡时，会联系电脑和浏览器，让他们随机拿一个对应类型字体过来用
+		*/
+		.test6 {
+			font-family:"STHupo","STCaiyun","Microsoft YaHei",sans-serif;
+		}
+	</style>
+</head>
+<body>
+	<p class="test1">宋体</p>
+	<p class="test2">微软雅黑</p>
+	<p class="test3">楷体</p>
+	<p class="test4">华文彩云</p>
+	<p class="test5">按照字体族从左到右的顺序，哪个生效用哪个，不再往后边看,如果都没生效就用默认的</p>
+	<p class="test6">为了避免兼容性问题，尽量使用英文字体族</p>
+</body>
+</html>

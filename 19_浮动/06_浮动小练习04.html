@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>06_浮动小练习04</title>
+	<style>
+			.outer{
+			width: 500px;
+			background-color: gray;
+			/* 父亲加边框的原因:防止抢走子元素的margin-top或margin-bottom */
+			border: 1px solid black;
+		}
+		.box {
+			width: 200px;
+			height: 200px;
+			background-color: skyblue;
+			border: 1px solid black;
+			margin: 10px;
+		}
+		.box1 {
+			float: left;
+		}
+		.box2 {
+			float: left;
+		}
+		.box3 {
+			float: left;
+		}
+		/* 
+			box1 box2排成一行,box3排到了第二行
+
+			原因,可以想像成一个3d柱状,底部的平面是固定的,他们飞到了第二个平面
+			x\y构筑的面积不变,只是z轴发生了变化,所以当一行放不下时,自然会换行
+			相当于在新平面上换行
+		*/
+	</style>
+</head>
+<body>
+	<div class="outer">
+		<div class="box box1">1</div>
+		<div class="box box2">2</div>
+		<div class="box box3">3</div>
+	</div>
+</body>
+</html>

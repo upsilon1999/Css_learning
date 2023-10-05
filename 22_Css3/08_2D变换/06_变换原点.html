@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>多重变换</title>
+	<style>
+		.outer {
+			width: 200px;
+			height: 200px;
+			border: 2px solid black;
+			margin: 0 auto;
+			margin-top: 100px;
+		}
+		.inner{
+			width: 200px;
+			height: 200px;
+			background-color: skyblue;
+			/* 
+				变换原点：变换的时候围绕的点就是变换原点
+				属性：transform-origin
+
+				1)关键字控制
+				transform-origin: right bottom;
+
+				2)像素值(坐标)
+				transform-origin:50px 50px;
+
+				3)百分比(和自身宽高计算后得出像素，最后转成坐标)
+				transform-origin:5% 5%;
+
+				4)两个值，第一个值是X，第二个值是Y，
+				如果只写一个值，
+				关键字中left、right等表示X，y则默认在中间
+				关键字中top、bottom等表示y，x则默认在中间
+				像素值和百分比则为x，y默认在中间
+				transform-origin: left;
+			*/
+
+			/* ****************变换原点对 旋转 有影响*******************************/
+			/* 变换原点的位置对旋转有影响 */
+			/* 
+				transform-origin: right bottom;
+				transform: rotate(30deg);
+			*/
+
+			/* ****************变换原点对 缩放 有影响*******************************/
+			/* 
+				transform-origin: right bottom;
+				transform: scale(0.5);
+			*/
+
+			/* ****************变换原点对 位移 无影响*******************************/
+			/* 
+				transform-origin: right bottom;
+				transform: translate(50px);
+			*/
+
+			/* 坐标原点 ≠ 变换原点 */
+
+
+		}
+	</style>
+</head>
+<body>
+	<div class="outer">
+		<div class="inner">你好啊</div>
+	</div>
+</body>
+</html>

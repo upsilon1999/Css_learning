@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>margin合并问题</title>
+	<style>
+		.box {
+			width: 200px;
+			height: 200px;
+		}
+		.box1 {
+			background-color: deepskyblue;
+			margin-bottom: 50px;
+		}
+		.box2 {
+			background-color: orange;
+			margin-top: 60px;
+		}
+		/* 
+			在上下兄弟之间，外边距会产生合并，左右兄弟不合并
+			例如 box1有个下外边距50px
+			box2有个上外边距60px，最后box2与box1相距60px而不是110px
+			因为中间有50px被共用了
+
+			提示：这个问题不要解决，规避即可，因为解决的副作用很大
+		*/
+	</style>
+</head>
+<body>
+	<div class="box box1">1</div>
+	<div class="box box2">2</div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>目标伪类</title>
+	<style>
+		div{
+			background-color: gray;
+			height: 200px;
+		}
+		/* 
+			目标伪类别 :target
+		
+			选中锚点指向的元素
+			锚点跳转引起地址栏变化，底层自动用地址去匹配对应id
+		*/
+		div:target{
+			background-color: green;
+		}
+	</style>
+</head>
+<body>
+	<!-- 
+		锚点跳转
+		现在想实现，点击锚点往哪跳，哪个div的背景色就变绿
+	-->
+	<a href="#one">去看第1个</a>
+	<a href="#two">去看第2个</a>
+	<a href="#three">去看第3个</a>
+	<a href="#four">去看第4个</a>
+	<a href="#five">去看第5个</a>
+	<a href="#six">去看第6个</a>
+	<div	id="one">第1个</div>
+	<br>
+	<div	id="two">第2个</div>
+	<br>
+	<div	id="three">第3个</div>
+	<br>
+	<div	id="four">第4个</div>
+	<br>
+	<div	id="five">第5个</div>
+	<br>
+	<div	id="six">第6个</div>
+</body>
+</html>

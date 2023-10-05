@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>01_文本阴影</title>
+	<style>
+		/* 与盒子阴影相比没有外延值和内部阴影 */
+		h1{
+			font-size: 80px;
+			text-align: center;
+			/* text-shadow:水平位置 垂直位置  模糊值 阴影颜色*/
+			text-shadow: 3px 3px 10px red;
+		}
+		/* 
+			场景：白色的背景，白色的文字，通过阴影显示文字
+			偏移值都给0px
+			text-shadow:0px 0px 10px black;
+		*/
+		p {
+			font-size: 40px;
+			color: white;
+			text-align: center;
+			text-shadow: 0px 0px 10px black;
+		}
+		/* 
+			光晕效果
+			把背景色调成黑色，就像关灯了一样，文字调成白色
+			通过添加文字阴影实现光晕效果
+		*/
+		div {
+			background-color: black;
+			width: 400px;
+			height: 400px;
+			margin: 0 auto;
+			text-align: center;
+		}
+		div>p{
+			color: white;
+			text-shadow: 0px 0px 10px red;
+		}
+	</style>
+</head>
+<body>
+	<h1>你好啊</h1>
+	<p>我是白色的</p>
+	<div>
+		<p>我是光晕</p>
+	</div>
+</body>
+</html>

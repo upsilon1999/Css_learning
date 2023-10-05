@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>扭曲</title>
+	<style>
+		.outer {
+			width: 200px;
+			height: 200px;
+			border: 2px solid black;
+			margin: 0 auto;
+			margin-top: 100px;
+		}
+		.inner{
+			width: 200px;
+			height: 200px;
+			background-color: skyblue;
+
+			/* 
+				css3变换的核心属性 transform 
+				skewX(角度值) 在X方向上扭曲，可以制造平行四边形
+				skewY(角度值) 在Y方向上扭曲，可以制造平行四边形
+				skew(x角度,y角度) 只写一个值代表X方向
+				正负值方向相反
+			*/
+			transform: skewX(50deg);
+		}
+	</style>
+</head>
+<body>
+	<div class="outer">
+		<div class="inner">你好啊</div>
+	</div>
+</body>
+</html>

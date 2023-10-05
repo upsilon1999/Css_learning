@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>属性选择器</title>
+	<style>
+		/* 
+			根据html标签的属性进行选取
+			注意，属性是可以自定义的，这就是以后项目开发中动态改变样式的原理
+		*/
+		/*	
+			语法1：[属性名]
+
+			例如：
+			选择页面中有title属性的所有元素
+		*/
+		[title] {
+			color:red;
+		}
+
+		/* 
+			语法2：[属性名 = 属性值]
+			元素不仅要有这个属性，属性的值还得满足要求
+
+			例如：
+			选中页面中有aaa属性且属性值为xxx的所有元素
+		*/
+		[abc="xxx"]{
+			color:blue;
+		}
+
+		/* 
+			语法3：[属性名 ^= 值]
+			元素不仅要有这个属性，属性的值还得以指定值开头
+
+			例如：
+			选中页面中有aoe属性且属性值以"b"开头的所有元素
+		*/
+		[aoe^='b']{
+			color:pink;
+		}
+		
+		/* 
+		语法4：[属性名 $= 值]
+		元素不仅要有这个属性，属性的值还得以指定值结尾
+
+		例如：
+		选中页面中有aoe属性且属性值以"jk"结尾的所有元素
+		*/
+		[aoe$='jk']{
+			color:blueviolet;
+		}
+
+		/* 
+		语法5：[属性名 *= 值]
+		元素不仅要有这个属性，属性的值还得包含指定值
+
+		例如：
+		选中页面中有aoe属性且属性值包含‘a’的所有元素
+		*/
+		[aoe*='a']{
+			color:greenyellow;
+		}
+
+		/* 
+			语法6：[属性名 ~= 值]
+			选中包含某个属性，属性值列表中含有指定的值的元素
+		*/
+		[shenqi~='pkq']{
+			color: darkorange;
+		}
+
+		/* 
+			语法7：[属性名 |= 值]
+			选中包含某个属性，属性值为指定值或者前缀为"值-"的元素
+		*/
+		[hello|='xix']{
+			color:deeppink;
+		}
+
+		/* 
+			语法8：[属性名 运算符 值 i]
+			运算符任意，i或者I均可，表示后面的值不区分大小写，对type属性无效
+		*/
+		/* 
+			语法9：[属性名 运算符 值 s]
+			运算符任意，s或者S均可，表示后面的值严格区分大小写
+		*/
+	</style>
+</head>
+<body>
+	<div title="learn">学习快乐1</div>
+	<div abc="xxx">学习快乐2</div>
+	<div aoe="bilibili">学习快乐3</div>
+	<div aoe="ccjk">学习快乐4</div>
+	<div aoe="abc">学习快乐5</div>
+	<div shenqi="pkq lxl">学习使我快乐6</div>
+	<div hello="xix-pkg">学习使我快乐7</div>
+</body>
+</html>

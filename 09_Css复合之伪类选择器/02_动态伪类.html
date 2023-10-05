@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>动态伪类</title>
+	<style>
+		/* 
+		没有访问过的元素，a元素独有的伪类
+		*/
+		a:link{
+			color:orange;
+		}
+		/* 
+			访问过的元素，a元素独有的伪类
+		*/
+		a:visited{
+			color:aqua;
+		}
+		/* 
+			选中鼠标悬浮状态的元素
+		*/
+		a:hover{
+			color:blue;
+		}
+		/* 
+			选中激活状态的元素，
+			a元素的话就是鼠标按下不松手
+		*/
+		a:active{
+			color:green;
+		}
+
+		/* 
+			a元素上面四种伪类乱序不生效的原理
+			未被访问时是 link状态
+			鼠标移入时有两个状态 link hover
+			鼠标按下时有三个状态 link hover active
+			访问过后状态为 visited
+			移入访问后的a有两个状态 visited hover
+			鼠标按下时访问后的有三个状态 visited hover active
+
+			根据样式表的书写顺序来决定生效的样式
+		*/
+
+		/* 
+			:hover是所有元素都有的伪类，表示鼠标悬浮
+			选中的鼠标悬浮的元素
+		*/
+		p:hover{
+			color:blue;
+		}
+		/* 
+			:active是所有元素都有的伪类，表示鼠标按下不松手
+			选中的是激活的元素
+		*/
+		p:active{
+			color:red;
+		}
+
+		/* 
+			获取焦点--在编码层面就是正在输入
+			:focus伪类只有表单类元素才具备,或者说只有能输入内容的元素才具备
+
+			当用户点击元素、触摸元素、或者通过键盘上的"tab"键等方式，选择元素时，只要让元素处于输入状态就是获得焦点
+		*/
+		input:focus{
+			color: orange;
+			background-color: green;
+		}
+		select:focus{
+			color: orange;
+			background-color: green;
+		}
+
+	</style>
+</head>
+<body>
+	<a href="#">链接1</a>
+	<a href="#">链接2</a>
+	<p>到我上面</p>
+	<br>
+	<input type="text">
+	<br>
+	<input type="text">
+	<br>
+	<select>
+		<option value="beijing">北京</option>
+		<option value="shanghai">上海</option>
+	</select>
+</body>
+</html>

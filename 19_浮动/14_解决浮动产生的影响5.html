@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>14_解决浮动产生的影响5</title>
+	<style>
+		/* 
+			要达到的目的：
+			1.父元素不塌陷
+			2.兄弟不被盖住
+
+			方案1：
+			把兄弟设置为display:inline-block,
+			会被当成文本元素，甩在外面，就是最初的环绕初衷
+		*/
+		.outer{
+			width: 500px;
+			background-color: gray;
+			border:1px solid black;
+			overflow: hidden;
+		}
+		.box {
+			width: 100px;
+			height: 100px;
+			background-color: skyblue;
+			border: 1px solid black;
+			margin: 10px;
+		}
+		.box1,.box2,.box3,.box4{
+			float: left;
+		}
+		.mofa{
+			/* 
+				消除前面所有左浮动兄弟产生的影响
+				clear:left;
+				消除前面所有右浮动兄弟产生的影响
+				clear:right;
+				消除前面所有浮动兄弟产生的影响
+				clear:both;
+			*/
+			clear: both;
+		}
+
+		/*
+			clear存在的问题，
+			1.如果box4不加浮动一切正常，如果box4加了浮动，一切白搭
+			不仅如此，clear的影响会让他独占一行，不和其他元素在一行浮动
+		
+			2.clear不能加给行内元素，因为行内元素没有宽高
+
+			解决方案：
+			给一个不占位的块元素设置clear，让他不触犯上述错误
+		*/
+	</style>
+</head>
+<body>
+	<div class="outer">
+		<div class="box box1">1</div>
+		<div class="box box2">2</div>
+		<div class="box box3">3</div>
+		<div class="box box4">4</div>
+		<!-- 设立一个不占位的元素，让他去使用clear -->
+		<div class="mofa"></div>
+	</div>
+	
+</body>
+</html>

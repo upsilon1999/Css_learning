@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>margin的注意事项2</title>
+	<style>
+		.box {
+			width: 200px;
+			height:200px;
+		}
+		.box1 {
+			background-color: skyblue;
+		}
+		.box2 {
+			background-color: orange;
+			/* 
+			效果：
+			box1不动
+			box2下移50px
+			box3也下移50px
+
+			即动自己，让自己与上方相对50px
+			 */
+			margin-top: 50px;
+
+			/* 
+				效果：
+				box1、box2不动
+				box3动
+
+				即不动自己，下边的动
+			*/
+			margin-bottom: 50px;
+		}
+		.box3 {
+			background-color: green;
+		}
+
+		/* 行内 */
+		.box-I {
+			width: 200px;
+			height:200px;
+			display: inline-block;
+		}
+		.box4 {
+			background-color: red;
+		}
+		.box5 {
+			background-color: yellow;
+			/* 
+				效果：
+				box4不动
+				box5、box6动
+			*/
+			margin-left: 10px;
+			/* 
+				效果：
+				box4、box5不动
+				box6动
+			*/
+			margin-right: 40px;
+		}
+		.box6 {
+			background-color: blue;
+		}
+	</style>
+</head>
+<body>
+	<div class="box box1">1</div>
+	<div class="box box2">2</div>
+	<div class="box box3">3</div>
+
+	<hr>
+
+	<div class="box-I box4">1</div>
+	<div class="box-I box5">2</div>
+	<div class="box-I box6">3</div>
+
+	<!-- 
+		总结：
+		上margin、左margin 会影响自身和下/右兄弟元素的位置
+
+		下margin会影响下边兄弟元素的位置，自身不动
+		右margin会影响右边兄弟元素的位置，自身不动
+
+	 -->
+</body>
+</html>

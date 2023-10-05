@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>关于默认宽度</title>
+	<style>
+		div {
+			height: 200px;
+			background-color: aqua;
+			/* 
+				当div没有给宽度时，撑开父级的宽度 例如1520
+
+				当我们给div加margin后，div与父级就有了距离，挤压了div
+				宽度就变为了 1420
+
+				并不是margin改变了div的大小，而是div能撑开的宽度变小了，如果我们不想这样，就需要给div设定个宽度
+			*/
+			margin: 50px;
+			/* 
+				border是盒子的组成部分，现在盒子能撑开的最大宽是1420
+				加上边框不会变，那么div就会被挤压，变为 1410
+				
+				padding同理
+			*/
+			border: 5px solid #000;
+
+		}
+	</style>
+</head>
+<body>
+	<div>
+		Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis inventore esse in. Necessitatibus voluptatem in, repellendus facilis praesentium sit alias, quam saepe aperiam voluptatum odio eaque ad omnis quas incidunt.
+	</div>
+</body>
+</html>

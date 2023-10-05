@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>表格独有属性</title>
+	<style>
+		table {
+			border: 1px solid green;
+			width: 200px;
+			/* 
+				独有
+				table-layout
+				控制表格的宽度
+				auto 自动
+				fixed 都一样宽
+
+				用了fixed后仍然可以直接去找对应行或列，利用width设置宽度
+			*/
+			table-layout: auto;
+			/* 
+				独有
+				控制单元格间距
+				border-spacing
+
+				生效前提：不能合并边框
+			*/
+			border-spacing: 0px;
+			/* 
+				独有
+				border-collapse
+				合并相邻单元格的边框
+				separate 不合并，默认
+				collapse 合并
+
+				注意:
+				1.一旦合并了单元格的边框，单元格间距将不再生效
+				2.表格外边框颜色会被与他合并的单元格边框颜色覆盖
+
+			*/
+			border-spacing: collapse;
+			/* 
+				独有
+				empty-cells
+				隐藏没有内容的单元格
+				show 展示
+				hide 隐藏
+
+				验证：我们发现他的边框不见了
+			*/
+			empty-cells:hide;
+			/* 
+				独有
+				caption-side
+				设置表格标题的位置
+				top 表格的标题在表格上方
+				bottom 表格的标题在表格的下方
+			*/
+			caption-side: bottom;
+		}
+		td,th{
+			border: 1px solid orange;
+		}
+	</style>
+</head>
+<body>
+	<!-- 
+		rowspan 跨行
+		colspan 跨列
+		这两个属性只能通过html使用，无法使用css实现
+	 -->
+	<table>
+		<caption>人员信息</caption>
+		<thead>
+			<tr>
+				<td>姓名</td>
+				<td>年龄</td>
+				<td>性别</td>
+				<td>个人价值</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>张三</td>
+				<td>18</td>
+				<td>男</td>
+				<td>很有价值</td>
+			</tr>
+			<tr>
+				<td>李四</td>
+				<td>19</td>
+				<td>男</td>
+				<td>吸血鬼</td>
+			</tr>
+			<tr>
+				<td>王五</td>
+				<td>21</td>
+				<td>男</td>
+				<td>战士</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>21</td>
+				<td>男</td>
+				<td>医生</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

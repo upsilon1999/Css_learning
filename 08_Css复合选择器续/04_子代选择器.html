@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>子代选择器</title>
+	<style>
+		/* 
+			让div的子元素a标签变成红色
+		*/
+		div>a {
+			color:red;
+		}
+		/* 可以紧密的写，也可以中间加空格 */
+		p > a {
+			color: aqua;
+		}
+
+		.qi > a {
+			color: chocolate;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<a href="#">张三</a>
+		<a href="#">里斯</a>
+		<a href="#">王五</a>
+		<p>
+			<a href="#">赵六</a>
+		</p>
+		<div class="qi">
+			<a href="#">孙七</a>
+		</div>
+	</div>
+</body>
+</html>

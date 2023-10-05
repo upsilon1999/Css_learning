@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>字体大小</title>
+	<style>
+		/* 
+			我们在项目开发时应该明确指出元素里面文字的大小，
+			因为不同浏览器默认文字大小不一样，而且是可变的，所以最好自己控制
+		*/
+		/* 
+			由于所有的元素都在body里，所以这样通过继承性，就可以让他们都有一个字体大小
+			由于继承的优先级最弱，所以我们要修改只需要在合适的地方写其他样式就可以
+		*/
+		body {
+			font-size: 20px;
+		}
+		/* 
+			ctrl + 0 回归100%,去除缩放
+			ctrl + 鼠标滚轮 放大缩小
+		*/
+		/* 
+			调试模式:
+			在元素上选择检查,就可以在控制台的样式表进行调整
+			单击想要修改的内容进入编辑模式,然后再选中数字,用键盘的上下键就可以一点点的加减
+
+			Inherited from xxx
+			就是从xxx继承得来的样式
+		*/
+		.test1 {
+			font-size: 40px;
+		}
+		.test2 {
+			font-size: 30px;
+		}
+		.test3 {
+			font-size: 20px;
+		}
+
+		.test4 {
+			font-size: 20px;
+		}
+		
+		.test5{
+			/* 
+			由于浏览器都有一个最小字号,在外观设置里
+			一旦我们写的数值在0到最小字号之间,默认展示最小字号大小
+			0的话代表不展示,chrome默认最小字号为12px,所以这个10px最终展示时仍然是12px
+			逍遥展示10px,只能呢个去设置里面吧最小字号调的比12px小
+		*/
+			font-size: 10px;
+		}
+
+	
+	</style>
+</head>
+<body>
+	<p class="test1">字体测试1</p>
+	<p class="test2">字体测试2</p>
+	<p class="test3">字体测试3</p>
+	<p class="test4">字体测试4</p>
+	<p class="test5">字体测试5</p>
+	<!-- 不写字体大小，chrome默认就是16px，要调整也需要在浏览器里面进行调整自定义字号 -->
+	<p>字体测试6</p>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>文本修饰</title>
+	<style>
+		/* 什么是文本修饰,就是类似于上划线、下划线、删除线等等操作 */
+		body{
+			font-size: 40px;
+		}
+		/* 
+		属性名：
+			文本--修饰（没有顺序上的要求）
+			text-decoration:线的位置 线的样式 线的颜色
+		属性值：
+			线的位置：
+				overline  上划线
+				underline 下划线
+				line-through 删除线
+				none       没有线
+			线的样式：
+				dotted 虚线
+				wavy   波浪线
+				solid  实线
+				double 双线
+			线的颜色：
+				哪种颜色表示都可以
+		*/
+		p:nth-of-type(1){
+			/* 上划线 */
+			text-decoration: overline dotted green;
+		}
+		p:nth-of-type(2){
+			/* 下划线 */
+			text-decoration: red wavy underline ;
+		}
+		p:nth-of-type(3){
+			/* 删除线 */
+			text-decoration: line-through yellow double;
+		}
+		a[aoe]{
+			text-decoration: none; 
+		}
+	</style>
+</head>
+<body>
+	<h1>什么是文本修饰?</h1>
+	<p>上划线</p>
+	<p>下划线</p>
+	<p>删除线</p>
+	<a href="#" aoe="999">好好学习</a>
+	<!-- 自带下划线的文本 -->
+	<ins>我的文本有下划线</ins>
+	<!-- 自带删除线的文本 -->
+	<del>我的文本有删除线</del>
+</body>
+</html>

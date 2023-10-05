@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>旋转</title>
+	<style>
+		.outer {
+			width: 200px;
+			height: 200px;
+			border: 2px solid black;
+			margin: 0 auto;
+			margin-top: 100px;
+		}
+		.inner{
+			width: 200px;
+			height: 200px;
+			background-color: skyblue;
+			/* 
+				css3变换的核心属性 transform 
+				rotateX、rotateY、rotate3D属于3D的旋转
+				rotateZ属于2D的旋转，
+				理解，2D处于平面上，所谓旋转，实际上绕着Z轴旋转
+
+				默认旋转的中心是元素正中央
+				rotateZ(角度值)  角度值单位deg，正值顺时针转，负值逆时针转
+				rotate(角度值)  写一个值时，相当于rotateZ，因为默认2D旋转
+
+				可以用坐标轴辅助查看旋转的角度
+			*/
+			transform: rotate(30deg);
+		}
+	</style>
+</head>
+<body>
+	<div class="outer">
+		<div class="inner">你好啊</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>01_位移</title>
+	<style>
+		.outer {
+			width: 200px;
+			height: 200px;
+			border: 2px solid black;
+			margin: 0 auto;
+			margin-top: 100px;
+			position: relative;
+		}
+		.inner{
+			width: 200px;
+			height: 200px;
+			background-color: skyblue;
+			/* 
+				css3变换的核心属性 transform
+				参考点：最近祖先元素的左上角 百分比是指自身的，x为宽，y为高
+				translateX(数值或百分比)  x轴上的移动，由于css不区分大小写，所以x小写也对
+				translateY(数值或百分比)  y轴上的移动
+				translate(x轴,y轴)   
+
+
+				不脱离文档流，和相对定位非常像
+
+			*/
+			transform: translate(50px,50px);
+		}
+		/* 实现水平垂直居中 */
+		.inner2{
+			width: 100px;
+			height: 100px;
+			background-color: orange;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+		}
+
+	</style>
+</head>
+<body>
+	<div class="outer">
+		<div class="inner">你好啊</div>
+	</div>
+	<div class="outer">
+		<div class="inner2"></div>
+	</div>
+</body>
+</html>

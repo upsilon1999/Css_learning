@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>background-clip</title>
+	<style>
+		/* 
+			background-clip 背景图修剪
+		*/
+		.box1 {
+			width: 400px;
+			height: 400px;
+			background-color: orange;
+			margin: 0 auto;
+			margin-top: 40px; 
+			padding: 50px;
+			font-size: 40px;
+			border: 50px dashed black;
+
+			background-image: url('../../img/R-C.jpeg');
+			background-repeat: no-repeat;
+
+			/* 
+				不仅影响到背景图片还影响到背景色
+				1.默认值 border-box 边界之外的背景不可见
+				2.padding-box  padding以外的背景不可见
+				3.content-box  超出内容区的背景不呈现
+				4.text         让背景呈现在文字上，前提，文字的字体颜色得透明
+
+				第4点在实验中，需要前缀，不推荐大量使用
+				文字的字体颜色得透明 color:transparent
+			*/
+			background-clip: border-box;
+		}
+		/* 
+			background-clip和background-origin可以一起用
+		*/
+	</style>
+</head>
+<body>
+	<div class="box1">你好啊</div>
+</body>
+</html>

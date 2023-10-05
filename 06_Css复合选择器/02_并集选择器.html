@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>并集选择器</title>
+	<style>
+		.rich {
+			color: gold;
+		}
+		.beauty {
+			color: red;
+		}
+		.pig{
+			color:green;
+		}
+		/* 
+			在原来三个选择器的基础上做扩展，这是他们三的并集
+
+			.rich 或 .beauty 或 .pig
+
+			中间的或我们改成','就可以了,最后一个选择器后面不能加逗号
+			一般为了美观，我们会竖着写
+
+			.rich,
+			.beauty,
+			.pig,
+			#sux {
+				font-size: large;
+				background-color: gray;
+				width: 160px;
+			}
+		*/
+		.rich,.beauty,.pig,#sux{
+			font-size: large;
+			background-color: gray;
+			width: 160px;
+		}
+		/* 
+			注意事项：
+			1.我们用逗号连接选择器表示或
+			2.最后一个选择器不加逗号，加了就会报错
+		*/
+	</style>
+</head>
+<body>
+	<h2 class="rich">土豪</h2>
+	<h2 class="beauty">明星</h2>
+	<p class="pig">猪</p>
+	<p id="sux">小羊肖恩</p>
+</body>
+</html>

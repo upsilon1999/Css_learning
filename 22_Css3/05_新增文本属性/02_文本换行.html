@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>02_文本换行</title>
+	<style>
+		div {
+			width: 400px;
+			height: 400px;
+			border:1px solid black;
+			font-size: 20px;
+			/* 
+			pre  按原文显示，代码怎么写怎么展示 
+			pre-wrap 按原文显示，但是特别长的自动换行
+			pre-line 按原文显示，但文字始末无效的空格被清除了，中间的空格保留
+			nowrap  不换行
+			*/
+			white-space: pre-wrap;
+		}
+	</style>
+</head>
+<body>
+	<!-- 代码里面的换行都会被浏览器认为是空格，多次换行认为是一个空格 -->
+	<div>
+		床前明月光,
+		疑是地上霜,
+		举头望明月,
+		低头思故乡。
+		床前明月光,
+		疑是地上霜,
+		举头望明月,举头望明月,举头望明月,举头望明月,举头望明月,举头望明月,举头望明月,
+		低头思故乡。
+		床前明月光,
+		疑是地上霜,
+		举头望明月,
+		低头思故乡。
+		床前明月光,
+		疑是地上霜,
+		举头望明月,
+		低头思故乡。
+	</div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>盒子的外边距</title>
+	<style>
+		#d1 {
+			width: 400px;
+			height: 400px;
+			background-color: aqua;
+			/* 复合属性 -- 上下左右都是20px */
+			/* margin: 20px; */
+
+			/* 复合属性写两个，含义：第一个上下一样  第二个左右一样 */
+			/* margin: 10px 20px; */
+
+			/* 复合属性写三个，含义：第一个上  第二个左右 第三个下 */
+			/* margin: 10px 5px 20px; */
+
+			/* 复合属性写四个，从上开始，顺时针：上 右 下 左 */
+			/* margin: 10px 15px 20px 25px; */
+
+		
+			/* 分开设置 */
+			/* 上侧外边距 */
+			margin-top:10px;
+			/* 右侧外边距 */
+			margin-right: 20px;
+			/* 底部外边据 */
+			margin-bottom: 30px;
+			/* 左侧外边距 */
+			margin-left: 5px;
+
+
+			/* 注意点 */
+			/* 
+				1.margin不能为负数，写负数代表未设置
+			*/
+		}
+	</style>
+</head>
+<body>
+	<div id="d1">你好啊</div>
+</body>
+</html>

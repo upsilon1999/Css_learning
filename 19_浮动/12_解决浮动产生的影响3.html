@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>12_解决浮动产生的影响3</title>
+	<style>
+		/* 
+			要达到的目的：
+			父元素的高度别塌
+
+			方案3：
+			添加overflow:hidden 也能解决父元素高度塌陷
+
+			通过 overflow:scroll可以知道，兄弟元素还存在只是被hidden截断了
+		*/
+		.outer{
+			width: 500px;
+			background-color: gray;
+			border:1px solid black;
+
+			overflow:hidden;
+		}
+		.box {
+			width: 100px;
+			height: 100px;
+			background-color: skyblue;
+			border: 1px solid black;
+			margin: 10px;
+		}
+		.box1,.box2,.box3{
+			float: left;
+		}
+		
+	</style>
+</head>
+<body>
+	<div class="outer">
+		<div class="box box1">1</div>
+		<div class="box box2">2</div>
+		<div class="box box3">3</div>
+	</div>
+	<div style="background-color: orange;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Est cupiditate quae laudantium voluptate ea, amet accusamus tempore perspiciatis dolor necessitatibus eveniet obcaecati assumenda! Beatae, voluptates neque nam delectus iure vel. Cupiditate, reprehenderit. Itaque hic quod rem voluptates, neque beatae asperiores ab voluptatem, laborum temporibus consequuntur ratione officiis, tenetur repellat adipisci.</div>
+</body>
+</html>

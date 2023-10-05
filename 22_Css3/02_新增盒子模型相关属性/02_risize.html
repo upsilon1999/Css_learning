@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>resize</title>
+	<style>
+		.box1 {
+			width: 400px;
+			height: 400px;
+			background-color: orange;
+			/* 
+				使用resize的前提，元素身上必需有overflow属性，值随意
+				原因：为了给出如何处理子元素的方案
+			*/
+			overflow: auto;
+			/* 
+				horizontal 水平方向上大小可变
+				vertical   垂直方向上大小可变
+				both       水平和垂直方向上都可变
+				none       不允许用户调整元素大小，默认
+			*/
+			resize:horizontal;
+		}
+	</style>
+</head>
+<body>
+	<div class="box1"></div>
+</body>
+</html>

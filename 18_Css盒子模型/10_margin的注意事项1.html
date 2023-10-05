@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>margin的注意事项01</title>
+	<style>
+		.outer {
+			width: 400px;
+			height: 400px;
+			background-color: gray;
+
+			padding: 50px;
+		}
+
+		.inner {
+			width: 100px;
+			height: 100px;
+			background-color: orange;
+
+			/* 从父级的内容区开始算 */
+			margin: 100px;
+		}
+	</style>
+</head>
+<body>
+	<!-- 
+		子元素的margin是参考父元素的content计算的。
+	 -->
+	<div class="outer">
+		<div class="inner"></div>
+	</div>
+
+</body>
+</html>

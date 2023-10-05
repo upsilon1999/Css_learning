@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>margin塌陷问题解决方案3</title>
+	<style>
+		.outer {
+			width: 400px;
+			height: 400px;
+			background-color: gray;
+
+			/* 
+			前两种方式的弊端：会影响盒子的大小
+
+			优化
+				给父元素身上加overflow:hidden;
+			*/
+			overflow: hidden;
+			/* overflow 溢出之后的显示模式 */
+		}
+		.inner1 {
+			width: 100px;
+			height: 100px;
+			background-color: orange;
+
+			 margin-top: 50px;
+		}
+		.inner2 {
+			width: 100px;
+			height: 100px;
+			background-color: red;
+
+
+			margin-bottom: 50px;
+		}
+	</style>
+</head>
+<body>
+	<div class="outer">
+		<div class="inner1">inner1</div>
+		<div class="inner2">inner2</div>
+	</div>
+</body>
+</html>

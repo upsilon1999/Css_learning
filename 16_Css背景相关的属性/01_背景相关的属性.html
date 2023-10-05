@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>背景相关的属性</title>
+	<style>
+		div {
+			width: 400px;
+			height: 400px;
+			border:2px solid black;
+			font-size: 40px;
+			/* 
+			设置背景色
+			1.color的写法都接受
+			2.不写的话，默认值为transparent 透明的
+			*/
+			background-color: skyblue;
+			/* 
+				设置背景图片
+				1.背景颜色会被背景图片压住
+				2.内容会在背景上方
+
+				图片的默认展示
+				1.小图不够宽高，就会多个铺满 --常用这个平铺特性来实现纹理
+				2.大图宽高太大，就只会展示一部分
+
+				路径可以加引号，也可以不加
+			*/
+			background-image: url(路径);
+
+			/* 
+				background-repeat
+				设置背景图片的重复方式
+				repeat 默认值，允许重复
+				no-repeat 不重复
+				repeat-x 只在水平方向上重复
+				repeat-y 只在垂直方向上重复
+			*/
+			background-repeat: no-repeat;
+
+			/* 
+				background-position
+				设置背景图片的位置--写法1:用关键词
+				常见位置描述词：x轴 left center right
+											y轴 top center bottom
+				如果只写一个,他会根据写的内容判断是水平还是垂直，另一个补center
+
+				background-position:水平位置 垂直位置;
+			*/
+			background-position:left top;
+
+			/* 
+				background-position
+				设置背景图片的位置--写法2:用具体的像素
+				background-position:水平位置 垂直位置;
+				图片左上角相对于容器左上角,x轴往左为正，y轴往下为正。
+
+				只写一个就是x轴，y轴默认为中间
+			*/
+			background-position:10px 100px;
+
+			/* 
+				复合属性
+				不挑顺序
+
+				有个小坑，复合属性即使没写背景色，也会使用 transparent
+				那就会覆盖写在他之前的外面的背景色--解决方案，把背景色写他后面
+
+				当然完全可以写在他里面
+			*/
+			background:url(路径) no-repeat 100px 300px;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<div>好好学习</div>
+</body>
+</html>

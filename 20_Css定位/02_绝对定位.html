@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>02_绝对定位</title>
+	<style>
+		.outer {
+			width: 500px;
+			background-color: skyblue;
+			border:1px solid black;
+			position: relative;
+		}
+		.box {
+			width: 200px;
+			height: 200px;
+			font-size: 20px;
+		}
+		.box1{
+			background-color: #888;
+		}
+		.box2{
+			background-color:green;
+			position: absolute;
+			top:220px;
+			left:20px;
+			/* 
+				脱离文档流
+				与浮动的区别：
+				1.浮动的时候补位的元素会把文字甩出去，
+				2.而绝对定位这个，补位的元素会完整进入
+				3.可以通过层级调整实现不同的效果
+			*/
+			/* 
+				包含块的概念：
+				1.没有脱离文档流的元素，其父元素就是他们的包含块
+				2.脱离文档流的元素，第一个开启定位的祖先元素，就是他的包含块。
+			*/
+			/* 
+				移动的参考点：
+					相对于包含块，body和html都没开定位，但html已经到了最外层，如果没有祖先包含块，最终会相对他定位
+			*/
+			/* 
+				绝对定位能与margin的关系，写了top才能用margin-top，其他同理
+				但是不推荐二者一起用，因为有些浏览器不认这些规则
+			*/
+			/* 
+				绝对定位的元素和浮动不可一起使用，如果一起使用只有绝对定位生效
+			*/
+			/* 
+				最重要：无论是什么元素--块、行内、行内块,只要进行了绝对定位就会变成一种特殊的元素-- 定位元素
+
+				ps:相对定位的元素还是本来的，不是定位元素
+			*/
+		}
+		.box3{
+			background-color: red;
+		}
+		/* 
+			定位元素的特点：
+			1.宽与高默认被内容撑开
+			2.宽高可以设置
+		*/
+
+		.outer:hover .box2 {
+			left: 220px;
+		}
+
+		/* 
+			规范：
+			1.子绝父相
+			如果子元素有绝对定位，父元素就用相对定位，相对父元素，方便布局
+			2.不要放弃浮动
+			理论上全部布局使用绝对定位也可以，但是会增加浏览器的运算量，可能会崩溃
+		*/
+	</style>
+</head>
+<body>
+	<div class="outer">
+		<div class="box box1">1</div>
+		<div class="box box2">2</div>
+		<div class="box box3">3</div>
+	</div>
+</body>
+</html>

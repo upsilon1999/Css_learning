@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>rgb或rgba</title>
+	<style>
+		/* 
+			rgb(红，绿，蓝)
+			光的三原色 红绿蓝，因为我们写的东西是要给显示器发光点用的
+			颜料的三原色 红黄蓝
+
+			三个值的范围都是 0～255,不同比例混合，可以实现自然界所有的颜色
+			也可以写百分比,不过这样写的少，因为不好算
+
+			要么都写百分比，要么都写数字，混写无效
+		*/
+		h2 {
+			color:rgb(red, green, blue)
+		}
+		.red {
+			color:rgb(255, 0, 0)
+		}
+		.ziluolan{
+			color:rgb(138, 43, 226)
+		}
+		.blue{
+			color: rgb(0%, 0%, 100%);
+		}
+		/* 
+			rgba(红，绿，蓝,透明度)
+			a=>alpha
+			数字表达：0～1,可以为小数，0为完全透明，1为不透明，0.xx 可以简写为 .xx
+			透明了，但是还存在，会展示下一层的颜色，相当于隐身了
+
+			百分比：0%～100%，这个可以和前面混写，说的不能混写指的是红绿蓝三原色必须都是同类表达
+		*/
+		.red0{
+			color: rgba(255, 0, 0, 0.5);
+		}
+	</style>
+</head>
+<body>
+	<h2>学无止境！</h2>
+	<p class="red">纯红色</p>
+	<p class="ziluolan">紫罗兰色</p>
+	<p class="blue">纯蓝色</p>
+	<p class="red0">半透明的纯红色</p>
+</body>
+</html>

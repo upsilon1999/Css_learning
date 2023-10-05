@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>细说font-size</title>
+	<style>
+		/* 
+			通过观察我们发现，字体与顶部和底部会有默认的间距，
+			这是字体设置时留下的东西，参考字体设置理念，字体会有一个字体设计框，font-size调整的就是这个框的高度
+			宽度会随着框的高度自适应
+
+			字体设置一般以小写字母x为基准，
+			基线(可以在mdn搜索)与x的下边缘平切
+
+			总结：
+			1.由于字体设计原因，文字最终呈现的大小，并不一定与font-size的值一致，可能大，也可能小。
+			例如：font-size设为40px，最终呈现的文字，可能比40px大，也可能比40px小
+
+			2.通常情况下，文字想对于字体设计框，并不是垂直居中的，通常都靠下一些
+		
+		*/
+		div {
+			font-size: 40px;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		好好学习x
+	</div>
+
+	<span style="font-size: 40px;font-family:'微软雅黑'">尚</span>
+	<span style="font-size: 40px;font-family:'华文彩云'">尚</span>
+</body>
+</html>

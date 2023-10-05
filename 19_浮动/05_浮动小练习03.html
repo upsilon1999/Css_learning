@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>04_浮动小练习03</title>
+	<style>
+			.outer{
+			width: 500px;
+			background-color: gray;
+			/* 父亲加边框的原因:防止抢走子元素的margin-top或margin-bottom */
+			border: 1px solid black;
+		}
+		.box {
+			width: 100px;
+			height: 100px;
+			background-color: skyblue;
+			border: 1px solid black;
+			margin: 10px;
+		}
+		.box1 {
+			float: left;
+		}
+		.box2 {
+			float: left;
+		}
+		.box3 {
+			float: left;
+		}
+		/* 
+			三个盒子排成一条线
+
+			可以理解为三个盒子都飞起来到了第二个平面,按照文档流的顺序起飞
+			
+			由于在同一个平面,所以不能重叠,只能排队了
+		*/
+	</style>
+</head>
+<body>
+	<div class="outer">
+		<div class="box box1">1</div>
+		<div class="box box2">2</div>
+		<div class="box box3">3</div>
+	</div>
+</body>
+</html>

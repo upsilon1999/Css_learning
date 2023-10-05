@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>01_相对定位</title>
+	<style>
+		.outer {
+			width: 500px;
+			background-color: skyblue;
+			border:1px solid black;
+		}
+		.box {
+			width: 200px;
+			height: 200px;
+		}
+		.box1{
+			background-color: #888;
+		}
+		.box2{
+			background-color:green;
+			/* 开启相对定位 */
+			position: relative;
+			/* 距离左边100px */
+			/* 这里的相对指的是相对其自身的原始位置 */
+			left: 100px;
+			top: 50px;
+			/* 
+				从box3和box1没有变化可以看出，
+				box2没有脱离文档流，他在文档流的原始位置一直占位，只是在视觉上变化
+			*/
+			/* 
+				注意事项：
+				right与left不能同时写，同时写只有left生效
+				top与bottom不能同时写，同时写只有top生效
+			*/
+		}
+		.box3{
+			background-color: red;
+		}
+		/* 
+			一个元素只有开了定位，层级就比普通元素要高
+			如果两个普通元素都开了定位，没设层级，那么后写的层级默认比前面高
+
+			定位最后谁显示只和层级有关，与浮动的漂浮不一样
+
+			漂浮 不同平面，脱离文档流，上天了
+			定位 层级，还在地上，只是谁压在上面
+		*/
+		/* 
+			定位与margin和浮动可以一起用
+			但是不推荐定位与margin或浮动一起用
+		*/
+
+		/* 
+			相对定位的优势：
+			1.不脱离文档流，对其他兄弟都没影响
+			2.可以超出父容器的范围
+		*/
+	</style>
+</head>
+<body>
+	<div class="outer">
+		<div class="box box1">1</div>
+		<div class="box box2">2</div>
+		<div class="box box3">3</div>
+	</div>
+</body>
+</html>

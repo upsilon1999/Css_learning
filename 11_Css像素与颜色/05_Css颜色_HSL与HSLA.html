@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>HSL与HSLA</title>
+	<style>
+		/* 
+			hsl(hue, saturation, lightness)
+			hsl(色相，饱和度，明度)
+
+			色相，用角度表示颜色，要了解色相环
+			饱和度，黑白照片饱和度0%，彩照饱和度100%，色彩的浓郁度，饱和度说高低，理解就是往灰色里面掺色相对应的颜色
+			明度/亮度，0%关灯，100%强光，一般用50%，越小黑色越多，越大白色越多
+		*/
+		.red {
+			/* deg可以省略 */
+			color:hsl(0deg, 100%, 50%)
+		}
+		.blue {
+			color:hsl(240, 100%, 50%)
+		}
+		/* 
+			hsla(hue, saturation, lightness, alpha)
+			alpha是透明度，可以写0～1,也可以写0%～100%
+		*/
+		.red0 {
+			
+			color:hsla(0, 100%, 50%, 0.5)
+		}
+	</style>
+</head>
+<body>
+	<h2>学无止境！</h2>
+	<p class="red">纯红色</p>
+	<p class="ziluolan">紫罗兰色</p>
+	<p class="blue">纯蓝色</p>
+	<p class="red0">半透明的纯红色</p>
+</body>
+</html>

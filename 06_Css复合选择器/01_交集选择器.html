@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>交集选择器</title>
+	<style>
+		.rich {
+			color: gold;
+		}
+		.beauty {
+			color: red;
+		}
+		/* 
+			p元素且类名为beauty
+
+			二者连在一起写
+		*/
+		/* 1.元素名写在类名之前 */
+		p.beauty{
+			color: aqua;
+		}
+
+		/* 条件可以写的很多,元素在最前面，后面的连着写就可以，class和id无序 */
+		p.rich#wc{
+			color: blueviolet;
+		}
+
+		/* 
+		可以没有元素选择器
+
+		类名包含rich和beauty的元素
+		*/
+		.rich.beauty{
+			color:orange;
+		}
+		/* 
+			注意事项：
+			1.元素名写在类名之前
+			2.条件可以写的很多,元素在最前面，后面的连着写就可以，class和id无序
+			3.一般交集选择器不拼接id，因为id唯一，既然有id了，就可以直接用，不需要交集选择器了
+			4.交集选择器至多有一个元素，即也可以没有元素
+
+			开发中 元素.类名 的使用较多
+		*/
+	</style>
+</head>
+<body>
+	<h2 class="rich">土豪</h2>
+	<h2 class="beauty">明星</h2>
+
+	<p class="beauty">
+		学习交集选择器
+	</p>
+	<p class="rich" id="wc">多条件交集选择器</p>
+	<p class="rich beauty">大土豪</p>
+</body>
+</html>

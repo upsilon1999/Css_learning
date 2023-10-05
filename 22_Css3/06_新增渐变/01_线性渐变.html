@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>线性渐变</title>
+	<style>
+		/* 
+			线性渐变
+			给颜色画一条线，颜色是线性变化的
+		*/
+		.box {
+			width: 300px;
+			height: 200px;
+			border: 1px solid black;
+			margin-left: 50px;
+			float: left;
+		}
+		/* 所谓的渐变，本质上就是一个背景图片，不过这个图片是我们用代码构造出来的 */
+		.box1 {
+			/* 
+				linear-gradient(颜色列表) 默认从上到下线性渐变,颜色列表个数无限，以逗号隔开
+			*/
+			background-image: linear-gradient(red,yellow,green);
+		}
+		.box2 {
+			/* 
+				linear-gradient(颜色排列方向，颜色列表)
+				颜色排列方向--关键词方法
+				to right 颜色列表从左往右
+				to left 颜色列表从右往左
+				to right top 颜色列表从左下往右上
+
+				to 方向
+			*/
+			background-image: linear-gradient(to right,red,yellow,green);
+		}
+		.box3 {
+			/* 
+				linear-gradient(颜色排列方向，颜色列表)
+				颜色排列方向--角度
+				整个渐变线的旋转角度，可以画一个轴线，角度就是那个夹角
+
+				可以用定时器实现炫光效果
+			*/
+			background-image: linear-gradient(20deg,red,yellow,green);
+		}
+		.box4 {
+			/* 
+				颜色列表后跟距离，表示到这个节点才变纯色，不加就是均匀分布
+				50px 纯红线，50px之前没有别的颜色，故为纯红
+				50px~100px 由红变黄，100px为纯黄线
+				100px~150px 由黄变绿，150px为纯绿线
+				150px之后没有别的颜色，故为纯绿
+
+				距离区间可以是数值也可以是百分比
+			*/
+			background-image: linear-gradient(red 50px,yellow 100px,green 150px);
+		}
+		.box5 {
+			background-image: linear-gradient(20deg,red 50px,yellow 100px,green 150px);
+			font-size: 80px;
+			text-align: center;
+			line-height: 200px;
+			font-weight: bold;
+			color: transparent;
+			/* 让背景只呈现在文字上 */
+			-webkit-background-clip:text;
+		}
+	</style>
+</head>
+<body>
+	<!-- div.box.box1 生成两个类名-->
+	<div class="box box1">默认情况(从上到下)</div>
+	<div class="box box2">关键词调节线性渐变方向</div>
+	<div class="box box3">角度调节线性渐变方向</div>
+	<div class="box box4">调节线性渐变区域</div>
+	<div class="box box5">你好啊</div>
+
+</body>
+</html>

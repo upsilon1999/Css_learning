@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>隐藏元素的两种方式</title>
+	<style>
+		.box {
+			width: 200px;
+			height: 200px;
+		}
+		.box1 {
+			background-color: aqua;
+			/* 隐藏元素 通过控制元素的显示模式 */
+			/* display: none; */
+
+			/* 
+			visibility元素显隐性 
+			默认show显示 
+			可以选值hidden隐藏 
+			*/
+			visibility: hidden;
+		}
+		.box2 {
+			background-color: orange;
+		}
+		/* 
+			区别：
+			display:none 隐藏后，不占位置，但是仍然可以选中
+
+			visibility: hidden; 隐藏后仍然要占位，也可以选中
+		*/
+	</style>
+</head>
+<body>
+	<div class="box box1">1</div>
+	<div class="box box2">2</div>
+</body>
+</html>

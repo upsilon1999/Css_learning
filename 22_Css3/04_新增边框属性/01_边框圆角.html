@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>边框圆角</title>
+	<style>
+		div {
+			width: 400px;
+			height: 400px;
+			border:2px solid black;
+			margin: 0 auto;
+			/* 
+				快捷键 borr
+				值是半径，从最早产生弧度的地方划线，最后能得到一个扇形
+
+				由原理可知半径最大为边长的一半，再大也会是这个
+			*/
+			/* border-radius: 50px; */
+			
+
+			/* 百分比指的是边长的百分比 */
+			/* border-radius: 10%; */
+
+			/* ************************单边圆角************************************/
+			/* 单独设置每边的圆角 */
+			/* 左上角 用 top-left */
+			/*
+				border-top-left-radius: 10px;
+				border-top-right-radius: 10px;
+				border-bottom-left-radius: 10px;
+				border-bottom-right-radius: 10px; 
+			*/
+
+			/* **************************单边椭圆***********************************/
+			/* 设置椭圆，第一个值是x轴，第二个值是y轴 */
+			/* border-top-left-radius:10px 20px;
+			border-top-right-radius:15px 25px;
+			border-bottom-left-radius: 16px 26px;
+			border-bottom-right-radius: 19px 29px;  */
+			/* **************************复合椭圆***********************************/
+			/* 复合时，从左上角开始顺时针开始 */
+			/* 斜杆前是 左上 右上 右下 左下的x轴值 斜杠后是对应顺序的y轴值 */
+			/* border-radius: 10px 15px 16px 19px / 20px 25px 26px 29px; */
+
+			/* **************************复合圆角***********************************/
+			/* 复合时，从左上角开始顺时针开始 */
+			border-radius: 10px 15px 16px 19px;
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+</body>
+</html>

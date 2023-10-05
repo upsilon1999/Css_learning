@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>id选择器</title>
+	<style>
+		/* 
+			id选择器 #id名
+		*/
+		#earthy {
+			color:blue;
+		}
+		#two {
+			font-size: 100px;
+		}
+		/* 
+			注意事项：
+			1. css的id属性不能以数字开头
+			2. 多个元素的 id值不能重复，重复了会影响一些我们想要的实现
+			3.一个元素不能有多个id值
+			4.一个元素可以同时拥有id和class，且class允许和id同名
+		
+		*/
+	</style>
+</head>
+<body>
+	<!-- 
+		任意html标签都可以加id属性 
+		不同元素的id值不能重复
+
+		重复了并不会报错，只是样式就是同一个，js拿元素也是同一个，超链接跳转也是
+	-->
+	<h1 id="earthy">我是标题</h1>
+	<p id="two">我是段落</p>
+	<span></span>
+	<p>我是第二个段落</p>
+</body>
+</html>
