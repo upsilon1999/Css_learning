@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02_主轴方向</title>
+    <style>
+        .outer{
+            width: 1000px;
+            height: 600px;
+            background-color: #888;
+            /* 伸缩盒模型相关的属性 */
+
+            display: flex;
+
+            /* 
+                伸缩盒模型分主轴和侧轴
+                主轴默认是水平方向，从左往右
+                侧轴默认是垂直方向，从上往下
+
+                元素默认按主轴排列，从主轴起始点到终点方向
+                主轴方向一改动，侧轴就自动跟着改。没有专门的属性修改侧轴，侧轴和主轴垂直
+
+            */
+            /* 
+                调整主轴方向 flex-direction
+                值：
+                row  水平从左到右，默认   | 侧轴垂直,从上到下
+                row-reverse 水平从右到左  | 侧轴垂直,从上到下
+                column   垂直从上到下     | 侧轴水平，从左到右
+                column-reverse 垂直从下到上 | 侧轴水平，从左到右
+
+            */
+            flex-direction:column-reverse;
+        }
+        .inner {
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+            border: 1px solid black;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+		<div class="inner">1</div>
+		<div class="inner">2</div>
+		<div class="inner">3</div>
+	</div>
+</body>
+</html>

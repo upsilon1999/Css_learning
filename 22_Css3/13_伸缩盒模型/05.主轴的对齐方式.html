@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05.主轴的对齐方式</title>
+    <style>
+         .outer{
+            width: 1000px;
+            height: 600px;
+            background-color: #888;
+            /* 伸缩盒模型相关的属性 */
+            display: flex;
+            flex-direction:row;
+            flex-wrap: wrap;  
+
+            /* 
+                主轴上的对齐方式
+                属性：justify-content
+                注意：是对齐位置改变，排列顺序不变，排列顺序只和轴的方向有关
+                常用值:
+                ① flex-start 默认值，主轴的起始位置对齐
+                ② flex-end   主轴的结束位置对齐
+                ③ center     主轴方向上居中
+                ④ space-around 项目均匀分布在主轴上，项目与项目之间是2倍的大小，项目和边缘是1倍的大小
+                ⑤ space-between  项目均匀分布在主轴上，项目与项目之间距离相等，项目与边缘之间没有距离
+                ⑥ space-evenly   项目均匀分布在主轴上，项目与项目之间，项目和边缘之间距离都一样
+            */
+            justify-content: space-around;
+        }
+        .inner {
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+            border: 1px solid black;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+		<div class="inner">1</div>
+		<div class="inner">2</div>
+		<div class="inner">3</div>
+	</div>
+</body>
+</html>

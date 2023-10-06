@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>侧轴对齐_一行</title>
+    <style>
+        .outer{
+           width: 1000px;
+           height: 600px;
+           background-color: #888;
+           /* 伸缩盒模型相关的属性 */
+           display: flex;
+           flex-direction:row;
+           flex-wrap: wrap;  
+           justify-content:flex-start;
+
+           /* 
+                侧轴对齐_一行
+                属性:align-items
+                值：
+                ① flex-start 侧轴的起始位置对齐
+                ② flex-end   侧轴的结束位置对齐
+                ③ center     侧轴的中间位置对齐
+                ④ baseline   文字基线位置对齐，几乎不用
+                ⑤ stretch    所有的伸缩项目没有高度时生效，直接充满父容器高度(侧轴如果水平就是宽度)
+
+                注意:
+                1.stretch 才是默认值，拉伸到整个父容器，前提所有的伸缩项目没有高度(侧轴垂直)
+                2.要所有的
+           */
+           align-items: flex-start;
+       }
+       .inner {
+           width: 200px;
+           height: 200px;
+           background-color: skyblue;
+           border: 1px solid black;
+           box-sizing: border-box;
+       }
+       .inner2 {
+            height: 300px;
+            font-size: 80px;
+       }
+       .inner3 {
+            height: 100px;
+       }
+   </style>
+</head>
+<body>
+    <div class="outer">
+		<div class="inner">1</div>
+		<div class="inner inner2">2</div>
+		<div class="inner inner3">3</div>
+	</div>
+</body>
+</html>

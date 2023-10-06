@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>伸缩项目_伸</title>
+    <style>
+        .outer{
+           width: 1000px;
+           height: 900px;
+           background-color: #888;
+           /* 伸缩盒模型相关的属性 */
+           display: flex;
+           flex-direction:row;
+           flex-wrap: wrap;  
+           justify-content:flex-start;
+       }
+       .inner {
+           width: 200px;
+           height: 200px;
+           background-color: skyblue;
+           border: 1px solid black;
+           box-sizing: border-box;
+       }
+       .inner2 {
+        /* 
+            设置项目在主轴上的基准长度
+            若主轴是横向的，就顶替掉宽度
+            若主轴是纵向的，就顶替掉高度
+
+            默认值是auto，这个属性的作用:
+            浏览器根据这个属性来计算主轴上是否有富裕空间
+        */
+        flex-basis:300px ;
+       }
+   </style>
+</head>
+<body>
+    <div class="outer">
+		<div class="inner">1</div>
+		<div class="inner inner2">2</div>
+		<div class="inner">3</div>
+	</div>
+</body>
+</html>

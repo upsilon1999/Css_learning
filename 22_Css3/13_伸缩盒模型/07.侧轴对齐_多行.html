@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>侧轴对齐_多行</title>
+    <style>
+        .outer{
+           width: 1000px;
+           height: 900px;
+           background-color: #888;
+           /* 伸缩盒模型相关的属性 */
+           display: flex;
+           flex-direction:row;
+           flex-wrap: wrap;  
+           justify-content:flex-start;
+
+           /* 
+            主轴方向上:
+            一行的高度根据那一行中最高的那个伸缩项
+            同理当主轴为纵向，那么列宽就是最宽的那个
+           */
+           /* 
+                侧轴对齐_多行
+                属性:align-content
+                值：
+                ① flex-start 侧轴的起始位置对齐
+                ② flex-end   侧轴的结束位置对齐
+                ③ center     侧轴的中间位置对齐
+                ④ space-around 项目在侧轴上均匀分布，项目与项目之间距离相等，且是项目与边缘距离的两倍
+                ⑤ space-between 项目在侧轴上均匀分布，项目与项目之间距离相等，项目与边缘之间没有距离
+                ⑥ space-evenly  项目在侧轴上均匀分布，项目与项目之间，项目和边缘之间距离都一样
+                ⑦ stretch  所有的伸缩项目没有高度/宽度时生效(根据侧轴方向)，项目都被拉伸，默认值
+           */
+           align-content: space-between;
+       }
+       .inner {
+           width: 200px;
+           height: 200px;
+           background-color: skyblue;
+           border: 1px solid black;
+           box-sizing: border-box;
+       }
+       .inner2 {
+            height: 300px;
+       }
+       .inner3 {
+            height: 100px;
+       }
+   </style>
+</head>
+<body>
+    <div class="outer">
+		<div class="inner">1</div>
+		<div class="inner inner2">2</div>
+		<div class="inner inner3">3</div>
+        <div class="inner">4</div>
+        <div class="inner">5</div>
+        <div class="inner">6</div>
+        <div class="inner">7</div>
+        <div class="inner">8</div>
+        <div class="inner">9</div>
+        <div class="inner">10</div>
+        <div class="inner">11</div>
+	</div>
+</body>
+</html>

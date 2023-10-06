@@ -12488,4 +12488,606 @@ flex布局目前在移动端应用比较广泛，因为传统布局不能很好�
 </html>
 ```
 
-3.
+#### 3.主轴与侧轴
+
+##### 3.1基本概念
+
+>主轴
+
+```sh
+伸缩项目沿着主轴排列，主轴默认是水平的，默认方向是:从左往右。
+```
+
+>侧轴
+
+```sh
+侧轴与主轴垂直，侧轴默认是垂直的，默认方向:从上往下。
+```
+
+##### 3.2主轴方向
+
+>属性名
+
+```css
+flex-direction
+```
+
+>常用值
+
+```sh
+row  水平从左到右，默认   | 侧轴垂直,从上到下
+row-reverse 水平从右到左  | 侧轴垂直,从上到下
+column   垂直从上到下     | 侧轴水平，从左到右
+column-reverse 垂直从下到上 | 侧轴水平，从左到右
+```
+
+##### 3.3举例
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02_主轴方向</title>
+    <style>
+        .outer{
+            width: 1000px;
+            height: 600px;
+            background-color: #888;
+            /* 伸缩盒模型相关的属性 */
+
+            display: flex;
+
+            /* 
+                伸缩盒模型分主轴和侧轴
+                主轴默认是水平方向，从左往右
+                侧轴默认是垂直方向，从上往下
+
+                元素默认按主轴排列，从主轴起始点到终点方向
+                主轴方向一改动，侧轴就自动跟着改。没有专门的属性修改侧轴，侧轴和主轴垂直
+
+            */
+            /* 
+                调整主轴方向 flex-direction
+                值：
+                row  水平从左到右，默认   | 侧轴垂直,从上到下
+                row-reverse 水平从右到左  | 侧轴垂直,从上到下
+                column   垂直从上到下     | 侧轴水平，从左到右
+                column-reverse 垂直从下到上 | 侧轴水平，从左到右
+
+            */
+            flex-direction:column-reverse;
+        }
+        .inner {
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+            border: 1px solid black;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+		<div class="inner">1</div>
+		<div class="inner">2</div>
+		<div class="inner">3</div>
+	</div>
+</body>
+</html>
+```
+
+#### 4.主轴换行
+
+> 属性名
+
+```css
+flex-wrap
+```
+
+>常用值
+
+```sh
+ 主轴换行的方式 flex-wrap
+①nowrap  默认值，不换行，当元素多时通过压缩来实现同行或同列排列
+        即使我们设定了宽度或者高度，也会被压缩
+"1 2 3 4 5 6 7"
+
+        
+②wrap    换行，同时要参考侧轴的对齐方式来决定下一行的位置
+        从第一行开始，从左往右排，排不下再换行，最后可能溢出显示
+
+"1 2 3 4 5"
+"6 7 8"
+
+
+③wrap-reverse 反向换行，是指从最下面开始排，相当于侧轴反转了
+"6 7 8"
+"1 2 3 4 5"
+```
+
+>所谓参考侧轴
+
+```sh
+根据侧轴分配的不同，换行后不一定是贴着的，可能均匀分布或者两侧分布等等...
+```
+
+>举例
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03_主轴换行方式</title>
+    <style>
+        .outer{
+            width: 1000px;
+            height: 600px;
+            background-color: #888;
+            /* 伸缩盒模型相关的属性 */
+
+            display: flex;
+
+            flex-direction:row;
+            /* 
+                主轴换行的方式 flex-wrap
+                ①nowrap  默认值，不换行，当元素多时通过压缩来实现同行或同列排列
+                        即使我们设定了宽度或者高度，也会被压缩
+                ②wrap    换行，同时要参考侧轴的对齐方式来决定下一行的位置
+                        从第一行开始，从左往右排，排不下再换行，最后可能溢出显示
+
+                ③wrap-reverse 反向换行，是指从最下面开始排，相当于侧轴反转了
+            */
+            flex-wrap: wrap-reverse;
+        }
+        .inner {
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+            border: 1px solid black;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+		<div class="inner">1</div>
+		<div class="inner">2</div>
+		<div class="inner">3</div>
+        <div class="inner">4</div>
+		<div class="inner">5</div>
+		<div class="inner">6</div>
+        <div class="inner">7</div>
+		<div class="inner">8</div>
+		<div class="inner">9</div>
+	</div>
+</body>
+</html>
+```
+
+#### 5.flex-flow
+
+```sh
+flex-flow是一个复合属性，复合了flex-direction和flex-wrap两个属性。值没有顺序要求。
+```
+
+```css
+flex-flow:row wrap;
+```
+
+#### 6.主轴的对齐方式
+
+>属性名
+
+```sh
+justify-content
+```
+
+>常用值
+
+```sh
+"flex-start"
+主轴起点对齐。--默认值
+
+"flex-end"
+主轴终点对齐
+
+"center"
+居中对齐
+
+"space-around"
+均匀分布，两端距离是中间距离的一半
+
+"space-between"
+均匀分布，两端对齐(最常用)
+
+"space-evenly"
+均匀分布，两端距离与中间距离一致。
+```
+
+>举例
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05.主轴的对齐方式</title>
+    <style>
+         .outer{
+            width: 1000px;
+            height: 600px;
+            background-color: #888;
+            /* 伸缩盒模型相关的属性 */
+            display: flex;
+            flex-direction:row;
+            flex-wrap: wrap;  
+
+            /* 
+                主轴上的对齐方式
+                属性：justify-content
+                注意：是对齐位置改变，排列顺序不变，排列顺序只和轴的方向有关
+                常用值:
+                ① flex-start 默认值，主轴的起始位置对齐
+                ② flex-end   主轴的结束位置对齐
+                ③ center     主轴方向上居中
+                ④ space-around 项目均匀分布在主轴上，项目与项目之间是2倍的大小，项目和边缘是1倍的大小
+                ⑤ space-between  项目均匀分布在主轴上，项目与项目之间距离相等，项目与边缘之间没有距离
+                ⑥ space-evenly   项目均匀分布在主轴上，项目与项目之间，项目和边缘之间距离都一样
+            */
+            justify-content: space-around;
+        }
+        .inner {
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+            border: 1px solid black;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+		<div class="inner">1</div>
+		<div class="inner">2</div>
+		<div class="inner">3</div>
+	</div>
+</body>
+</html>
+```
+
+#### 7.侧轴对齐方式--只有一行
+
+>属性值
+
+```css
+align-items
+```
+
+>常用值
+
+```sh
+"flex-start"
+侧轴的起始点对齐
+
+"flex-end"
+侧轴的终点对齐
+
+"center"
+侧轴的中间对齐
+
+"baseline"
+伸缩项目的第一行文字的基线对齐(用x)
+
+"stretch"
+如果伸缩项目未设置高度，将占满整个容器的高度。--默认值
+```
+
+>举例
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>侧轴对齐_一行</title>
+    <style>
+        .outer{
+           width: 1000px;
+           height: 600px;
+           background-color: #888;
+           /* 伸缩盒模型相关的属性 */
+           display: flex;
+           flex-direction:row;
+           flex-wrap: wrap;  
+           justify-content:flex-start;
+
+           /* 
+                侧轴对齐_一行
+                属性:align-items
+                值：
+                ① flex-start 侧轴的起始位置对齐
+                ② flex-end   侧轴的结束位置对齐
+                ③ center     侧轴的中间位置对齐
+                ④ baseline   文字基线位置对齐，几乎不用
+                ⑤ stretch    所有的伸缩项目没有高度时生效，直接充满父容器高度(侧轴如果水平就是宽度)
+
+                注意:
+                1.stretch 才是默认值，拉伸到整个父容器，前提所有的伸缩项目没有高度(侧轴垂直)
+                2.要所有的
+           */
+           align-items: flex-start;
+       }
+       .inner {
+           width: 200px;
+           height: 200px;
+           background-color: skyblue;
+           border: 1px solid black;
+           box-sizing: border-box;
+       }
+       .inner2 {
+            height: 300px;
+            font-size: 80px;
+       }
+       .inner3 {
+            height: 100px;
+       }
+   </style>
+</head>
+<body>
+    <div class="outer">
+		<div class="inner">1</div>
+		<div class="inner inner2">2</div>
+		<div class="inner inner3">3</div>
+	</div>
+</body>
+</html>
+```
+
+#### 8.侧轴对齐方式_多行
+
+>属性名
+
+```css
+align-content
+```
+
+>常用值
+
+```sh
+"flex-start"
+侧轴起点对齐。--默认值
+
+"flex-end"
+侧轴终点对齐
+
+"center"
+居中对齐
+
+"space-around"
+均匀分布，两端距离是中间距离的一半
+
+"space-between"
+均匀分布，两端对齐(最常用)
+
+"space-evenly"
+均匀分布，两端距离与中间距离一致。
+
+"stretch"
+所有的伸缩项目没有高度/宽度时生效(根据侧轴方向)，项目都被拉伸，默认值
+```
+
+>举例
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>侧轴对齐_多行</title>
+    <style>
+        .outer{
+           width: 1000px;
+           height: 900px;
+           background-color: #888;
+           /* 伸缩盒模型相关的属性 */
+           display: flex;
+           flex-direction:row;
+           flex-wrap: wrap;  
+           justify-content:flex-start;
+
+           /* 
+            主轴方向上:
+            一行的高度根据那一行中最高的那个伸缩项
+            同理当主轴为纵向，那么列宽就是最宽的那个
+           */
+           /* 
+                侧轴对齐_多行
+                属性:align-content
+                值：
+                ① flex-start 侧轴的起始位置对齐
+                ② flex-end   侧轴的结束位置对齐
+                ③ center     侧轴的中间位置对齐
+                ④ space-around 项目在侧轴上均匀分布，项目与项目之间距离相等，且是项目与边缘距离的两倍
+                ⑤ space-between 项目在侧轴上均匀分布，项目与项目之间距离相等，项目与边缘之间没有距离
+                ⑥ space-evenly  项目在侧轴上均匀分布，项目与项目之间，项目和边缘之间距离都一样
+                ⑦ stretch  所有的伸缩项目没有高度/宽度时生效(根据侧轴方向)，项目都被拉伸，默认值
+           */
+           align-content: space-between;
+       }
+       .inner {
+           width: 200px;
+           height: 200px;
+           background-color: skyblue;
+           border: 1px solid black;
+           box-sizing: border-box;
+       }
+       .inner2 {
+            height: 300px;
+       }
+       .inner3 {
+            height: 100px;
+       }
+   </style>
+</head>
+<body>
+    <div class="outer">
+		<div class="inner">1</div>
+		<div class="inner inner2">2</div>
+		<div class="inner inner3">3</div>
+        <div class="inner">4</div>
+        <div class="inner">5</div>
+        <div class="inner">6</div>
+        <div class="inner">7</div>
+        <div class="inner">8</div>
+        <div class="inner">9</div>
+        <div class="inner">10</div>
+        <div class="inner">11</div>
+	</div>
+</body>
+</html>
+```
+
+#### 9.元素水平垂直居中
+
+>方案1
+
+```sh
+① 父元素开启弹性盒子
+② 使得伸缩项目在水平和垂直方向上对齐
+```
+
+>方案2
+
+```sh
+① 父元素开启弹性盒子
+②子元素添加 margin:auto;
+```
+
+>举例
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>元素水平垂直居中</title>
+    <style>
+        .outer {
+            width: 400px;
+            height: 400px;
+            background-color: #888;
+            display:flex;
+
+            /* 
+                方案一
+                ① 父元素开启弹性盒子
+                ② 使得伸缩项目在水平和垂直方向上对齐
+             */
+            /* 
+                justify-content: center;
+                align-items: center;
+             */
+        }
+        .inner {
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+
+            /* 
+                方案二
+                ① 父元素开启弹性盒子
+                ②子元素添加 margin:auto;
+            */
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="inner">
+        </div>
+    </div>
+</body>
+</html>
+```
+
+#### 10.项目在主轴上的基准长度
+
+>属性名
+
+```sh
+flex-basis
+```
+
+>概念
+
+```sh
+flex-basis设置的是主轴方向的基准长度,会让宽度或者高度失效
+主轴横向,宽度失效;
+主轴纵向,高度失效;
+```
+
+>作用
+
+```sh
+浏览器根据这个属性设置的值，计算主轴上是否有多余空间，默认值auto,即:伸缩项目的宽或高
+```
+
+>举例
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>项目在主轴的基准长度</title>
+    <style>
+        .outer{
+           width: 1000px;
+           height: 900px;
+           background-color: #888;
+           /* 伸缩盒模型相关的属性 */
+           display: flex;
+           flex-direction:row;
+           flex-wrap: wrap;  
+           justify-content:flex-start;
+       }
+       .inner {
+           width: 200px;
+           height: 200px;
+           background-color: skyblue;
+           border: 1px solid black;
+           box-sizing: border-box;
+       }
+       .inner2 {
+        /* 
+            设置项目在主轴上的基准长度
+            若主轴是横向的，就顶替掉宽度
+            若主轴是纵向的，就顶替掉高度
+
+            默认值是auto，这个属性的作用:
+            浏览器根据这个属性来计算主轴上是否有富裕空间
+        */
+        flex-basis:300px ;
+       }
+   </style>
+</head>
+<body>
+    <div class="outer">
+		<div class="inner">1</div>
+		<div class="inner inner2">2</div>
+		<div class="inner">3</div>
+	</div>
+</body>
+</html>
+```
+

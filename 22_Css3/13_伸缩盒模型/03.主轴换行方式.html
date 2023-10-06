@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03_主轴换行方式</title>
+    <style>
+        .outer{
+            width: 1000px;
+            height: 600px;
+            background-color: #888;
+            /* 伸缩盒模型相关的属性 */
+
+            display: flex;
+
+            flex-direction:row;
+            /* 
+                主轴换行的方式 flex-wrap
+                ①nowrap  默认值，不换行，当元素多时通过压缩来实现同行或同列排列
+                        即使我们设定了宽度或者高度，也会被压缩
+                ②wrap    换行，同时要参考侧轴的对齐方式来决定下一行的位置
+                        从第一行开始，从左往右排，排不下再换行，最后可能溢出显示
+
+                ③wrap-reverse 反向换行，是指从最下面开始排，相当于侧轴反转了
+            */
+            flex-wrap: wrap-reverse;
+        }
+        .inner {
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+            border: 1px solid black;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+		<div class="inner">1</div>
+		<div class="inner">2</div>
+		<div class="inner">3</div>
+        <div class="inner">4</div>
+		<div class="inner">5</div>
+		<div class="inner">6</div>
+        <div class="inner">7</div>
+		<div class="inner">8</div>
+		<div class="inner">9</div>
+	</div>
+</body>
+</html>
