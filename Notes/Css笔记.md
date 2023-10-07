@@ -13091,3 +13091,398 @@ flex-basis设置的是主轴方向的基准长度,会让宽度或者高度失效
 </html>
 ```
 
+#### 11.伸缩项目_伸
+
+>属性值
+
+```sh
+flex-grow
+```
+
+>概念
+
+```sh
+flex-grow定义伸缩项目的放大比例，默认为0，即
+纵使主轴存在剩余空间也不拉伸(放大)
+```
+
+>规则
+
+```sh
+1.若所有的伸缩项目的flex-grow的值都为1，则:他们将等分剩余空间
+2.若三个伸缩项目的flex-grow值分别是:1、2、3，则分别瓜分到:
+1/6,2/6,3/6
+```
+
+>举例
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>伸缩项目_伸</title>
+    <style>
+        .outer{
+           width: 1000px;
+           height: 600px;
+           background-color: #888;
+           /* 伸缩盒模型相关的属性 */
+           display: flex;
+           flex-direction:row;
+           flex-wrap: wrap;  
+           justify-content:flex-start;
+       }
+       .inner {
+           width: 200px;
+           height: 200px;
+           background-color: skyblue;
+           border: 1px solid black;
+           box-sizing: border-box;
+           /* 
+                默认没有拉伸，inner的3个盒子目前宽度
+                200px 300px 200px
+                通过计算和实际演示我们得出右边还有300px
+           */
+           /* 
+                通过拉伸属性，我们可以实现对剩下300px的瓜分
+                属性值：flex-grow
+                值:
+                参与瓜分的总人数y,每个人自己的数值x，被瓜分的内容z
+                每个人瓜分到的 z*(x/y)
+
+                flex-grow是加给伸缩项目
+                分母y是所有伸缩项的总份数，flex-grow的和
+                分子x是伸缩项flex-grow的值，不写默认0
+                瓜分项Z是主轴的剩余空间
+           */
+           flex-grow: 1;
+       }
+       .inner2{
+        width: 300px;
+       }
+   </style>
+</head>
+<body>
+    <div class="outer">
+		<div class="inner">1</div>
+		<div class="inner inner2">2</div>
+		<div class="inner">3</div>
+	</div>
+</body>
+</html>
+```
+
+#### 12.伸缩项目_缩
+
+>属性值
+
+```sh
+flex-shrink
+```
+
+>概念
+
+```sh
+flex-shrink定义了项目的压缩比例，默认值为1，即
+如果空间不足，该项目将会缩小
+```
+
+>收缩项目的计算举例
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>伸缩项目_缩</title>
+    <style>
+        .outer{
+           width: 400px;
+           height: 600px;
+           background-color: #888;
+           /* 伸缩盒模型相关的属性 */
+           display: flex;
+           flex-direction:row;
+           /* flex-wrap: wrap;   */
+           justify-content:flex-start;
+       }
+       /* 
+            压缩产生的时机:
+            ① 父元素的空间不够了
+            前提：
+            1.不要换行，换行不会压缩，因为放不下会换行
+            2.拿我们的这个举例，我们的盒子总大小为700px，加了flex-grow:1后，只要比700px大就还是拉伸，只是拉伸的没那么大
+            3.换行后，主轴的剩余空间会重新计算，每个主轴独立
+            4.小于我们给定的700px，在不换行的情况下就是压缩，即对于inner2，只要他小于300px就是压缩，反之拉伸
+
+            ②压缩的计算
+            举例:
+            设定如下:
+            盒子1 主轴上长度200px flex-shrink为1
+            盒子2 主轴上长度300px flex-shrink为1
+            盒子3 主轴上长度200px flex-shrink为2
+            父亲最终变成400px，压缩了300px
+
+            收缩比的分母: 
+            (盒子1主轴上长度*盒子1的flex-shrink)+ (盒子2主轴上长度*盒子2的flex-shrink)+ (盒子3主轴上长度*盒子3的flex-shrink) = 900
+
+            收缩比计算:
+            盒子1的收缩比:(盒子1主轴上长度*盒子1的flex-shrink)/900
+            盒子2的收缩比:(盒子2主轴上长度*盒子2的flex-shrink)/900
+            盒子3的收缩比:(盒子3主轴上长度*盒子3的flex-shrink)/900
+
+            最终的收缩结果:
+            盒子1的收缩值: 盒子1的收缩比 * 父亲压缩的大小
+            盒子2的收缩值: 盒子2的收缩比 * 父亲压缩的大小
+            盒子3的收缩值: 盒子3的收缩比 * 父亲压缩的大小
+
+            像素差在0点几，多数是浏览器对边框的计算产生了误差，设定了box-sizing也没用，除非不要边框
+            但是这点误差影响不大，所以边框样式最好保留
+
+            flex-shrink 管压缩，默认值为1
+
+            收缩的极限:
+            即使父亲的宽度为0了，子元素还是有宽度，保证内容的呈现，由内容撑开宽度
+       */
+       .inner {
+           width: 200px;
+           height: 200px;
+           background-color: skyblue;
+           border: 1px solid black;
+           box-sizing: border-box;
+       }
+       .inner2{
+        width: 300px;
+       }
+       .inner3{
+        flex-shrink: 2;
+       }
+   </style>
+</head>
+<body>
+    <div class="outer">
+		<div class="inner">1</div>
+		<div class="inner inner2">2</div>
+		<div class="inner inner3">3</div>
+	</div>
+</body>
+</html>
+```
+
+#### 13.伸缩项目_flex复合属性
+
+```sh
+flex: flex-grow flex-shrink flex-basis;
+# 有顺序限制
+```
+
+>常用的四个简写
+
+```sh
+flex: 1 1 auto; 
+==>可简写为 flex:auto;
+flex: 1 1 0; 
+==>可简写为 flex:1;  (基准变为0，我们设定的主轴长度就没意义了，但是会显示，因为拉伸)
+flex: 0 0 auto;
+==>可简写为 flex:none; (不可压缩)
+flex:0 1 auto;
+==>默认值，可简写为 flex:0 auto;
+```
+
+>举例
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex复合属性</title>
+    <style>
+        .outer{
+           width: 1000px;
+           height: 600px;
+           background-color: #888;
+           /* 伸缩盒模型相关的属性 */
+           display: flex;
+           flex-direction:row;
+           flex-wrap: wrap;  
+           justify-content:flex-start;
+       }
+       .inner {
+           width: 200px;
+           height: 200px;
+           background-color: skyblue;
+           border: 1px solid black;
+           box-sizing: border-box;
+
+            /* ################### */
+            /* 拉伸属性 */
+            /* flex-grow: 1; */
+            /* 压缩属性 */
+            /* flex-shrink: 1; */
+            /* 基准长度 */
+            /* flex-basis: 100px; */
+            /* ################# */
+
+            /* 
+                flex复合属性，有顺序要求
+
+                flex: flex-grow flex-shrink flex-basis
+            */
+            flex: 1 1 auto;
+
+            /* 
+                flex: 1 1 auto; ==>可简写为 flex:auto;
+                flex: 1 1 0; ==>可简写为 flex:1;  (基准变为0，我们设定的主轴长度就没意义了，但是会显示，因为拉伸)
+                flex: 0 0 auto;==>可简写为 flex:none; (不可压缩)
+                flex:0 1 auto;==>默认值，可简写为 flex:0 auto;
+            */
+       }
+       
+   </style>
+</head>
+<body>
+    <div class="outer">
+		<div class="inner">1</div>
+		<div class="inner">2</div>
+		<div class="inner">3</div>
+	</div>
+</body>
+</html>
+```
+
+#### 14.伸缩项目排序
+
+>属性值
+
+```sh
+order
+```
+
+>概念
+
+```sh
+属性定义项目的排列顺序，数值越小，排列越靠前，所有项目默认值为0
+```
+
+>举例
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>项目排序</title>
+    <style>
+        .outer{
+           width: 1000px;
+           height: 600px;
+           background-color: #888;
+           /* 伸缩盒模型相关的属性 */
+           display: flex;
+           flex-direction:row;
+           flex-wrap: wrap;  
+           justify-content:flex-start;
+       }
+       .inner {
+           width: 200px;
+           height: 200px;
+           background-color: skyblue;
+           border: 1px solid black;
+           box-sizing: border-box;
+           flex: 1 1 0;
+       }
+       /* 
+            需求:
+            默认顺序是 1、2、3
+            然后根据我们的各种对齐排序
+
+            实际上所有伸缩项的排序order默认是0
+            order越大排在后，order越小排在前,order一样按照代码顺序
+
+            我们想要2到1前面
+       */
+       .inner2{
+            order: -1;
+       }
+   </style>
+</head>
+<body>
+    <div class="outer">
+		<div class="inner">1</div>
+		<div class="inner inner2">2</div>
+		<div class="inner">3</div>
+	</div>
+</body>
+</html>
+```
+
+
+
+#### 15.伸缩项目单独排序
+
+>属性
+
+```sh
+align-self
+```
+
+>概念
+
+```sh
+1.通过align-self属性，可以单独调整某个伸缩项目的对齐方式
+2.默认值为auto，表示继承父元素的align-items属性
+```
+
+>举例
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>项目排序</title>
+    <style>
+        .outer{
+           width: 1000px;
+           height: 600px;
+           background-color: #888;
+           /* 伸缩盒模型相关的属性 */
+           display: flex;
+           flex-direction:row;
+           flex-wrap: wrap;  
+           justify-content:flex-start;
+       }
+       .inner {
+           width: 200px;
+           height: 200px;
+           background-color: skyblue;
+           border: 1px solid black;
+           box-sizing: border-box;
+           flex: 1 1 0;
+       }
+       /* 
+        单独调节某个项目在侧轴方向上的对齐方式
+        属性值和单行侧轴对齐一样
+       */
+       .inner2{
+        align-self: flex-end;
+       }
+   </style>
+</head>
+<body>
+    <div class="outer">
+		<div class="inner">1</div>
+		<div class="inner inner2">2</div>
+		<div class="inner">3</div>
+	</div>
+</body>
+</html>
+```
+

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex复合属性</title>
+    <style>
+        .outer{
+           width: 1000px;
+           height: 600px;
+           background-color: #888;
+           /* 伸缩盒模型相关的属性 */
+           display: flex;
+           flex-direction:row;
+           flex-wrap: wrap;  
+           justify-content:flex-start;
+       }
+       .inner {
+           width: 200px;
+           height: 200px;
+           background-color: skyblue;
+           border: 1px solid black;
+           box-sizing: border-box;
+
+            /* ################### */
+            /* 拉伸属性 */
+            /* flex-grow: 1; */
+            /* 压缩属性 */
+            /* flex-shrink: 1; */
+            /* 基准长度 */
+            /* flex-basis: 100px; */
+            /* ################# */
+
+            /* 
+                flex复合属性，有顺序要求
+
+                flex: flex-grow flex-shrink flex-basis
+            */
+            flex: 1 1 auto;
+
+            /* 
+                flex: 1 1 auto; ==>可简写为 flex:auto;
+                flex: 1 1 0; ==>可简写为 flex:1;  (基准变为0，我们设定的主轴长度就没意义了，但是会显示，因为拉伸)
+                flex: 0 0 auto;==>可简写为 flex:none; (不可压缩)
+                flex:0 1 auto;==>默认值，可简写为 flex:0 auto;
+            */
+       }
+       
+   </style>
+</head>
+<body>
+    <div class="outer">
+		<div class="inner">1</div>
+		<div class="inner">2</div>
+		<div class="inner">3</div>
+	</div>
+</body>
+</html>

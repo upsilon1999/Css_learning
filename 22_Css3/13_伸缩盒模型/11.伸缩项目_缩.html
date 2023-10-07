@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>伸缩项目_缩</title>
+    <style>
+        .outer{
+           width: 400px;
+           height: 600px;
+           background-color: #888;
+           /* 伸缩盒模型相关的属性 */
+           display: flex;
+           flex-direction:row;
+           /* flex-wrap: wrap;   */
+           justify-content:flex-start;
+       }
+       /* 
+            压缩产生的时机:
+            ① 父元素的空间不够了
+            前提：
+            1.不要换行，换行不会压缩，因为放不下会换行
+            2.拿我们的这个举例，我们的盒子总大小为700px，加了flex-grow:1后，只要比700px大就还是拉伸，只是拉伸的没那么大
+            3.换行后，主轴的剩余空间会重新计算，每个主轴独立
+            4.小于我们给定的700px，在不换行的情况下就是压缩，即对于inner2，只要他小于300px就是压缩，反之拉伸
+
+            ②压缩的计算
+            举例:
+            设定如下:
+            盒子1 主轴上长度200px flex-shrink为1
+            盒子2 主轴上长度300px flex-shrink为1
+            盒子3 主轴上长度200px flex-shrink为2
+            父亲最终变成400px，压缩了300px
+
+            收缩比的分母: 
+            (盒子1主轴上长度*盒子1的flex-shrink)+ (盒子2主轴上长度*盒子2的flex-shrink)+ (盒子3主轴上长度*盒子3的flex-shrink) = 900
+
+            收缩比计算:
+            盒子1的收缩比:(盒子1主轴上长度*盒子1的flex-shrink)/900
+            盒子2的收缩比:(盒子2主轴上长度*盒子2的flex-shrink)/900
+            盒子3的收缩比:(盒子3主轴上长度*盒子3的flex-shrink)/900
+
+            最终的收缩结果:
+            盒子1的收缩值: 盒子1的收缩比 * 父亲压缩的大小
+            盒子2的收缩值: 盒子2的收缩比 * 父亲压缩的大小
+            盒子3的收缩值: 盒子3的收缩比 * 父亲压缩的大小
+
+            像素差在0点几，多数是浏览器对边框的计算产生了误差，设定了box-sizing也没用，除非不要边框
+            但是这点误差影响不大，所以边框样式最好保留
+
+            flex-shrink 管压缩，默认值为1
+
+            收缩的极限:
+            即使父亲的宽度为0了，子元素还是有宽度，保证内容的呈现，由内容撑开宽度
+       */
+       .inner {
+           width: 200px;
+           height: 200px;
+           background-color: skyblue;
+           border: 1px solid black;
+           box-sizing: border-box;
+       }
+       .inner2{
+        width: 300px;
+       }
+       .inner3{
+        flex-shrink: 2;
+       }
+   </style>
+</head>
+<body>
+    <div class="outer">
+		<div class="inner">1</div>
+		<div class="inner inner2">2</div>
+		<div class="inner inner3">3</div>
+	</div>
+</body>
+</html>

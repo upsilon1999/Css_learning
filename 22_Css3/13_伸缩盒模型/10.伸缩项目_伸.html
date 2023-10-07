@@ -7,7 +7,7 @@
     <style>
         .outer{
            width: 1000px;
-           height: 900px;
+           height: 600px;
            background-color: #888;
            /* 伸缩盒模型相关的属性 */
            display: flex;
@@ -21,17 +21,27 @@
            background-color: skyblue;
            border: 1px solid black;
            box-sizing: border-box;
-       }
-       .inner2 {
-        /* 
-            设置项目在主轴上的基准长度
-            若主轴是横向的，就顶替掉宽度
-            若主轴是纵向的，就顶替掉高度
+           /* 
+                默认没有拉伸，inner的3个盒子目前宽度
+                200px 300px 200px
+                通过计算和实际演示我们得出右边还有300px
+           */
+           /* 
+                通过拉伸属性，我们可以实现对剩下300px的瓜分
+                属性值：flex-grow
+                值:
+                参与瓜分的总人数y,每个人自己的数值x，被瓜分的内容z
+                每个人瓜分到的 z*(x/y)
 
-            默认值是auto，这个属性的作用:
-            浏览器根据这个属性来计算主轴上是否有富裕空间
-        */
-        flex-basis:300px ;
+                flex-grow是加给伸缩项目
+                分母y是所有伸缩项的总份数，flex-grow的和
+                分子x是伸缩项flex-grow的值，不写默认0
+                瓜分项Z是主轴的剩余空间
+           */
+           flex-grow: 1;
+       }
+       .inner2{
+        width: 300px;
        }
    </style>
 </head>
