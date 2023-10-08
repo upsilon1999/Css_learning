@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>运算符</title>
+    <style>
+      
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        h1{
+            height: 200px;
+            background-color: gray;
+            text-align: center;
+            line-height: 200px;
+            font-size: 100px;
+        }
+        /* 
+            "且"运算符号：
+            （特性）and (特性)
+            取两个特性的并集，例如
+            700px =< 宽度 =< 800px
+        */
+        @media (min-width:700px) and (max-width:800px) {
+            h1{
+                background-color: orange;
+            }
+        }
+        /* 
+            进一步限定设备，上面的打印机也生效
+            下面限制只有屏幕生效
+        */
+        @media screen and (min-width:700px) and (max-width:800px) {
+            h1{
+                background-color: orange;
+            }
+        }
+
+        /* 
+            "或" 运算符：
+            老语法:  (特性),(特性)
+            新语法： (特性) or (特性)
+            新老语法都可以
+            例如:
+            宽度<=700px 或 宽度>= 800px
+        */
+        @media (max-width:700px),(min-width:800px) {
+            h1{
+                background-color: red;
+            }
+        }
+        /* 
+            "否定" 运算符:
+            not (特性)
+            不是屏幕时应用
+        */
+        @media not screen {
+            h1{
+                font-size: 50px;
+            }
+        }
+        /* 
+            "肯定" 运算符,加在最前面
+            only (特性)...
+            原因：
+            ie浏览器只认识媒体类型，不认识媒体特性
+            加了only，ie就认识媒体特性了
+            而对于其他内核,这个only加与不加一样
+            
+        */
+        /* 
+            这样ie就认识 and (min-width:900px)了
+            不认识的话他会忽略
+        */
+        @media only screen and (min-width:900px) {
+            h1{
+                background-color: blue;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>你好</h1>
+</body>
+</html>

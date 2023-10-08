@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>媒体的特性</title>
+    <style>
+        /* 
+            所谓媒体的特性，就是媒体的属性
+            例如屏幕的宽高
+        */
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        h1{
+            height: 200px;
+            background-color: gray;
+            text-align: center;
+            line-height: 200px;
+            font-size: 100px;
+        }
+
+        /* 
+            检测到视口的宽度为800px时，应用如下样式
+        */
+        @media (width:800px) {
+            h1{
+                background-color: green;
+            }
+        }
+        /* 
+            检测到视口最大宽度为700px，应用如下样式
+            即宽度 小于等于 700px时应用如下样式
+        */
+        @media (max-width:700px) {
+            h1{
+                background-color: red;
+            }
+        }
+         /* 
+            检测到视口最小宽度为900px，应用如下样式
+            即宽度 大于等于 900px时应用如下样式
+        */
+        @media (min-width:900px) {
+            h1{
+                background-color: blue ;
+            }
+        }
+        /* 
+            可以用数轴辅助理解
+        */
+        /* 
+            device-xxx
+            设备的属性，例如电脑屏幕的属性
+
+            device-width 设备宽度
+        */
+        @media (device-width:1000px){
+            h1{
+                font-size: 40px;
+            }
+        }
+
+        /* 
+            注意:
+            1.媒体查询都是按照先后顺序排的，后面相同的会覆盖前面相同的
+            这里的相同要看生效区间，如果生效区间一样，属性也一样就会造成覆盖
+            如果只是属性一样，但生效区间不一样，那么再根据区间接受属性
+            2.媒体特性请用括号包裹，否则可能失效
+        */
+    </style>
+</head>
+<body>
+    <h1>你好</h1>
+</body>
+</html>

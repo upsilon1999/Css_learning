@@ -13486,3 +13486,358 @@ align-self
 </html>
 ```
 
+### Css3_响应式布局之媒体查询
+
+#### 1.媒体类型
+
+>详情请查询MDN,因为很多都废弃了
+
+>常见
+
+```sh
+all 任意设备
+print 打印机
+screen 屏幕
+其他的都废弃了
+```
+
+>举例
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>媒体类型</title>
+    <style>
+        /* 
+            媒体查询
+            不仅能查询屏幕宽度，还能查询设备类型，知道设备是电脑还是打印机等等
+        */
+        h1{
+            width: 600px;
+            height: 400px;
+            background-image: linear-gradient(30deg,red,yellow,green);
+            margin: 0 auto;
+
+            line-height: 400px;
+            text-align: center;
+            font-size: 100px;
+            color: white;
+            text-shadow: 0 0 10px black;
+        }
+        /* 
+            需求：
+            借用媒体查询实现打印时去除背景
+            @media 设备
+            设备值:
+            screen 屏幕，电脑手机手表屏幕均可
+            print 打印机
+            all  所有，一直都应用
+
+            注意：
+            1.媒体查询没有提高优先级，
+            2.他和其他样式一样，会被后写的覆盖，他也会覆盖之前的
+            3.即媒体查询和其他是平级的
+        
+        	经验:
+            把媒体查询写在最后面
+        */
+        @media print {
+            /* 
+                这里没可以写任意CSS语法，
+                相当于打印机下的样式,只有在打印机或打印预览才会采用
+            */
+            h1 {
+                /* 背景色不能干掉背景图，但是背景复合属性可以 */
+                background:transparent;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>大吉大利</h1>
+</body>
+</html>
+```
+
+#### 2.媒体特性
+
+>完整列表参考MDN
+
+|        值        |                             含义                             |
+| :--------------: | :----------------------------------------------------------: |
+|      width       |                         检测视口宽度                         |
+|    max-width     |             检测视口最大宽度，小于等于该宽度生效             |
+|    min-width     |             检测视口最小宽度，大于等于该宽度生效             |
+|      height      |                         检测视口高度                         |
+|    max-height    |             检测视口最大高度，小于等于该高度生效             |
+|    min-height    |             检测视口最小高度，大于等于该高度生效             |
+|   device-width   |                      检测设备屏幕的宽度                      |
+| max-device-width |          检测设备屏幕的最大宽度，小于等于该宽度生效          |
+| min-device-width |          检测设备屏幕的最小宽度，大于等于该宽度生效          |
+|   orientation    | 检测视口的旋转方向(是否横屏)<br>portrait 视口处于纵向，即高度大于等于宽度<br>landscape 视口处于横向，即宽度大于高度 |
+
+>举例
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>媒体的特性</title>
+    <style>
+        /* 
+            所谓媒体的特性，就是媒体的属性
+            例如屏幕的宽高
+        */
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        h1{
+            height: 200px;
+            background-color: gray;
+            text-align: center;
+            line-height: 200px;
+            font-size: 100px;
+        }
+
+        /* 
+            检测到视口的宽度为800px时，应用如下样式
+        */
+        @media (width:800px) {
+            h1{
+                background-color: green;
+            }
+        }
+        /* 
+            检测到视口最大宽度为700px，应用如下样式
+            即宽度 小于等于 700px时应用如下样式
+        */
+        @media (max-width:700px) {
+            h1{
+                background-color: red;
+            }
+        }
+         /* 
+            检测到视口最小宽度为900px，应用如下样式
+            即宽度 大于等于 900px时应用如下样式
+        */
+        @media (min-width:900px) {
+            h1{
+                background-color: blue ;
+            }
+        }
+        /* 
+            可以用数轴辅助理解
+        */
+        /* 
+            device-xxx
+            设备的属性，例如电脑屏幕的属性
+
+            device-width 设备宽度
+        */
+        @media (device-width:1000px){
+            h1{
+                font-size: 40px;
+            }
+        }
+
+        /* 
+            注意:
+            1.媒体查询都是按照先后顺序排的，后面相同的会覆盖前面相同的
+            这里的相同要看生效区间，如果生效区间一样，属性也一样就会造成覆盖
+            如果只是属性一样，但生效区间不一样，那么再根据区间接受属性
+            2.媒体特性请用括号包裹，否则可能失效
+        */
+    </style>
+</head>
+<body>
+    <h1>你好</h1>
+</body>
+</html>
+```
+
+#### 3.运算符
+
+|    值     | 含义 |
+| :-------: | :--: |
+|    and    | 并且 |
+| `,` 或 or |  或  |
+|    not    | 否定 |
+|   only    | 肯定 |
+
+>举例
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>运算符</title>
+    <style>
+      
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        h1{
+            height: 200px;
+            background-color: gray;
+            text-align: center;
+            line-height: 200px;
+            font-size: 100px;
+        }
+        /* 
+            "且"运算符号：
+            （特性）and (特性)
+            取两个特性的并集，例如
+            700px =< 宽度 =< 800px
+        */
+        @media (min-width:700px) and (max-width:800px) {
+            h1{
+                background-color: orange;
+            }
+        }
+        /* 
+            进一步限定设备，上面的打印机也生效
+            下面限制只有屏幕生效
+        */
+        @media screen and (min-width:700px) and (max-width:800px) {
+            h1{
+                background-color: orange;
+            }
+        }
+
+        /* 
+            "或" 运算符：
+            老语法:  (特性),(特性)
+            新语法： (特性) or (特性)
+            新老语法都可以
+            例如:
+            宽度<=700px 或 宽度>= 800px
+        */
+        @media (max-width:700px),(min-width:800px) {
+            h1{
+                background-color: red;
+            }
+        }
+        /* 
+            "否定" 运算符:
+            not (特性)
+            不是屏幕时应用
+        */
+        @media not screen {
+            h1{
+                font-size: 50px;
+            }
+        }
+        /* 
+            "肯定" 运算符,加在最前面
+            only (特性)...
+            原因：
+            ie浏览器只认识媒体类型，不认识媒体特性
+            加了only，ie就认识媒体特性了
+            而对于其他内核,这个only加与不加一样
+            
+        */
+        /* 
+            这样ie就认识 and (min-width:900px)了
+            不认识的话他会忽略
+        */
+        @media only screen and (min-width:900px) {
+            h1{
+                background-color: blue;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>你好</h1>
+</body>
+</html>
+```
+
+#### 4.常用阈值举例
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>常用阈值</title>
+    <style>
+        /* 
+            常用的屏幕分类:
+            0~768px 超小屏幕
+            768px~992px 中等屏幕
+            992px~1200px 大屏幕
+            1200px往上  超大屏幕
+        */
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        h1{
+            height: 200px;
+            background-color: gray;
+            text-align: center;
+            line-height: 200px;
+            font-size: 100px;
+        }
+        @media screen and (max-width:768px) {
+            h1{
+                background-color: red;
+            }
+        }
+        /* 
+            这里 769也行，虽然是小于等于，但对于这种中间值，没啥问题
+        */
+        @media screen and (min-width:768px) and (max-width:992px)  {
+            h1{
+                background-color: orange;
+            }
+        }
+        @media screen and (min-width:992px) and (max-width:1200px)  {
+            h1{
+                background-color: yellow;
+            }
+        }
+        @media screen and (min-width:1200px) {
+            h1{
+                background-color: green;
+            }
+        }
+
+        /* 
+            真正拿媒体查询做响应式，一般写外置css，例如
+            small.css
+            middle.css
+            ...
+
+            写法:
+            ①用媒体查询包裹不同的样式
+
+            ②样式正常写，引入时
+            <link ref="stylesheet" media="screen and (min-width:1200px)" href="./css/huge.css">
+            使用link的media属性区分，相当于@media后面的部分
+
+            引入顺序，
+            常规css
+            小屏css
+            ...
+            最大屏css
+        */
+    </style>
+</head>
+<body>
+    <h1>你好</h1>
+</body>
+</html>
+```
+

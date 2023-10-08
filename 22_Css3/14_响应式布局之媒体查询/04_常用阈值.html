@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>常用阈值</title>
+    <style>
+        /* 
+            常用的屏幕分类:
+            0~768px 超小屏幕
+            768px~992px 中等屏幕
+            992px~1200px 大屏幕
+            1200px往上  超大屏幕
+        */
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        h1{
+            height: 200px;
+            background-color: gray;
+            text-align: center;
+            line-height: 200px;
+            font-size: 100px;
+        }
+        @media screen and (max-width:768px) {
+            h1{
+                background-color: red;
+            }
+        }
+        /* 
+            这里 769也行，虽然是小于等于，但对于这种中间值，没啥问题
+        */
+        @media screen and (min-width:768px) and (max-width:992px)  {
+            h1{
+                background-color: orange;
+            }
+        }
+        @media screen and (min-width:992px) and (max-width:1200px)  {
+            h1{
+                background-color: yellow;
+            }
+        }
+        @media screen and (min-width:1200px) {
+            h1{
+                background-color: green;
+            }
+        }
+
+        /* 
+            真正拿媒体查询做响应式，一般写外置css，例如
+            small.css
+            middle.css
+            ...
+
+            写法:
+            ①用媒体查询包裹不同的样式
+
+            ②样式正常写，引入时
+            <link ref="stylesheet" media="screen and (min-width:1200px)" href="./css/huge.css">
+            使用link的media属性区分，相当于@media后面的部分
+
+            引入顺序，
+            常规css
+            小屏css
+            ...
+            最大屏css
+        */
+    </style>
+</head>
+<body>
+    <h1>你好</h1>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>媒体类型</title>
+    <style>
+        /* 
+            媒体查询
+            不仅能查询屏幕宽度，还能查询设备类型，知道设备是电脑还是打印机等等
+        */
+        h1{
+            width: 600px;
+            height: 400px;
+            background-image: linear-gradient(30deg,red,yellow,green);
+            margin: 0 auto;
+
+            line-height: 400px;
+            text-align: center;
+            font-size: 100px;
+            color: white;
+            text-shadow: 0 0 10px black;
+        }
+        /* 
+            需求：
+            借用媒体查询实现打印时去除背景
+            @media 设备
+            设备值:
+            screen 屏幕，电脑手机手表屏幕均可
+            print 打印机
+            all  所有，一直都应用
+
+            注意：
+            1.媒体查询没有提高优先级，
+            2.他和其他样式一样，会被后写的覆盖，他也会覆盖之前的
+            3.即媒体查询和其他是平级的
+
+            经验:
+            把媒体查询写在最后面
+        */
+        @media print {
+            /* 
+                这里没可以写任意CSS语法，
+                相当于打印机下的样式,只有在打印机或打印预览才会采用
+            */
+            h1 {
+                /* 背景色不能干掉背景图，但是背景复合属性可以 */
+                background:transparent;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>大吉大利</h1>
+</body>
+</html>
