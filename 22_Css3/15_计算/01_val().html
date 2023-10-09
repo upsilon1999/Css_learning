@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>var()</title>
+    <style>
+        /* 
+            语法：
+            var(变量,回退值1,回退值2,...)
+            1.变量，以 -- 开头，后接任意字符，var(变量) 相当于对象取值
+            2.回退值可以是任意合法值，如果变量无效，就从左往右采取回退值
+
+            如果所有回退值都无效，就代表属性未设置
+        
+        */
+        /* 伪类，相当于html */
+        :root{
+            --color:red;
+        }
+
+        .outer{
+            --blue:blue;
+            width: 200px;
+            height: 200px;
+            /* 注解① */
+            border: 1px solid var(--color);
+            /* 注解② */
+            background-color:var(--yellow,var(--blue)) ;
+        }
+        .inner{
+            --wd:100px;
+            width:var(--wd);
+            height: var(--wd);
+            /* 注解③ */
+            background-color: var(--yellow,var(--color));
+            --yellow:yellow;
+        }
+        .inner1{
+            /* 注解④ */
+            width: var(--wd,50px);
+            height: var(--wd,50px);
+            background-color: var(--yellow,green);
+        }
+        /* 
+            var()的作用域:
+            注解①：可以在本元素和后代元素中生效，
+            注解②：不能在祖先元素中生效
+            注解③: 不论顺序，像 --yellow变量虽然写在后面，
+                但是对于这个元素，它属于本元素，满足注解①
+            注解④: 不能在兄弟元素中生效。
+
+            总结：可以在本元素和后代元素中生效，不能在兄弟和祖先元素中生效。
+        
+        */
+        /* 
+            技巧：
+                变量应用于自身元素，还可以用在html中
+                因为html中也能写样式
+        */
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="inner">
+            <div style="color:var(--blue)">222</div>
+        </div>
+        <div class="inner1">2</div>
+    </div>
+</body>
+</html>

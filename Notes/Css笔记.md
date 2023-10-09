@@ -13841,3 +13841,151 @@ screen 屏幕
 </html>
 ```
 
+### Css3之计算
+
+#### var()
+
+>介绍
+
+```sh
+CSS 函数可以插入一个自定义属性（有时也被称为“CSS 变量”）的值，用来代替非自定义属性中值的任何部分。
+var() 函数不能作为属性名、选择器或者其他除了属性值之外的值。（这样做通常会产生无效的语法或者一个没有关联到变量的值。）
+```
+
+>语法
+
+```sh
+函数的第一个参数是要替换的自定义属性的名称。函数的第二个参数是可选的，用作回退值。如果第一个参数引用的自定义属性无效，则该函数将使用第二个值。
+
+var(自定义属性名,回退值)
+
+# 自定义属性名
+在实际应用中它被定义为以两个破折号开始的任何有效标识符。自定义属性仅供作者和用户使用; CSS 将永远不会给他们超出这里表达的意义。
+例如：--abc
+注意："--任意内容"
+
+# 回退值
+回退值被用来在自定义属性值无效的情况下保证函数有值。回退值可以包含任何字符，但是部分有特殊含义的字符除外，例如换行符、不匹配的右括号（如 )、] 或 }）、感叹号以及顶层分号（不被任何非 var() 的括号包裹的分号，例如 var(--bg-color, --bs;color) 是不合法的，而 var(--bg-color, --value(bs;color)) 是合法的）。
+```
+
+关于回退值
+
+```css
+/*多个回退值*/
+var(--abc,red,blue)
+①从左往右，--abc不存在或无效就用red，red还不合法或者不存在就blue
+
+/*回退值也是任意的*/
+var(--abc,val(--web),calc(100%-100px))
+都是合法的，--abc不存在或无效，就用变量--web，以此类推
+```
+
+>理解
+
+```css
+/*就是一个变量的使用，例如:*/
+h1{
+	--small:20px;
+	font-size:var(--small);
+}
+/*等价于*/
+h1{
+	--small:20px;
+	font-size:20px;
+}
+```
+
+>作用域
+
+```sh
+①变量只能作用于自身以及后代元素.
+②兄弟元素，祖先元素都不能享用。
+```
+
+>技巧
+
+```html
+变量应用于自身元素，还可以用在html中
+因为html中也能写样式
+```
+
+>举例
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>var()</title>
+    <style>
+        /* 
+            语法：
+            var(变量,回退值1,回退值2,...)
+            1.变量，以 -- 开头，后接任意字符，var(变量) 相当于对象取值
+            2.回退值可以是任意合法值，如果变量无效，就从左往右采取回退值
+
+            如果所有回退值都无效，就代表属性未设置
+        
+        */
+        /* 伪类，相当于html */
+        :root{
+            --color:red;
+        }
+
+        .outer{
+            --blue:blue;
+            width: 200px;
+            height: 200px;
+            /* 注解① */
+            border: 1px solid var(--color);
+            /* 注解② */
+            background-color:var(--yellow,var(--blue)) ;
+        }
+        .inner{
+            --wd:100px;
+            width:var(--wd);
+            height: var(--wd);
+            /* 注解③ */
+            background-color: var(--yellow,var(--color));
+            --yellow:yellow;
+        }
+        .inner1{
+            /* 注解④ */
+            width: var(--wd,50px);
+            height: var(--wd,50px);
+            background-color: var(--yellow,green);
+        }
+        /* 
+            var()的作用域:
+            注解①：可以在本元素和后代元素中生效，
+            注解②：不能在祖先元素中生效
+            注解③: 不论顺序，像 --yellow变量虽然写在后面，
+                但是对于这个元素，它属于本元素，满足注解①
+            注解④: 不能在兄弟元素中生效。
+
+            总结：可以在本元素和后代元素中生效，不能在兄弟和祖先元素中生效。
+        
+        */
+        /* 
+            技巧：
+                变量应用于自身元素，还可以用在html中
+                因为html中也能写样式
+        */
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="inner">
+            <div style="color:var(--blue)">222</div>
+        </div>
+        <div class="inner1">2</div>
+    </div>
+</body>
+</html>
+```
+
+#### calc()
+
+
+
